@@ -13,15 +13,14 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet";
 
+import { ModeToggle } from "@/components/ModeToggle";
+
 const navItems = [
     { name: "Home", href: "/" },
     { name: "Services", href: "/services" },
     { name: "Portfolio", href: "/portfolio" },
     { name: "How It Works", href: "/how-it-works" },
     { name: "About", href: "/about" },
-    // Pricing is optional/contact based usually, but user asked for it. 
-    // Let's keep it or link to contact if specified. 
-    // User spec: 5. Pricing Page (/pricing)
     { name: "Pricing", href: "/pricing" },
     { name: "Contact", href: "/contact" },
 ];
@@ -50,13 +49,17 @@ export function Navbar() {
                             {item.name}
                         </Link>
                     ))}
-                    <Button asChild size="sm" className="ml-4">
-                        <Link href="/contact">Get Started</Link>
-                    </Button>
+                    <div className="flex items-center gap-2 ml-4">
+                        <ModeToggle />
+                        <Button asChild size="sm">
+                            <Link href="/contact">Get Started</Link>
+                        </Button>
+                    </div>
                 </nav>
 
                 {/* Mobile Navigation */}
-                <div className="md:hidden">
+                <div className="md:hidden flex items-center gap-2">
+                    <ModeToggle />
                     <Sheet open={isOpen} onOpenChange={setIsOpen}>
                         <SheetTrigger asChild>
                             <Button variant="ghost" size="icon" aria-label="Menu">
