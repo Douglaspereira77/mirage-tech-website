@@ -31,8 +31,9 @@ export async function POST(req: Request) {
                             email: { type: "string" },
                             name: { type: "string" },
                             phone: { type: "string", description: "User's phone number if provided" },
+                            summary: { type: "string", description: "A brief summary of the user's business needs, pain points, and industry based on the conversation." },
                         },
-                        required: ["email"],
+                        required: ["email", "summary"],
                     },
                 },
             },
@@ -60,6 +61,7 @@ export async function POST(req: Request) {
     - Keep responses SHORT and conversational.
           - Ask only ONE question at a time.
           - CHECK HISTORY: If you already have their email / phone / name, DO NOT ask again.
+          - WHEN SAVING: You MUST generate a 'summary' of their business/pain points. If they haven't shared much, infer from context or say "Not specified".
           - AFTER saving info, do NOT end the chat.Ask: "While I have you, would you like to know how our bots integrate with your system?" or similar.
           - Be warm and professional.NEVER say "I specialize in AI..." if the user just said "Yes".
           - If the user says "Yes" to "Anything else?", ask "What's on your mind?"
@@ -89,9 +91,9 @@ export async function POST(req: Request) {
                 let toolResult = "Failed to save.";
                 try {
                     await sql`
-              INSERT INTO leads(email, name, phone)
-VALUES(${args.email}, ${args.name || 'Anonymous'}, ${args.phone || null})
-              ON CONFLICT(email) DO UPDATE SET phone = ${args.phone || null};
+              INSERT INTO leads(email, name, phone, summary)
+VALUES(${args.email}, ${args.name || 'Anonymous'}, ${args.phone || null}, ${args.summary || ''})
+              ON CONFLICT(email) DO UPDATE SET phone = ${args.phone || null}, summary = ${args.summary || ''};
 `;
                     toolResult = "Successfully saved lead.";
                 } catch (e) {
