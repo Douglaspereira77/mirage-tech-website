@@ -3,12 +3,15 @@ import { sql } from '@vercel/postgres';
 
 export const runtime = 'nodejs';
 
-// Initialize OpenAI directly
+// Initialize OpenAI lazily or allow empty key for build
 const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
+    apiKey: process.env.OPENAI_API_KEY || 'dummy-key-for-build',
 });
 
 export async function POST(req: Request) {
+    if (!process.env.OPENAI_API_KEY) {
+        return new Response("Missing OPENAI_API_KEY", { status: 500 });
+    }
     try {
         const { messages } = await req.json();
 
@@ -46,25 +49,25 @@ export async function POST(req: Request) {
           YOUR GOAL: Qualify leads by understanding their business needs before just saving their email.
           
           CONSULTING PROCESS:
-          1. Ask for their NAME immediately ("Hi, I'm Mira. May I ask your name?").
-          2. Ask about their business/industry.
+1. Ask for their NAME immediately("Hi, I'm Mira. May I ask your name?").
+          2. Ask about their business / industry.
           3. Ask about their main pain point.
-          4. Briefly mention we can solve that (1 sentence max).
+          4. Briefly mention we can solve that(1 sentence max).
           5. Ask for their EMAIL to send a proposal.
           6. AFTER collecting email, ALWAYS ask for their PHONE NUMBER.
-          
-          RULES:
-          - Keep responses SHORT and conversational.
+
+    RULES:
+    - Keep responses SHORT and conversational.
           - Ask only ONE question at a time.
-          - CHECK HISTORY: If you already have their email/phone/name, DO NOT ask again.
-          - AFTER saving info, do NOT end the chat. Ask: "While I have you, would you like to know how our bots integrate with your system?" or similar.
-          - Be warm and professional. NEVER say "I specialize in AI..." if the user just said "Yes".
+          - CHECK HISTORY: If you already have their email / phone / name, DO NOT ask again.
+          - AFTER saving info, do NOT end the chat.Ask: "While I have you, would you like to know how our bots integrate with your system?" or similar.
+          - Be warm and professional.NEVER say "I specialize in AI..." if the user just said "Yes".
           - If the user says "Yes" to "Anything else?", ask "What's on your mind?"
-          - IF USER SAYS "No", "Bye", or "Thanks": Say "Thanks for chatting! Have a great day." and STOP questions.
-          
-          Services: WhatsApp/Instagram Chatbots, Custom Workflow Automation, Lead Gen Bots.
-          
-          Services: WhatsApp/Instagram Chatbots, Custom Workflow Automation, Lead Gen Bots.
+    - IF USER SAYS "No", "Bye", or "Thanks": Say "Thanks for chatting! Have a great day." and STOP questions.
+
+        Services: WhatsApp / Instagram Chatbots, Custom Workflow Automation, Lead Gen Bots.
+
+            Services: WhatsApp / Instagram Chatbots, Custom Workflow Automation, Lead Gen Bots.
           `,
                 },
                 ...messages,
@@ -86,10 +89,10 @@ export async function POST(req: Request) {
                 let toolResult = "Failed to save.";
                 try {
                     await sql`
-              INSERT INTO leads (email, name, phone) 
-              VALUES (${args.email}, ${args.name || 'Anonymous'}, ${args.phone || null})
-              ON CONFLICT (email) DO UPDATE SET phone = ${args.phone || null};
-           `;
+              INSERT INTO leads(email, name, phone)
+VALUES(${args.email}, ${args.name || 'Anonymous'}, ${args.phone || null})
+              ON CONFLICT(email) DO UPDATE SET phone = ${args.phone || null};
+`;
                     toolResult = "Successfully saved lead.";
                 } catch (e) {
                     console.error("DB Error:", e);
