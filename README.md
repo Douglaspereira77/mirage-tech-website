@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mirage Tech Website
+
+Marketing website and admin dashboard for **Mirage Tech AI** — intelligent automation for the Middle East.
+
+Built with [Next.js](https://nextjs.org), Tailwind CSS, and Framer Motion.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copy `.env.local.example` or create `.env.local` with the following:
 
-## Learn More
+| Variable | Description |
+|---|---|
+| `SMTP_USER` | Email sender address |
+| `SMTP_PASS` | SMTP password |
+| `SMTP_HOST` | SMTP server host |
+| `SMTP_PORT` | SMTP server port |
+| `DATABASE_URL` | PostgreSQL connection string (pooled) |
+| `OPENAI_API_KEY` | OpenAI API key for chatbot and proposal generation |
+| `BOK_API_URL` | Best of Kuwait API base URL |
+| `INTERNAL_API_TOKEN` | Token for BOK API authentication |
+| `ADMIN_PASSWORD` | Password for the admin dashboard login |
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+├── app/
+│   ├── admin/
+│   │   ├── leads/          # Restaurant leads pipeline dashboard
+│   │   └── login/          # Admin login page
+│   ├── api/
+│   │   ├── admin/auth/     # Admin authentication (login/logout)
+│   │   ├── bok/leads/      # BOK API proxy for leads
+│   │   ├── chat/           # AI chatbot endpoint
+│   │   └── proposals/      # Proposal generation & email sending
+│   ├── about/
+│   ├── blog/
+│   ├── contact/
+│   ├── how-it-works/
+│   ├── portfolio/
+│   ├── pricing/
+│   └── services/
+├── components/
+│   ├── home/               # Homepage sections (Hero, ServicesOverview, etc.)
+│   ├── layout/             # Header, Footer
+│   └── ui/                 # Reusable UI components (shadcn/ui)
+├── lib/                    # Utilities (BOK API client, etc.)
+└── middleware.ts            # Auth guard for /admin/* routes
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Admin Dashboard
 
-## Deploy on Vercel
+The admin area at `/admin/leads` is password-protected.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Login:** Visit `/admin/login` and enter the `ADMIN_PASSWORD`
+- **Session:** Stored as an HttpOnly cookie (24h expiry, HMAC-SHA256 signed)
+- **Logout:** Click the Logout button on the leads dashboard
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Deployment Note
+
+The `ADMIN_PASSWORD` environment variable must be set in your Vercel project settings for the login to work in production.
+
+## Deployment
+
+Deployed on [Vercel](https://vercel.com). Push to `main` to trigger a production deploy.
