@@ -52,7 +52,7 @@ export function Footer() {
                             <li><Link href="/services#whatsapp" className="hover:text-primary">WhatsApp Automation</Link></li>
                             <li><Link href="/services#instagram" className="hover:text-primary">Instagram Automation</Link></li>
                             <li><Link href="/services#web" className="hover:text-primary">Web Chatbots</Link></li>
-                            <li><Link href="/services#custom" className="hover:text-primary">Custom Solutions</Link></li>
+                            <li><Link href="/services#vibe-coding" className="hover:text-primary">Vibe Coding & MVP</Link></li>
                         </ul>
                     </div>
 

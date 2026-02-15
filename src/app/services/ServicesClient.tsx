@@ -1,12 +1,26 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MessageCircle, Instagram, Globe, Cpu, Check } from "lucide-react";
+import { MessageCircle, Instagram, Globe, Sparkles, Check, LayoutTemplate } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 
 const services = [
+    {
+        id: "vibe-coding",
+        title: "Vibe Coding & Rapid MVP",
+        description: "Turn your idea into a deployed application in days, not months. We leverage advanced AI to code at the speed of thought.",
+        icon: Sparkles,
+        color: "text-amber-500",
+        features: [
+            "Idea to MVP in < 7 days",
+            "Real-time collaborative build sessions",
+            "Modern Tech Stack (Next.js, Supabase, AI)",
+            "Focus on User Experience & 'Vibe'",
+            "Scalable, production-ready code",
+        ],
+    },
     {
         id: "whatsapp",
         title: "WhatsApp Automation",
@@ -53,7 +67,7 @@ const services = [
         id: "platforms",
         title: "Web Platforms & Directories",
         description: "Build scalable content directories and platforms like BestofKuwait.com.",
-        icon: Globe, // Reusing Globe or better Layout/Layers if imported
+        icon: LayoutTemplate,
         color: "text-purple-500",
         features: [
             "Custom directory architecture",
@@ -61,20 +75,6 @@ const services = [
             "User-generated content flows",
             "Scalable Next.js performance",
             "SEO-optimized structure",
-        ],
-    },
-    {
-        id: "custom",
-        title: "Custom AI Solutions",
-        description: "Tailored automation workflows designed specifically for your unique business needs.",
-        icon: Cpu,
-        color: "text-chart-2",
-        features: [
-            "Custom automation workflows",
-            "Integration with existing CRM/ERP systems",
-            "Analytics and reporting dashboards",
-            "Sentiment analysis of customer conversations",
-            "Staff training and handover protocols",
         ],
     },
 ];
@@ -85,10 +85,10 @@ export default function ServicesPage() {
             <div className="container px-4 md:px-6 py-12">
                 <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
                     <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">
-                        Our Services
+                        AI Automation & Vibe Coding
                     </h1>
                     <p className="text-xl text-muted-foreground">
-                        Comprehensive AI automation solutions tailored for the Middle Eastern market.
+                        Building the future of software with speed and intuition. From intelligent chatbots to full-stack applications built at the speed of thought.
                     </p>
                 </div>
 

@@ -5,8 +5,10 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { RefreshCw, AlertCircle, Building2 } from "lucide-react";
+import { RefreshCw, AlertCircle, Building2, Send, ExternalLink, LogOut } from "lucide-react";
+import { useRouter } from "next/navigation";
 import type { RestaurantLead } from "@/lib/bok-api";
+import ProposalDialog from "./ProposalDialog";
 
 type PipelineStage = "needs_outreach" | "in_progress" | "almost_complete";
 
@@ -22,7 +24,7 @@ function classifyLead(lead: RestaurantLead): PipelineStage {
   return "almost_complete";
 }
 
-function LeadCard({ lead, index }: { lead: RestaurantLead; index: number }) {
+function LeadCard({ lead, index, onSendProposal }: { lead: RestaurantLead; index: number; onSendProposal: (lead: RestaurantLead) => void }) {
   const stage = STAGES.find((s) => s.key === classifyLead(lead))!;
 
   return (
@@ -55,6 +57,29 @@ function LeadCard({ lead, index }: { lead: RestaurantLead; index: number }) {
               ))}
             </div>
           )}
+
+          <div className="flex gap-2 mt-1">
+            <Button
+              size="sm"
+              variant="secondary"
+              className="flex-1"
+              onClick={() => onSendProposal(lead)}
+            >
+              <Send className="w-3.5 h-3.5 mr-1.5" />
+              Send Proposal
+            </Button>
+            {lead.bokUrl && (
+              <Button
+                size="sm"
+                variant="outline"
+                asChild
+              >
+                <a href={lead.bokUrl} target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </Button>
+            )}
+          </div>
         </CardContent>
       </Card>
     </motion.div>
@@ -76,6 +101,14 @@ export default function LeadsClient() {
   const [leads, setLeads] = useState<RestaurantLead[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [selectedLead, setSelectedLead] = useState<RestaurantLead | null>(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const router = useRouter();
+
+  async function handleLogout() {
+    await fetch("/api/admin/auth", { method: "DELETE" });
+    router.push("/admin/login");
+  }
 
   async function fetchLeads() {
     setLoading(true);
@@ -123,15 +156,25 @@ export default function LeadsClient() {
               Best of Kuwait — incomplete listings pipeline
             </p>
           </div>
-          <Button
-            variant="outline"
-            onClick={fetchLeads}
-            disabled={loading}
-            className="w-fit"
-          >
-            <RefreshCw className={`w-4 h-4 mr-2 ${loading ? "animate-spin" : ""}`} />
-            Refresh
-          </Button>
+          <div className="flex gap-2">
+            <Button
+              variant="outline"
+              onClick={fetchLeads}
+              disabled={loading}
+              className="w-fit"
+            >
+              <RefreshCw className={`w-4 h-4 mr-2 ${loading ? "animate-spin" : ""}`} />
+              Refresh
+            </Button>
+            <Button
+              variant="outline"
+              onClick={handleLogout}
+              className="w-fit"
+            >
+              <LogOut className="w-4 h-4 mr-2" />
+              Logout
+            </Button>
+          </div>
         </motion.div>
 
         {error && (
@@ -180,7 +223,7 @@ export default function LeadsClient() {
                   </p>
                 ) : (
                   grouped[stage.key].map((lead, i) => (
-                    <LeadCard key={lead.id} lead={lead} index={i} />
+                    <LeadCard key={lead.id} lead={lead} index={i} onSendProposal={(l) => { setSelectedLead(l); setDialogOpen(true); }} />
                   ))
                 )}
               </div>
@@ -188,6 +231,12 @@ export default function LeadsClient() {
           </div>
         )}
       </div>
+
+      <ProposalDialog
+        lead={selectedLead}
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+      />
     </div>
   );
 }

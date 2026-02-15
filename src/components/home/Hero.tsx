@@ -18,25 +18,25 @@ export function Hero() {
                         className="inline-flex items-center rounded-full border px-3 py-1 text-sm font-medium text-chart-2 bg-chart-2/10"
                     >
                         <Sparkles className="mr-2 h-4 w-4" />
-                        <span>AI Automation for the Middle East</span>
+                        <span>AI Automation & Vibe Coding</span>
                     </motion.div>
 
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.1 }}
-                        className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-chart-2"
+                        className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-chart-2 pb-2"
                     >
-                        Intelligent Automation for the Middle East
+                        Intelligent Automation & Vibe Coding
                     </motion.h1>
 
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className="text-xl text-muted-foreground max-w-[42rem] leading-relaxed"
+                        className="text-xl text-muted-foreground max-w-[42rem] mx-auto leading-relaxed"
                     >
-                        Help your business communicate better with customers through AI-powered WhatsApp, Instagram, and web chatbots. Available 24/7, in Arabic and English.
+                        Transform your business with AI-powered automation and rapid application development. From intelligent chatbots to full-stack apps built at the speed of thought.
                     </motion.p>
 
                     <motion.div

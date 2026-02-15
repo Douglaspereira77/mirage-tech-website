@@ -30,6 +30,16 @@ interface BokPlace {
   created_at?: string;
 }
 
+function slugify(name: string, area?: string): string {
+  const parts = area ? `${name} ${area}` : name;
+  return parts
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+}
+
 function mapPlace(place: BokPlace): RestaurantLead {
   const missingFields = place.missing_fields ?? [];
   // visibility_score is 0-100; use it directly as completion percentage
@@ -46,7 +56,9 @@ function mapPlace(place: BokPlace): RestaurantLead {
     instagram: place.instagram ?? undefined,
     missingFields,
     completionPercentage,
-    bokUrl: place.bok_url ?? undefined,
+    bokUrl: place.bok_url
+      ? (place.bok_url.startsWith("http") ? place.bok_url : `https://www.bestofkuwait.com${place.bok_url.startsWith("/") ? "" : "/"}${place.bok_url}`)
+      : `https://www.bestofkuwait.com/places-to-eat/restaurants/${slugify(place.business_name, place.area)}`,
     freeTweakDone: place.free_tweak_done,
     createdAt: place.created_at,
   };

@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Instagram, Globe, Layout, ArrowRight } from "lucide-react";
+import { MessageCircle, Instagram, Globe, Sparkles, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -29,11 +29,11 @@ const services = [
         color: "text-blue-500",
     },
     {
-        title: "Web Platforms & Directories",
-        description: "Scalable content platforms like BestofKuwait.com, designed for growth.",
-        icon: Layout,
-        href: "/services#platforms",
-        color: "text-purple-500",
+        title: "Vibe Coding & Rapid MVP",
+        description: "Turn your idea into a deployed application in days using advanced AI magic.",
+        icon: Sparkles,
+        href: "/services#vibe-coding",
+        color: "text-amber-500",
     },
 ];
 
