@@ -40,9 +40,9 @@ function LeadCard({ lead, index }: { lead: RestaurantLead; index: number }) {
             </Badge>
           </div>
 
-          {(lead.area || lead.cuisine) && (
+          {(lead.area || lead.category) && (
             <p className="text-sm text-muted-foreground">
-              {[lead.cuisine, lead.area].filter(Boolean).join(" · ")}
+              {[lead.category, lead.area].filter(Boolean).join(" · ")}
             </p>
           )}
 
