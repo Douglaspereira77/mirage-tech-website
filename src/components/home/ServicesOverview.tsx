@@ -8,11 +8,11 @@ import { motion } from "framer-motion";
 
 const services = [
     {
-        title: "WhatsApp Automation",
-        description: "Automate customer support, order updates, and lead qualification directly on WhatsApp.",
-        icon: MessageCircle,
-        href: "/services#whatsapp",
-        color: "text-green-500",
+        title: "SEO & AEO Optimization",
+        description: "Optimize for Google Search and AI Answer Engines like ChatGPT to future-proof your presence.",
+        icon: TrendingUp,
+        href: "/services#seo-aeo",
+        color: "text-emerald-500",
     },
     {
         title: "Vibe Coding & Rapid MVP",
@@ -22,18 +22,18 @@ const services = [
         color: "text-amber-500",
     },
     {
+        title: "WhatsApp Automation",
+        description: "Automate customer support, order updates, and lead qualification directly on WhatsApp.",
+        icon: MessageCircle,
+        href: "/services#whatsapp",
+        color: "text-green-500",
+    },
+    {
         title: "Instagram Automation",
         description: "Auto-reply to DMs and comments, and capture leads from your stories 24/7.",
         icon: Instagram,
         href: "/services#instagram",
         color: "text-pink-500",
-    },
-    {
-        title: "SEO & AEO Optimization",
-        description: "Optimize for Google Search and AI Answer Engines like ChatGPT to future-proof your presence.",
-        icon: TrendingUp,
-        href: "/services#seo-aeo",
-        color: "text-emerald-500",
     },
     {
         title: "Web Chatbots",
@@ -57,10 +57,11 @@ export function ServicesOverview() {
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-8 max-w-7xl mx-auto">
                     {services.map((service, index) => (
                         <motion.div
                             key={index}
+                            className={index < 2 ? "lg:col-span-3" : "lg:col-span-2"}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
