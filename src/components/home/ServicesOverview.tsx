@@ -15,20 +15,6 @@ const services = [
         color: "text-green-500",
     },
     {
-        title: "Instagram Automation",
-        description: "Auto-reply to DMs and comments, and capture leads from your stories 24/7.",
-        icon: Instagram,
-        href: "/services#instagram",
-        color: "text-pink-500",
-    },
-    {
-        title: "Web Chatbots",
-        description: "An intelligent assistant that lives on your website and engages every visitor.",
-        icon: Globe,
-        href: "/services#web",
-        color: "text-blue-500",
-    },
-    {
         title: "Vibe Coding & Rapid MVP",
         description: "Turn your idea into a deployed application in days using advanced AI magic.",
         icon: Sparkles,
@@ -36,11 +22,25 @@ const services = [
         color: "text-amber-500",
     },
     {
+        title: "Instagram Automation",
+        description: "Auto-reply to DMs and comments, and capture leads from your stories 24/7.",
+        icon: Instagram,
+        href: "/services#instagram",
+        color: "text-pink-500",
+    },
+    {
         title: "SEO & AEO Optimization",
         description: "Optimize for Google Search and AI Answer Engines like ChatGPT to future-proof your presence.",
         icon: TrendingUp,
         href: "/services#seo-aeo",
         color: "text-emerald-500",
+    },
+    {
+        title: "Web Chatbots",
+        description: "An intelligent assistant that lives on your website and engages every visitor.",
+        icon: Globe,
+        href: "/services#web",
+        color: "text-blue-500",
     },
 ];
 
