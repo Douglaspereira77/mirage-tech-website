@@ -49,10 +49,11 @@ export function Footer() {
                     <div className="space-y-4">
                         <h4 className="font-semibold text-foreground">Services</h4>
                         <ul className="space-y-2 text-sm text-muted-foreground">
+                            <li><Link href="/services#vibe-coding" className="hover:text-primary">Vibe Coding & MVP</Link></li>
+                            <li><Link href="/services#seo-aeo" className="hover:text-primary">SEO & AEO</Link></li>
                             <li><Link href="/services#whatsapp" className="hover:text-primary">WhatsApp Automation</Link></li>
                             <li><Link href="/services#instagram" className="hover:text-primary">Instagram Automation</Link></li>
                             <li><Link href="/services#web" className="hover:text-primary">Web Chatbots</Link></li>
-                            <li><Link href="/services#vibe-coding" className="hover:text-primary">Vibe Coding & MVP</Link></li>
                         </ul>
                     </div>
 

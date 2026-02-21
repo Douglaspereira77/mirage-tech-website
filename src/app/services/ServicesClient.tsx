@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MessageCircle, Instagram, Globe, Sparkles, Check, LayoutTemplate } from "lucide-react";
+import { MessageCircle, Instagram, Globe, Sparkles, Check, LayoutTemplate, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
@@ -19,6 +19,20 @@ const services = [
             "Modern Tech Stack (Next.js, Supabase, AI)",
             "Focus on User Experience & 'Vibe'",
             "Scalable, production-ready code",
+        ],
+    },
+    {
+        id: "seo-aeo",
+        title: "SEO & AEO Optimization",
+        description: "Future-proof your digital presence. We optimize your brand not just for Google Search (SEO), but for AI Answer Engines (AEO) like ChatGPT and Gemini.",
+        icon: TrendingUp,
+        color: "text-emerald-500",
+        features: [
+            "Technical site audits & optimization",
+            "AI-friendly content structuring",
+            "Schema markup for rich snippets",
+            "Targeting Answer Engine platforms",
+            "Local SEO strategy implementation",
         ],
     },
     {

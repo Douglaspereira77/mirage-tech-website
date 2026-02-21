@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Instagram, Globe, Sparkles, ArrowRight } from "lucide-react";
+import { MessageCircle, Instagram, Globe, Sparkles, ArrowRight, TrendingUp } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -35,6 +35,13 @@ const services = [
         href: "/services#vibe-coding",
         color: "text-amber-500",
     },
+    {
+        title: "SEO & AEO Optimization",
+        description: "Optimize for Google Search and AI Answer Engines like ChatGPT to future-proof your presence.",
+        icon: TrendingUp,
+        href: "/services#seo-aeo",
+        color: "text-emerald-500",
+    },
 ];
 
 export function ServicesOverview() {
@@ -50,7 +57,7 @@ export function ServicesOverview() {
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                     {services.map((service, index) => (
                         <motion.div
                             key={index}
