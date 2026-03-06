@@ -121,13 +121,15 @@ export async function POST(req: Request) {
                         businessType: args.business_type || '',
                         painPoint: args.pain_point || '',
                     });
-                } catch (e) {
+                } catch (e: any) {
                     console.error("Google Sheets Error (non-blocking):", e);
+                    toolResult += " (Note: Google Sheets sync failed: " + e.message + ")";
                 }
 
                 const secondResponse = await openai.chat.completions.create({
                     model: "gpt-4o-mini",
                     messages: [
+                        { role: "system", content: SYSTEM_PROMPT },
                         ...messages,
                         responseMessage,
                         {

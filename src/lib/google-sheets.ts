@@ -10,13 +10,21 @@ function getAuth() {
     }
 
     try {
-        const parsed = JSON.parse(credentials);
+        let parsed;
+        try {
+            parsed = JSON.parse(credentials);
+        } catch (e) {
+            // Fallback: Vercel sometimes escapes newlines in the UI as literal '\\n'
+            console.warn('First JSON parse failed, attempting unescaped newline parse...', e);
+            parsed = JSON.parse(credentials.replace(/\\n/g, '\n'));
+        }
+
         return new google.auth.GoogleAuth({
             credentials: parsed,
             scopes: SCOPES,
         });
     } catch (e) {
-        console.error('Failed to parse GOOGLE_SERVICE_ACCOUNT_KEY:', e);
+        console.error('Failed to parse GOOGLE_SERVICE_ACCOUNT_KEY (even after unescaping):', e);
         return null;
     }
 }
