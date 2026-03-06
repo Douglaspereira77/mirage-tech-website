@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu } from "lucide-react";
+import { Menu, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
     Sheet,
@@ -12,17 +12,28 @@ import {
     SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 import { ModeToggle } from "@/components/ModeToggle";
 
 const navItems = [
     { name: "Home", href: "/" },
-    { name: "Services", href: "/services" },
     { name: "Portfolio", href: "/portfolio" },
-    { name: "How It Works", href: "/how-it-works" },
-    { name: "About", href: "/about" },
     { name: "Pricing", href: "/pricing" },
+    { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
+];
+
+const serviceLinks = [
+    { name: "WhatsApp Automation", href: "/services/whatsapp-automation" },
+    { name: "Vibe Coding & MVP", href: "/services/vibe-coding" },
+    { name: "AI Consultancy", href: "/ai-consultancy" },
+    { name: "All Services", href: "/services" },
 ];
 
 export function Navbar() {
@@ -33,14 +44,38 @@ export function Navbar() {
             <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
                 <Link href="/" className="flex items-center gap-2 font-bold text-xl text-primary">
                     <div className="relative h-8 w-8">
-                        <Image src="/logo.png" alt="Mirage Tech Logo" fill className="object-contain" />
+                        <Image src="/logo.png" alt="Mirage Tech AI Logo" fill className="object-contain" />
                     </div>
-                    <span>Mirage Tech</span>
+                    <span>Mirage Tech AI</span>
                 </Link>
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex gap-6 items-center">
-                    {navItems.map((item) => (
+                    <Link
+                        href="/"
+                        className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+                    >
+                        Home
+                    </Link>
+
+                    {/* Services Dropdown */}
+                    <DropdownMenu>
+                        <DropdownMenuTrigger className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary flex items-center gap-1 outline-none">
+                            Services
+                            <ChevronDown className="w-3.5 h-3.5" />
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="center" className="w-52">
+                            {serviceLinks.map((link) => (
+                                <DropdownMenuItem key={link.href} asChild>
+                                    <Link href={link.href} className="cursor-pointer">
+                                        {link.name}
+                                    </Link>
+                                </DropdownMenuItem>
+                            ))}
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+
+                    {navItems.slice(1).map((item) => (
                         <Link
                             key={item.href}
                             href={item.href}
@@ -72,11 +107,31 @@ export function Navbar() {
                                     <div className="relative h-6 w-6">
                                         <Image src="/logo.png" alt="Logo" fill className="object-contain" />
                                     </div>
-                                    Mirage Tech
+                                    Mirage Tech AI
                                 </SheetTitle>
                             </SheetHeader>
                             <div className="flex flex-col gap-4 mt-8">
-                                {navItems.map((item) => (
+                                <Link
+                                    href="/"
+                                    onClick={() => setIsOpen(false)}
+                                    className="text-lg font-medium text-foreground hover:text-primary transition-colors"
+                                >
+                                    Home
+                                </Link>
+                                <div className="space-y-2">
+                                    <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Services</p>
+                                    {serviceLinks.map((link) => (
+                                        <Link
+                                            key={link.href}
+                                            href={link.href}
+                                            onClick={() => setIsOpen(false)}
+                                            className="block text-base font-medium text-foreground hover:text-primary transition-colors pl-3"
+                                        >
+                                            {link.name}
+                                        </Link>
+                                    ))}
+                                </div>
+                                {navItems.slice(1).map((item) => (
                                     <Link
                                         key={item.href}
                                         href={item.href}

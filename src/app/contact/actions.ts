@@ -49,7 +49,7 @@ export async function sendContactEmail(formData: z.infer<typeof formSchema>) {
         });
 
         const info = await transporter.sendMail({
-            from: `"Mirage Tech Website" <${smtpUser}>`, // sender address
+            from: `"Mirage Tech AI" <${smtpUser}>`, // sender address
             to: "info@gomiragetech.com", // Your receiving email
             replyTo: email, // Allow replying directly to the user
             subject: `New Contact Form Submission from ${name}`,

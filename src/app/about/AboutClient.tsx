@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Users, Lightbulb, Target, ShieldCheck } from "lucide-react";
+import Image from "next/image";
 
 export default function AboutPage() {
     return (
@@ -43,7 +44,7 @@ export default function AboutPage() {
                     <h2 className="text-3xl font-bold text-center mb-12">Our Core Values</h2>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
                         {[
-                            { icon: Target, title: "Local Expertisse", desc: "Deep understanding of the Gulf market." },
+                            { icon: Target, title: "Local Expertise", desc: "Deep understanding of the Gulf market." },
                             { icon: Users, title: "Customer First", desc: "Technology should serve people, not the other way around." },
                             { icon: Lightbulb, title: "Innovation", desc: "Always exploring the latest in AI capabilities." },
                             { icon: ShieldCheck, title: "Transparency", desc: "Honest communication and clear results." }
@@ -63,6 +64,36 @@ export default function AboutPage() {
                                 <p className="text-sm text-muted-foreground">{value.desc}</p>
                             </motion.div>
                         ))}
+                    </div>
+                </div>
+
+                {/* Founder Section */}
+                <div className="mb-20">
+                    <h2 className="text-3xl font-bold text-center mb-12">Meet the Founder</h2>
+                    <div className="max-w-3xl mx-auto flex flex-col md:flex-row items-center gap-10">
+                        <div className="shrink-0">
+                            <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg">
+                                <Image
+                                    src="/founder.jpg"
+                                    alt="Douglas Pereira — Founder of Mirage Tech AI"
+                                    width={160}
+                                    height={160}
+                                    className="object-cover w-full h-full"
+                                />
+                            </div>
+                        </div>
+                        <div className="text-center md:text-left space-y-4">
+                            <div>
+                                <h3 className="text-2xl font-bold">Douglas Pereira</h3>
+                                <p className="text-muted-foreground">Founder</p>
+                            </div>
+                            <p className="text-muted-foreground leading-relaxed">
+                                With <strong>20+ years</strong> in IT management across hospitality, real estate, and education in Kuwait, Douglas has led end-to-end technology delivery for some of the region's most operationally demanding environments — from golf resorts and equestrian facilities to multi-campus international schools.
+                            </p>
+                            <p className="text-muted-foreground leading-relaxed">
+                                Now he's channeling that experience into <strong>Mirage Tech AI</strong>, bringing enterprise-grade AI automation and rapid application development to businesses across the Middle East. A Google-certified Project Manager, builder of <a href="https://bestofkuwait.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">BestofKuwait.com</a>, and hands-on developer who believes AI should work for real businesses — not just tech companies.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

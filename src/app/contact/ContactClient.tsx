@@ -216,18 +216,19 @@ export default function ContactPage() {
                                         name="platform"
                                         render={({ field }) => (
                                             <FormItem>
-                                                <FormLabel>Preferred Platform</FormLabel>
+                                                <FormLabel>What are you interested in?</FormLabel>
                                                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                                                     <FormControl>
                                                         <SelectTrigger>
-                                                            <SelectValue placeholder="Select a platform" />
+                                                            <SelectValue placeholder="Select a service" />
                                                         </SelectTrigger>
                                                     </FormControl>
                                                     <SelectContent>
-                                                        <SelectItem value="whatsapp">WhatsApp</SelectItem>
-                                                        <SelectItem value="instagram">Instagram</SelectItem>
-                                                        <SelectItem value="web">Web Chatbot</SelectItem>
-                                                        <SelectItem value="all">All / Not Sure</SelectItem>
+                                                        <SelectItem value="whatsapp">WhatsApp / Instagram Automation</SelectItem>
+                                                        <SelectItem value="vibe-coding">Custom App Development (Vibe Coding)</SelectItem>
+                                                        <SelectItem value="consultancy">AI Consultancy & Strategy</SelectItem>
+                                                        <SelectItem value="web-chatbot">Web Chatbot</SelectItem>
+                                                        <SelectItem value="all">Not Sure / General Inquiry</SelectItem>
                                                     </SelectContent>
                                                 </Select>
                                                 <FormMessage />

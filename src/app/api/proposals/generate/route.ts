@@ -44,7 +44,7 @@ CONTEXT ABOUT THE RESTAURANT:
 - Current Visibility Score: ${visibilityScore}%
 - Missing Fields: ${missingList || "None identified"}
 
-MIRAGE TECH SERVICE TIERS (reference the most relevant ones based on missing fields):
+MIRAGE TECH AI SERVICE TIERS (reference the most relevant ones based on missing fields):
 1. **BOK Profile Optimization** (KD 49/mo) — Complete & optimize their Best of Kuwait listing, add photos, fix missing info
 2. **Website + SEO Package** (KD 149/mo) — Professional website, Google My Business, local SEO
 3. **AI Chatbot** (KD 99/mo) — WhatsApp/Instagram ordering bot, automated customer service

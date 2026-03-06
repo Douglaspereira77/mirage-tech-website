@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Bot, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 export function Hero() {
     return (
@@ -18,7 +18,7 @@ export function Hero() {
                         className="inline-flex items-center rounded-full border px-3 py-1 text-sm font-medium text-chart-2 bg-chart-2/10"
                     >
                         <Sparkles className="mr-2 h-4 w-4" />
-                        <span>AI Automation & Vibe Coding</span>
+                        <span>AI Automation Agency — Kuwait</span>
                     </motion.div>
 
                     <motion.h1
@@ -27,7 +27,7 @@ export function Hero() {
                         transition={{ duration: 0.5, delay: 0.1 }}
                         className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-chart-2 pb-2"
                     >
-                        Intelligent Automation & Vibe Coding
+                        AI That Works. Built&nbsp;for&nbsp;Kuwait.
                     </motion.h1>
 
                     <motion.p
@@ -36,7 +36,7 @@ export function Hero() {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="text-xl text-muted-foreground max-w-[42rem] mx-auto leading-relaxed"
                     >
-                        Transform your business with AI-powered automation and rapid application development. From intelligent chatbots to full-stack apps built at the speed of thought.
+                        We build intelligent chatbots, custom web applications, and AI strategies for businesses across the Middle East. Bilingual. Done-for-you. Deployed in days.
                     </motion.p>
 
                     <motion.div
@@ -47,13 +47,34 @@ export function Hero() {
                     >
                         <Button asChild size="lg" className="h-12 px-8 text-base rounded-full">
                             <Link href="/contact">
-                                Get Started
+                                Book a Strategy Call
                                 <ArrowRight className="ml-2 h-5 w-5" />
                             </Link>
                         </Button>
                         <Button asChild variant="outline" size="lg" className="h-12 px-8 text-base rounded-full">
-                            <Link href="/services">See Our Services</Link>
+                            <Link href="/services">Explore Our Services</Link>
                         </Button>
+                    </motion.div>
+
+                    {/* Trust Bar */}
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.8, delay: 0.5 }}
+                        className="pt-8 flex flex-col items-center gap-3"
+                    >
+                        <p className="text-xs uppercase tracking-widest text-muted-foreground font-medium">
+                            Powered by
+                        </p>
+                        <div className="flex flex-wrap justify-center gap-6 text-sm font-semibold text-muted-foreground/70">
+                            <span>OpenAI</span>
+                            <span className="text-muted-foreground/30">·</span>
+                            <span>Anthropic</span>
+                            <span className="text-muted-foreground/30">·</span>
+                            <span>Meta AI</span>
+                            <span className="text-muted-foreground/30">·</span>
+                            <span>Google</span>
+                        </div>
                     </motion.div>
                 </div>
             </div>

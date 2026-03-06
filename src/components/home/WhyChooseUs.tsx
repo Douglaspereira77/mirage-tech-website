@@ -33,7 +33,7 @@ export function WhyChooseUs() {
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
                         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                            Why Choose Mirage Tech?
+                            Why Choose Mirage Tech AI?
                         </h2>
                         <p className="text-lg text-primary-foreground/80 max-w-[600px]">
                             We don't just build chatbots; we build intelligent systems designed for businesses in Kuwait and the Middle East.
@@ -65,7 +65,7 @@ export function WhyChooseUs() {
                                 <p><span className="text-purple-400">if</span> (msg.lang === <span className="text-orange-300">'ar'</span>) &#123;</p>
                                 <p>&nbsp;&nbsp;<span className="text-purple-400">return</span> <span className="text-orange-300">"مرحباً بك في ميراج تك! كيف يمكنني مساعدتك؟"</span>;</p>
                                 <p>&#125; <span className="text-purple-400">else</span> &#123;</p>
-                                <p>&nbsp;&nbsp;<span className="text-purple-400">return</span> <span className="text-orange-300">"Welcome to Mirage Tech! How can I help you?"</span>;</p>
+                                <p>&nbsp;&nbsp;<span className="text-purple-400">return</span> <span className="text-orange-300">"Welcome to Mirage Tech AI! How can I help you?"</span>;</p>
                                 <p>&#125;</p>
                             </div>
                         </div>

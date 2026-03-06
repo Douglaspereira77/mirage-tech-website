@@ -1,4 +1,4 @@
-# Mirage Tech Website
+# Mirage Tech AI Website
 
 Marketing website and admin dashboard for **Mirage Tech AI** — intelligent automation for the Middle East.
 

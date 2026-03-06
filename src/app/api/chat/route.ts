@@ -1,12 +1,48 @@
 import { OpenAI } from 'openai';
 import { sql } from '@vercel/postgres';
+import { appendLeadToSheet } from '@/lib/google-sheets';
 
 export const runtime = 'nodejs';
 
-// Initialize OpenAI lazily or allow empty key for build
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY || 'dummy-key-for-build',
 });
+
+const SYSTEM_PROMPT = `You are Mira, the AI assistant for Mirage Tech AI — an AI automation agency based in Kuwait.
+
+YOUR GOAL: Collect the visitor's name, business type, pain point, email, and phone — then save it. Keep it short.
+
+SERVICES:
+1. Conversational AI — WhatsApp & Instagram chatbots. 24/7, bilingual.
+2. Vibe Coding — Rapid web app development. MVPs in under 7 days.
+3. AI Consultancy — Strategic AI roadmaps and automation deployment.
+
+PRICING (KWD):
+- Starter: From 100 KWD/month
+- Business: From 250 KWD/month
+- Enterprise: Custom
+- Vibe Coding: 500–2,000 KWD per project
+
+FLOW:
+1. Ask their name.
+2. Ask what business/industry they're in.
+3. Ask what challenge they want to solve.
+4. Ask for email.
+5. Ask for phone number.
+6. Call save_lead with ALL collected data.
+
+AFTER SAVING:
+- Say: "Thank you! A member of our team will be in touch shortly."
+- Then ask: "Would you like to speak with a sales representative now?" If yes, reply: "You can reach our sales team directly on WhatsApp: https://wa.me/96597524391"
+
+RULES:
+- YOU ARE STRICTLY A LEAD CAPTURE ASSISTANT. You do NOT provide consulting, strategies, examples, or tips under any circumstances.
+- If the user asks for strategies/tips (e.g., "how can you help?", "can you give me tips?"): say you are an AI assistant and will have a human expert reach out to discuss strategies. Provide the WhatsApp link.
+- ONE question at a time. 2 sentences max per response.
+- If user asks to speak to someone at ANY point: "Of course! You can reach our sales team on WhatsApp: https://wa.me/96597524391" — NEVER put a period or any punctuation directly after the URL.
+- If user says "Bye" or "Thanks": "Thanks for chatting! 👋" and stop.
+- Respond in Arabic if user writes in Arabic.
+- Never be pushy. Never give unsolicited business advice.`;
 
 export async function POST(req: Request) {
     if (!process.env.OPENAI_API_KEY) {
@@ -15,63 +51,35 @@ export async function POST(req: Request) {
     try {
         const { messages } = await req.json();
 
-        // 0. Fake "Thinking" Delay (1.5s) to feel more human
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        // Brief delay to feel more natural
+        await new Promise(resolve => setTimeout(resolve, 1000));
 
-        // Define tools
         const tools = [
             {
                 type: "function" as const,
                 function: {
                     name: "save_lead",
-                    description: "Save the user's email, name, and optional phone number to the database.",
+                    description: "Save the user's contact information and business details to the database and spreadsheet.",
                     parameters: {
                         type: "object",
                         properties: {
-                            email: { type: "string" },
-                            name: { type: "string" },
+                            email: { type: "string", description: "User's email address" },
+                            name: { type: "string", description: "User's full name" },
                             phone: { type: "string", description: "User's phone number if provided" },
-                            summary: { type: "string", description: "A brief summary of the user's business needs, pain points, and industry based on the conversation." },
+                            business_type: { type: "string", description: "The type of business or industry the user is in (e.g., Tailoring, Restaurant, Real Estate, Education)" },
+                            pain_point: { type: "string", description: "The user's main challenge or what they want to automate (e.g., Lead generation, Customer support, Appointment booking)" },
+                            summary: { type: "string", description: "A brief overall summary of the conversation and the user's needs" },
                         },
-                        required: ["email", "summary"],
+                        required: ["email", "business_type", "pain_point", "summary"],
                     },
                 },
             },
         ];
 
-        // 1. First Call to OpenAI
         const response = await openai.chat.completions.create({
-            model: "gpt-3.5-turbo",
+            model: "gpt-4o-mini",
             messages: [
-                {
-                    role: "system",
-                    content: `You are Mira, the AI Consultant for Mirage Tech AI.
-          
-          YOUR GOAL: Qualify leads by understanding their business needs before just saving their email.
-          
-          CONSULTING PROCESS:
-1. Ask for their NAME immediately("Hi, I'm Mira. May I ask your name?").
-          2. Ask about their business / industry.
-          3. Ask about their main pain point.
-          4. Briefly mention we can solve that(1 sentence max).
-          5. Ask for their EMAIL to send a proposal.
-          6. AFTER collecting email, ALWAYS ask for their PHONE NUMBER.
-
-    RULES:
-    - Keep responses SHORT and conversational.
-          - Ask only ONE question at a time.
-          - CHECK HISTORY: If you already have their email / phone / name, DO NOT ask again.
-          - WHEN SAVING: You MUST generate a 'summary' of their business/pain points. If they haven't shared much, infer from context or say "Not specified".
-          - AFTER saving info, do NOT end the chat.Ask: "While I have you, would you like to know how our bots integrate with your system?" or similar.
-          - Be warm and professional.NEVER say "I specialize in AI..." if the user just said "Yes".
-          - If the user says "Yes" to "Anything else?", ask "What's on your mind?"
-    - IF USER SAYS "No", "Bye", or "Thanks": Say "Thanks for chatting! Have a great day." and STOP questions.
-
-        Services: WhatsApp / Instagram Chatbots, Custom Workflow Automation, Lead Gen Bots.
-
-            Services: WhatsApp / Instagram Chatbots, Custom Workflow Automation, Lead Gen Bots.
-          `,
-                },
+                { role: "system", content: SYSTEM_PROMPT },
                 ...messages,
             ],
             tools: tools,
@@ -80,33 +88,46 @@ export async function POST(req: Request) {
 
         const responseMessage = response.choices[0].message;
 
-        // 2. Check for Tool Calls
+        // Handle tool calls (save_lead)
         if (responseMessage.tool_calls) {
             const toolCall = responseMessage.tool_calls[0] as any;
             if (toolCall.function.name === 'save_lead') {
                 const args = JSON.parse(toolCall.function.arguments);
-                console.log("Saving lead (Manual):", args);
+                console.log("Saving lead:", args);
 
-                // Execute DB Operation
                 let toolResult = "Failed to save.";
+
+                // 1. Save to Postgres
                 try {
                     await sql`
-              INSERT INTO leads(email, name, phone, summary)
-VALUES(${args.email}, ${args.name || 'Anonymous'}, ${args.phone || null}, ${args.summary || ''})
-              ON CONFLICT(email) DO UPDATE SET phone = ${args.phone || null}, summary = ${args.summary || ''};
-`;
+                        INSERT INTO leads(email, name, phone, summary)
+                        VALUES(${args.email}, ${args.name || 'Anonymous'}, ${args.phone || null}, ${args.summary || ''})
+                        ON CONFLICT(email) DO UPDATE SET phone = ${args.phone || null}, summary = ${args.summary || ''};
+                    `;
                     toolResult = "Successfully saved lead.";
                 } catch (e) {
                     console.error("DB Error:", e);
                     toolResult = "Error connecting to database.";
                 }
 
-                // 3. Second Call to OpenAI (with result)
+                // 2. Save to Google Sheet (non-blocking — don't fail if sheets is down)
+                try {
+                    await appendLeadToSheet({
+                        name: args.name || 'Anonymous',
+                        email: args.email,
+                        phone: args.phone || '',
+                        businessType: args.business_type || '',
+                        painPoint: args.pain_point || '',
+                    });
+                } catch (e) {
+                    console.error("Google Sheets Error (non-blocking):", e);
+                }
+
                 const secondResponse = await openai.chat.completions.create({
-                    model: "gpt-3.5-turbo",
+                    model: "gpt-4o-mini",
                     messages: [
                         ...messages,
-                        responseMessage, // The 'tool_calls' message
+                        responseMessage,
                         {
                             role: "tool",
                             tool_call_id: toolCall.id,
@@ -119,7 +140,6 @@ VALUES(${args.email}, ${args.name || 'Anonymous'}, ${args.phone || null}, ${args
             }
         }
 
-        // Normal response
         return new Response(responseMessage.content);
 
     } catch (error: any) {

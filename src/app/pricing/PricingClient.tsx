@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, X } from "lucide-react";
+import { Check, X, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -8,44 +8,46 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription }
 const plans = [
     {
         name: "Starter",
-        price: "Custom",
-        description: "Perfect for small businesses starting with automation.",
+        price: "100",
+        period: "/mo",
+        description: "Perfect for small businesses starting with a single chatbot or automation.",
         features: [
             "Single Platform (WhatsApp OR Instagram)",
-            "Basic Automated Responses",
+            "AI Chatbot with FAQ Handling",
+            "Bilingual Support (Arabic & English)",
             "Email Support",
-            "Standard Response Time",
-            "Monthly Reports",
+            "Monthly Performance Reports",
         ],
         missing: [
             "Multi-platform integration",
-            "Advanced AI workflows",
-            "CRM Integration",
+            "CRM / Shopify Integration",
             "Priority Support",
         ],
     },
     {
         name: "Business",
-        price: "Custom",
-        description: "For growing companies needing multi-channel support.",
+        price: "250",
+        period: "/mo",
+        description: "For growing companies needing multi-channel automation.",
         featured: true,
         features: [
             "Two Platforms Included",
             "Advanced AI Context Awareness",
+            "CRM / Calendar Integration",
             "Priority Email & Chat Support",
-            "Fast Response Time",
             "Live Analytics Dashboard",
-            "Basic CRM Integration",
+            "Human Handoff Protocols",
         ],
         missing: [
             "Dedicated Account Manager",
-            "Custom ERP Integrations",
+            "Custom Model Training",
         ],
     },
     {
         name: "Enterprise",
         price: "Custom",
-        description: "Full-scale solution for large organizations.",
+        period: "",
+        description: "Full-scale AI transformation for large organizations.",
         features: [
             "All Platforms (WhatsApp, Insta, Web)",
             "Custom AI Model Training",
@@ -68,7 +70,7 @@ export default function PricingPage() {
                         Transparent Pricing
                     </h1>
                     <p className="text-xl text-muted-foreground">
-                        We tailor our solutions to your specific needs. Contact us for a custom quote.
+                        Simple pricing that scales with your business. All prices in KWD.
                     </p>
                 </div>
 
@@ -87,8 +89,15 @@ export default function PricingPage() {
                                 <CardTitle className="text-2xl">{plan.name}</CardTitle>
                                 <CardDescription>{plan.description}</CardDescription>
                                 <div className="mt-4">
-                                    <span className="text-4xl font-bold">{plan.price}</span>
-                                    {plan.price !== "Custom" && <span className="text-muted-foreground">/month</span>}
+                                    {plan.price === "Custom" ? (
+                                        <span className="text-4xl font-bold">Custom</span>
+                                    ) : (
+                                        <>
+                                            <span className="text-sm text-muted-foreground">From </span>
+                                            <span className="text-4xl font-bold">{plan.price} KWD</span>
+                                            <span className="text-muted-foreground">{plan.period}</span>
+                                        </>
+                                    )}
                                 </div>
                             </CardHeader>
                             <CardContent className="flex-1">
@@ -116,8 +125,16 @@ export default function PricingPage() {
                     ))}
                 </div>
 
-                <div className="mt-16 text-center text-muted-foreground">
-                    <p>Prices depend on message volume and complexity of automation flows.</p>
+                <div className="mt-16 max-w-2xl mx-auto text-center space-y-6">
+                    <div className="bg-muted/50 rounded-xl p-6 border">
+                        <p className="font-semibold text-lg mb-2">💡 Annual Plans Available</p>
+                        <p className="text-muted-foreground">
+                            Save with annual billing — starting from <strong>1,000 KWD/year</strong>. Contact us for details.
+                        </p>
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                        Prices depend on message volume and complexity of automation flows. Vibe Coding and Consultancy projects are priced separately.
+                    </p>
                 </div>
             </div>
         </div>

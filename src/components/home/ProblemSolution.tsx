@@ -9,10 +9,10 @@ export function ProblemSolution() {
             <div className="container px-4 md:px-6">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">
-                        Stop Losing Customers to Slow Responses
+                        Your Competitors Are Already Using AI
                     </h2>
                     <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Traditional customer service is expensive and slow. AI automation changes the game.
+                        Manual processes are costing you time, money, and customers. AI changes the game.
                     </p>
                 </div>
 
@@ -35,19 +35,19 @@ export function ProblemSolution() {
                         <ul className="space-y-4">
                             <li className="flex items-start gap-3">
                                 <span className="text-destructive mt-1">✕</span>
-                                <span className="text-muted-foreground">Missed messages outside business hours</span>
+                                <span className="text-muted-foreground">Manual replies to hundreds of WhatsApp/Instagram messages</span>
                             </li>
                             <li className="flex items-start gap-3">
                                 <span className="text-destructive mt-1">✕</span>
-                                <span className="text-muted-foreground">Overwhelmed support teams answering FAQs</span>
+                                <span className="text-muted-foreground">6-month software projects that launch over budget</span>
                             </li>
                             <li className="flex items-start gap-3">
                                 <span className="text-destructive mt-1">✕</span>
-                                <span className="text-muted-foreground">Slow response times leading to lost leads</span>
+                                <span className="text-muted-foreground">No AI strategy — watching competitors automate while you wait</span>
                             </li>
                             <li className="flex items-start gap-3">
                                 <span className="text-destructive mt-1">✕</span>
-                                <span className="text-muted-foreground">High cost of hiring 24/7 staff</span>
+                                <span className="text-muted-foreground">Hiring expensive full-time staff for repetitive tasks</span>
                             </li>
                         </ul>
                     </motion.div>
@@ -70,19 +70,19 @@ export function ProblemSolution() {
                         <ul className="space-y-4">
                             <li className="flex items-start gap-3">
                                 <span className="text-chart-2 mt-1">✓</span>
-                                <span className="text-foreground">Instant 24/7 responses, day or night</span>
+                                <span className="text-foreground">AI chatbots that handle customers 24/7 in Arabic & English</span>
                             </li>
                             <li className="flex items-start gap-3">
                                 <span className="text-chart-2 mt-1">✓</span>
-                                <span className="text-foreground">Automated FAQ handling and appointment setting</span>
+                                <span className="text-foreground">Custom web apps shipped in under 7 days with Vibe Coding</span>
                             </li>
                             <li className="flex items-start gap-3">
                                 <span className="text-chart-2 mt-1">✓</span>
-                                <span className="text-foreground">Zero waiting time for your customers</span>
+                                <span className="text-foreground">Clear AI roadmaps that turn strategy into working systems</span>
                             </li>
                             <li className="flex items-start gap-3">
                                 <span className="text-chart-2 mt-1">✓</span>
-                                <span className="text-foreground">Fraction of the cost of a support team</span>
+                                <span className="text-foreground">Fraction of the cost — done-for-you, no hiring needed</span>
                             </li>
                         </ul>
                     </motion.div>

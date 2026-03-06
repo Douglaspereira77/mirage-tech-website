@@ -15,10 +15,10 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL("https://miragetech.ai"),
   title: {
-    default: "Mirage Tech AI | Intelligent Automation for the Middle East",
+    default: "Mirage Tech AI | AI Automation & Vibe Coding Agency Kuwait",
     template: "%s | Mirage Tech AI",
   },
-  description: "AI automation agency helping businesses in Kuwait and the Middle East communicate better with their customers through WhatsApp, Instagram, and web chatbots.",
+  description: "Top AI automation agency in Kuwait and the Middle East. We specialize in Done-For-You automation, WhatsApp chatbots, Vibe Coding, and Strategic AI Consultancy to transform your business operations.",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -54,6 +54,48 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@graph": [
+                  {
+                    "@type": "Organization",
+                    "@id": "https://miragetech.ai/#organization",
+                    "name": "Mirage Tech AI",
+                    "url": "https://miragetech.ai",
+                    "logo": "https://miragetech.ai/logo.png",
+                    "sameAs": [
+                      "https://www.linkedin.com/company/miragetechai",
+                      "https://twitter.com/miragetechai",
+                      "https://www.instagram.com/miragetechai/"
+                    ],
+                    "contactPoint": {
+                      "@type": "ContactPoint",
+                      "email": "hello@miragetech.ai",
+                      "contactType": "customer support",
+                      "availableLanguage": ["English", "Arabic"]
+                    }
+                  },
+                  {
+                    "@type": "LocalBusiness",
+                    "@id": "https://miragetech.ai/#localbusiness",
+                    "name": "Mirage Tech AI",
+                    "url": "https://miragetech.ai",
+                    "image": "https://miragetech.ai/logo.png",
+                    "email": "hello@miragetech.ai",
+                    "address": {
+                      "@type": "PostalAddress",
+                      "addressLocality": "Kuwait City",
+                      "addressCountry": "KW"
+                    },
+                    "priceRange": "$$$"
+                  }
+                ]
+              })
+            }}
+          />
           <Navbar />
           <main className="flex-1">
             {children}

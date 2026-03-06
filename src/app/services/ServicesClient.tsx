@@ -1,12 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MessageCircle, Instagram, Globe, Sparkles, Check, LayoutTemplate, TrendingUp } from "lucide-react";
+import { MessageCircle, Instagram, Globe, Sparkles, Check, LayoutTemplate, TrendingUp, Search, Brain, Rocket, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-const services = [
+const automationServices = [
     {
         id: "vibe-coding",
         title: "Vibe Coding & Rapid MVP",
@@ -24,7 +24,7 @@ const services = [
     {
         id: "seo-aeo",
         title: "SEO & AEO Optimization",
-        description: "Future-proof your digital presence. We optimize your brand not just for Google Search (SEO), but for AI Answer Engines (AEO) like ChatGPT and Gemini.",
+        description: "Future-proof your digital presence. We optimize for Google Search (SEO) and AI Answer Engines (AEO) like ChatGPT and Gemini.",
         icon: TrendingUp,
         color: "text-emerald-500",
         features: [
@@ -93,21 +93,81 @@ const services = [
     },
 ];
 
-export default function ServicesPage() {
+const consultancyPhases = [
+    {
+        id: "identify",
+        number: "01",
+        title: "Identify",
+        subtitle: "Decide what's actually worth building.",
+        description: "Before anything gets built, we get aligned. We find the 5% of opportunities worth building that will create real, measurable impact.",
+        icon: Search,
+        color: "text-teal-500",
+        bg: "bg-teal-500/10",
+        items: [
+            "Executive Alignment Workshops",
+            "Employee & Stakeholder Interviews",
+            "ROI Modeling & Business Case Design",
+            "AI Readiness & Diagnostics Report"
+        ]
+    },
+    {
+        id: "develop",
+        number: "02",
+        title: "Develop",
+        subtitle: "Build it right so it works from day one.",
+        description: "This is where strategy becomes reality. We plan and build AI systems that integrate cleanly into your existing tools and workflows.",
+        icon: Brain,
+        color: "text-violet-500",
+        bg: "bg-violet-500/10",
+        items: [
+            "Scoping & Technical Architecture",
+            "Data & Systems Integration",
+            "Proof of Concept → Production Build",
+            "Security, Governance & Reliability Design"
+        ]
+    },
+    {
+        id: "adopt",
+        number: "03",
+        title: "Adopt",
+        subtitle: "Make AI part of how work actually gets done.",
+        description: "Shipping software isn’t success. Adoption is. We work side by side with your teams to ensure new systems are understood, trusted, and used.",
+        icon: Rocket,
+        color: "text-blue-500",
+        bg: "bg-blue-500/10",
+        items: [
+            "Pilot Launch & Controlled Rollout",
+            "AI Enablement Training Sessions",
+            "Workflow Integration Support",
+            "Performance Tracking & Ongoing Optimization"
+        ]
+    }
+];
+
+export default function ServicesClient() {
     return (
         <div className="flex flex-col min-h-screen bg-background pt-20">
+            {/* Header */}
             <div className="container px-4 md:px-6 py-12">
                 <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
                     <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">
-                        AI Automation & Vibe Coding
+                        AI Automation & Consultancy
                     </h1>
                     <p className="text-xl text-muted-foreground">
-                        Building the future of software with speed and intuition. From intelligent chatbots to full-stack applications built at the speed of thought.
+                        From plug-and-play intelligent agents to full-scale strategic AI transformations for the Middle East.
                     </p>
                 </div>
+            </div>
 
-                <div className="grid gap-12 max-w-5xl mx-auto">
-                    {services.map((service, index) => (
+            {/* Tier 1: Done-For-You Automation */}
+            <div className="container px-4 md:px-6 pb-24">
+                <div className="mb-12">
+                    <h2 className="text-3xl font-bold mb-3">Done-For-You Automation</h2>
+                    <p className="text-lg text-muted-foreground">The tools you need, deployed fast and integrated smoothly.</p>
+                </div>
+
+                <div className="grid gap-8 max-w-full">
+                    {automationServices.map((service, index) => (
                         <motion.div
                             key={service.id}
                             id={service.id}
@@ -118,13 +178,13 @@ export default function ServicesPage() {
                         >
                             <Card className="overflow-hidden border-muted shadow-sm hover:shadow-md transition-shadow">
                                 <CardContent className="p-0 grid md:grid-cols-12 gap-6">
-                                    <div className="md:col-span-4 bg-muted/30 p-8 flex flex-col items-center justify-center text-center space-y-4 border-b md:border-b-0 md:border-r border-border">
+                                    <div className="md:col-span-4 lg:col-span-3 bg-muted/30 p-8 flex flex-col items-center justify-center text-center space-y-4 border-b md:border-b-0 md:border-r border-border">
                                         <div className={`p-4 rounded-full bg-background shadow-sm ${service.color}`}>
-                                            <service.icon className="w-12 h-12" />
+                                            <service.icon className="w-10 h-10" />
                                         </div>
-                                        <h2 className="text-2xl font-bold">{service.title}</h2>
+                                        <h3 className="text-xl font-bold">{service.title}</h3>
                                     </div>
-                                    <div className="md:col-span-8 p-8 flex flex-col justify-center">
+                                    <div className="md:col-span-8 lg:col-span-9 p-8 flex flex-col justify-center">
                                         <p className="text-lg text-muted-foreground mb-6">
                                             {service.description}
                                         </p>
@@ -136,8 +196,8 @@ export default function ServicesPage() {
                                                 </div>
                                             ))}
                                         </div>
-                                        <Button asChild className="w-fit">
-                                            <Link href="/contact">Get Started with {service.title}</Link>
+                                        <Button asChild variant="outline" className="w-fit">
+                                            <Link href="/contact">Deploy this solution</Link>
                                         </Button>
                                     </div>
                                 </CardContent>
@@ -145,15 +205,110 @@ export default function ServicesPage() {
                         </motion.div>
                     ))}
                 </div>
+            </div>
 
-                <div className="mt-20 text-center bg-primary/5 rounded-2xl p-12">
-                    <h2 className="text-3xl font-bold mb-4">Not sure what you need?</h2>
-                    <p className="text-lg text-muted-foreground mb-8">
-                        Book a free consultation and we'll help you find the right automation strategy.
+            {/* Tier 2: Strategic AI Consultancy */}
+            <div className="bg-muted/30 border-y py-24">
+                <div className="container px-4 md:px-6">
+                    <div className="mb-16">
+                        <span className="text-violet-500 font-semibold tracking-wider uppercase text-sm mb-2 block">Enterprise Focus</span>
+                        <h2 className="text-3xl sm:text-4xl font-bold mb-4">Strategic AI Consultancy</h2>
+                        <p className="text-xl text-muted-foreground max-w-2xl">
+                            We think, plan, and build your AI transformation end-to-end. Stop paying to experiment. Start paying for results.
+                        </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-3 gap-8">
+                        {consultancyPhases.map((phase, i) => (
+                            <motion.div
+                                key={phase.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: i * 0.1 }}
+                                className="relative flex flex-col h-full"
+                            >
+                                {/* Connecting line for desktop */}
+                                {i < consultancyPhases.length - 1 && (
+                                    <div className="hidden md:block absolute top-[4.5rem] left-[60%] w-[80%] h-px bg-border z-0" />
+                                )}
+
+                                <Card className="flex-1 relative z-10 border-muted hover:border-primary/50 transition-colors h-full flex flex-col">
+                                    <CardHeader className="pb-4">
+                                        <div className="flex items-center justify-between mb-4">
+                                            <div className={`w-14 h-14 rounded-xl ${phase.bg} flex items-center justify-center`}>
+                                                <phase.icon className={`w-7 h-7 ${phase.color}`} />
+                                            </div>
+                                            <span className="text-4xl font-extrabold text-muted/30 select-none">
+                                                {phase.number}
+                                            </span>
+                                        </div>
+                                        <CardTitle className="text-2xl mb-1">{phase.title}</CardTitle>
+                                        <p className="font-medium text-primary">{phase.subtitle}</p>
+                                    </CardHeader>
+                                    <CardContent className="flex-1 flex flex-col">
+                                        <p className="text-muted-foreground mb-6">
+                                            {phase.description}
+                                        </p>
+                                        <div className="space-y-3 mt-auto pt-6 border-t border-border">
+                                            <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">What we do:</p>
+                                            {phase.items.map((item, idx) => (
+                                                <div key={idx} className="flex items-start gap-2">
+                                                    <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
+                                                    <span className="text-sm">{item}</span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    <div className="mt-12 text-center">
+                        <Button asChild size="lg" className="bg-gradient-to-r from-teal-500 to-violet-600 hover:from-teal-400 hover:to-violet-500 border-0">
+                            <Link href="/ai-consultancy">
+                                Explore full details
+                                <ArrowRight className="w-4 h-4 ml-2" />
+                            </Link>
+                        </Button>
+                    </div>
+                </div>
+            </div>
+
+            {/* ── FAQs for AEO ────────────────────────────────────── */}
+            <section className="bg-background py-24 border-b">
+                <div className="container px-4 md:px-6 max-w-3xl mx-auto">
+                    <h2 className="text-3xl font-bold mb-10 text-center">Frequently Asked Questions</h2>
+                    <div className="space-y-6">
+                        <div className="bg-muted/50 rounded-xl p-6 shadow-sm border">
+                            <h3 className="text-xl font-bold mb-2">What is Done-For-You AI Automation?</h3>
+                            <p className="text-muted-foreground">It means we handle everything. From conversational design and prompt engineering to database integrations and deployment. You don't need to learn how to prompt AI—we deliver the finished, working product.</p>
+                        </div>
+                        <div className="bg-muted/50 rounded-xl p-6 shadow-sm border">
+                            <h3 className="text-xl font-bold mb-2">Can your automated chatbots connect to my Shopify store?</h3>
+                            <p className="text-muted-foreground">Yes. Our WhatsApp and Web chatbots seamlessly integrate with Shopify, WooCommerce, and custom backends, allowing customers to query inventory, track orders, and even checkout directly inside the chat window.</p>
+                        </div>
+                        <div className="bg-muted/50 rounded-xl p-6 shadow-sm border">
+                            <h3 className="text-xl font-bold mb-2">What happens if the AI chatbot doesn't know the answer?</h3>
+                            <p className="text-muted-foreground">Every Mirage Tech AI chatbot comes equipped with \"Human Handoff\" protocols. If the AI encounters a query it cannot answer with high confidence, it immediately escalates the conversation to a human agent, providing them with the full chat history.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Bottom CTA */}
+            <div className="container px-4 md:px-6 py-24">
+                <div className="text-center bg-gradient-to-br from-primary/10 via-background to-muted rounded-3xl p-8 md:p-16 border border-primary/10">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4">Not sure where to start?</h2>
+                    <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+                        Whether you need a quick automation win or a strategic AI roadmap, book a free consultation and we'll point you in the right direction.
                     </p>
-                    <Button asChild size="lg">
-                        <Link href="/contact">Book Free Consultation</Link>
-                    </Button>
+                    <div className="flex flex-col sm:flex-row justify-center gap-4">
+                        <Button asChild size="lg" className="px-8">
+                            <Link href="/contact">Book Free Consultation</Link>
+                        </Button>
+                    </div>
                 </div>
             </div>
         </div>

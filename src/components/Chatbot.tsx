@@ -1,16 +1,30 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { MessageSquare, X, Send, Bot } from "lucide-react";
+import { MessageSquare, X, Send, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-// Define message type since we aren't using the library
 type Message = {
     id: string;
     role: 'user' | 'assistant' | 'system';
     content: string;
 };
+
+const WHATSAPP_URL = "https://wa.me/96597524391?text=Hi%2C%20I%20was%20chatting%20with%20Mira%20on%20your%20website%20and%20would%20like%20to%20speak%20with%20someone.";
+
+/** Converts plain-text URLs in a string into clickable <a> elements */
+function linkify(text: string) {
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    const parts = text.split(urlRegex);
+    return parts.map((part, i) =>
+        urlRegex.test(part) ? (
+            <a key={i} href={part} target="_blank" rel="noopener noreferrer" className="underline text-primary break-all">
+                {part}
+            </a>
+        ) : part
+    );
+}
 
 export function Chatbot() {
     const [isOpen, setIsOpen] = useState(false);
@@ -38,7 +52,6 @@ export function Chatbot() {
             content: inputValue
         };
 
-        // Update UI immediately
         setMessages(prev => [...prev, userMessage]);
         setInputValue("");
         setIsLoading(true);
@@ -54,11 +67,9 @@ export function Chatbot() {
 
             if (!response.ok) throw new Error(response.statusText);
 
-            // Create a placeholder for the assistant response
             const assistantId = (Date.now() + 1).toString();
             setMessages(prev => [...prev, { id: assistantId, role: 'assistant', content: '' }]);
 
-            // Stream reading
             const reader = response.body?.getReader();
             const decoder = new TextDecoder();
 
@@ -80,7 +91,7 @@ export function Chatbot() {
             setMessages(prev => [...prev, {
                 id: Date.now().toString(),
                 role: 'assistant',
-                content: "Sorry, I'm having trouble connecting right now. Please try again later."
+                content: "Sorry, I'm having trouble connecting right now. You can reach our sales team on WhatsApp: https://wa.me/96597524391"
             }]);
         } finally {
             setIsLoading(false);
@@ -105,10 +116,21 @@ export function Chatbot() {
                                 </div>
                                 <div>
                                     <h3 className="font-semibold text-sm">Mira</h3>
-                                    <p className="text-xs opacity-90">AI Automation Expert</p>
+                                    <p className="text-xs opacity-90">AI Assistant</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-1">
+                                {/* Talk to Human button */}
+                                <a
+                                    href={WHATSAPP_URL}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="p-1.5 hover:bg-white/20 rounded transition-colors flex items-center gap-1 text-xs font-medium"
+                                    title="Talk to a human on WhatsApp"
+                                >
+                                    <Phone size={14} />
+                                    <span className="hidden sm:inline">Human</span>
+                                </a>
                                 <button
                                     onClick={() => setIsOpen(false)}
                                     className="p-1 hover:bg-white/20 rounded transition-colors"
@@ -125,8 +147,19 @@ export function Chatbot() {
                                     <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 overflow-hidden">
                                         <img src="/logo.png" alt="Logo" className="w-8 h-8 object-contain" />
                                     </div>
-                                    <p>Hi! I'm Mira. 👋</p>
-                                    <p>Ask me about WhatsApp chatbots, our pricing, or how AI can save you money.</p>
+                                    <p>Hi! I&apos;m Mira. 👋</p>
+                                    <p>Ask me about our AI chatbots, custom app development, pricing, or how we can automate your business.</p>
+                                    <div className="pt-3">
+                                        <a
+                                            href={WHATSAPP_URL}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-xs text-primary hover:underline inline-flex items-center gap-1"
+                                        >
+                                            <Phone size={12} />
+                                            Or speak with our sales team on WhatsApp
+                                        </a>
+                                    </div>
                                 </div>
                             )}
 
@@ -140,13 +173,13 @@ export function Chatbot() {
                                 >
                                     <div
                                         className={cn(
-                                            "max-w-[85%] rounded-2xl px-4 py-2.5 text-sm shadow-sm",
+                                            "max-w-[85%] rounded-2xl px-4 py-2.5 text-sm shadow-sm whitespace-pre-wrap",
                                             m.role === "user"
                                                 ? "bg-primary text-primary-foreground rounded-br-none"
                                                 : "bg-white dark:bg-zinc-800 border rounded-bl-none"
                                         )}
                                     >
-                                        {m.content}
+                                        {m.role === 'assistant' ? linkify(m.content) : m.content}
                                     </div>
                                 </div>
                             ))}
