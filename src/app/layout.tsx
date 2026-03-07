@@ -13,7 +13,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://miragetech.ai"),
+  metadataBase: new URL("https://www.gomiragetech.com"),
   title: {
     default: "Mirage Tech AI | AI Automation & Custom Business Tools Agency Kuwait",
     template: "%s | Mirage Tech AI",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://miragetech.ai",
+    url: "https://www.gomiragetech.com",
     title: "Mirage Tech AI | AI Automation & Custom Business Tools Agency Kuwait",
     description: "Top AI automation agency in Kuwait and the Middle East. Specialized in Custom Business Tools and WhatsApp Automation.",
     siteName: "Mirage Tech AI",
