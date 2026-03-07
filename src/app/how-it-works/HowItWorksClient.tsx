@@ -35,61 +35,60 @@ const steps = [
 export default function HowItWorksPage() {
     return (
         <div className="flex flex-col min-h-screen bg-background pt-20">
-            <div className="container px-4 md:px-6 py-12">
-                <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <div className="container mx-auto px-4 md:px-6 py-10 md:py-14">
+                <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
                     <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">
                         How It Works
                     </h1>
-                    <p className="text-xl text-muted-foreground">
+                    <p className="text-lg md:text-xl text-muted-foreground">
                         A simple, transparent process to get your business automated.
                     </p>
                 </div>
 
-                <div className="max-w-4xl mx-auto relative">
-                    {/* Vertical Line for Desktop */}
-                    <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border hidden md:block -z-10" />
-
-                    <div className="space-y-12 md:space-y-24">
+                <div className="max-w-3xl mx-auto">
+                    <div className="space-y-12 md:space-y-16">
                         {steps.map((item, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.5 }}
-                                className={`flex flex-col md:flex-row gap-8 items-center ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                                    }`}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                className="flex flex-col items-center text-center group"
                             >
-                                {/* Text Content */}
-                                <div className={`flex-1 text-center md:text-left ${index % 2 !== 0 && "md:text-right"}`}>
-                                    <div className={`inline-flex items-center justify-center p-3 rounded-xl bg-primary/10 text-primary mb-4 md:hidden`}>
+                                {/* Step Indicator */}
+                                <div className="relative mb-6">
+                                    <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
                                         <item.icon className="w-8 h-8" />
                                     </div>
-                                    <span className="text-sm font-bold text-chart-2 tracking-widest uppercase mb-2 block">
-                                        Step {item.step}
-                                    </span>
-                                    <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
-                                    <p className="text-muted-foreground text-lg leading-relaxed">
+                                    <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-background border-2 border-primary/20 flex items-center justify-center text-xs font-bold text-primary shadow-sm">
+                                        {item.step}
+                                    </div>
+                                </div>
+
+                                <div className="space-y-3">
+                                    <h3 className="text-2xl font-bold">{item.title}</h3>
+                                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-xl mx-auto">
                                         {item.desc}
                                     </p>
                                 </div>
 
-                                {/* Center Icon bubble for desktop */}
-                                <div className="hidden md:flex flex-none items-center justify-center w-16 h-16 rounded-full bg-background border-4 border-muted shadow-sm z-10">
-                                    <item.icon className="w-6 h-6 text-primary" />
-                                </div>
-
-                                {/* Empty spacer for grid alignment */}
-                                <div className="flex-1 hidden md:block" />
+                                {/* Dash Connector */}
+                                {index < steps.length - 1 && (
+                                    <div className="w-px h-12 bg-gradient-to-b from-primary/20 to-transparent mt-8 hidden md:block" />
+                                )}
                             </motion.div>
                         ))}
                     </div>
                 </div>
 
-                <div className="mt-24 text-center">
-                    <Button asChild size="lg" className="rounded-full px-8">
-                        <Link href="/contact">Start Your Journey Today</Link>
-                    </Button>
+                <div className="mt-16 text-center">
+                    <div className="max-w-2xl mx-auto p-8 rounded-3xl bg-muted/30 border">
+                        <h2 className="text-2xl font-bold mb-6">Ready to see it in action?</h2>
+                        <Button asChild size="lg" className="rounded-full px-12 h-12 text-base shadow-lg hover:shadow-xl transition-all">
+                            <Link href="/contact">Start Your Journey Today</Link>
+                        </Button>
+                    </div>
                 </div>
             </div>
         </div>

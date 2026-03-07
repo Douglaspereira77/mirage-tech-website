@@ -8,8 +8,8 @@ import { ArrowRight, Sparkles } from "lucide-react";
 
 export function Hero() {
     return (
-        <section className="relative overflow-hidden bg-background pt-24 pb-20 md:pt-32 md:pb-28 lg:pt-40 lg:pb-32">
-            <div className="container px-4 md:px-6 relative z-10">
+        <section className="relative overflow-hidden bg-background pt-12 pb-8 md:pt-16 md:pb-12">
+            <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <div className="flex flex-col items-center text-center space-y-8 max-w-4xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

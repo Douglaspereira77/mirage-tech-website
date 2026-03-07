@@ -15,7 +15,7 @@ const pillars = [
         icon: MessageCircle,
         href: "/services/whatsapp-automation",
         color: "text-green-500",
-        bgGlow: "from-green-500/10 to-green-500/5",
+        bgGlow: "from-green-500/10 via-green-500/5 to-transparent",
     },
     {
         title: "Vibe Coding",
@@ -25,7 +25,7 @@ const pillars = [
         icon: Sparkles,
         href: "/services/vibe-coding",
         color: "text-amber-500",
-        bgGlow: "from-amber-500/10 to-amber-500/5",
+        bgGlow: "from-amber-500/10 via-amber-500/5 to-transparent",
     },
     {
         title: "AI Consultancy",
@@ -35,14 +35,14 @@ const pillars = [
         icon: Brain,
         href: "/ai-consultancy",
         color: "text-violet-500",
-        bgGlow: "from-violet-500/10 to-violet-500/5",
+        bgGlow: "from-violet-500/10 via-violet-500/5 to-transparent",
     },
 ];
 
 export function ServicesOverview() {
     return (
-        <section className="py-20 bg-background">
-            <div className="container px-4 md:px-6">
+        <section className="py-12 md:py-16 bg-background">
+            <div className="container mx-auto px-4 md:px-6">
                 <div className="flex flex-col items-center text-center space-y-4 mb-16">
                     <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                         What We Build
@@ -60,20 +60,25 @@ export function ServicesOverview() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.15 }}
+                            className="flex"
                         >
-                            <Card className={`h-full flex flex-col hover:shadow-xl transition-all duration-300 border-muted group bg-gradient-to-b ${pillar.bgGlow}`}>
-                                <CardHeader className="pb-4">
-                                    <div className={`w-14 h-14 rounded-2xl bg-background shadow-sm flex items-center justify-center mb-4 group-hover:scale-110 transition-transform ${pillar.color}`}>
+                            <Card className={`w-full flex flex-col items-center text-center hover:shadow-2xl transition-all duration-500 border-muted group bg-gradient-to-br ${pillar.bgGlow}`}>
+                                <CardHeader className="pb-4 flex flex-col items-center text-center space-y-2 w-full">
+                                    <div className={`w-14 h-14 rounded-2xl bg-background/50 backdrop-blur-sm shadow-sm flex items-center justify-center mb-2 mx-auto group-hover:scale-110 transition-transform ${pillar.color}`}>
                                         <pillar.icon className="w-7 h-7" />
                                     </div>
-                                    <CardTitle className="text-2xl">{pillar.title}</CardTitle>
-                                    <p className="text-sm font-medium text-muted-foreground">{pillar.subtitle}</p>
+                                    <CardTitle className="text-2xl font-bold text-center w-full">
+                                        {pillar.title}
+                                    </CardTitle>
+                                    <p className="text-sm font-semibold text-muted-foreground w-full text-center max-w-[300px] mx-auto leading-tight">
+                                        {pillar.subtitle}
+                                    </p>
                                 </CardHeader>
-                                <CardContent className="flex-1 flex flex-col">
-                                    <p className="text-muted-foreground flex-1 mb-8 leading-relaxed">
+                                <CardContent className="flex-1 flex flex-col items-center text-center w-full pt-0">
+                                    <p className="text-muted-foreground flex-1 mb-8 leading-relaxed max-w-[320px] mx-auto text-center">
                                         {pillar.description}
                                     </p>
-                                    <Button asChild variant="ghost" className="w-full justify-between group/btn">
+                                    <Button asChild variant="ghost" className="w-full justify-center group/btn font-semibold">
                                         <Link href={pillar.href}>
                                             Learn More
                                             <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />

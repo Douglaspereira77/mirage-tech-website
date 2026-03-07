@@ -39,10 +39,10 @@ export function FAQSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="bg-background rounded-xl p-6 shadow-sm border border-border"
+                            className="bg-background rounded-xl p-6 shadow-sm border border-border text-center flex flex-col items-center"
                         >
                             <h3 className="text-xl font-bold mb-2">{faq.question}</h3>
-                            <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
+                            <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto">{faq.answer}</p>
                         </motion.div>
                     ))}
                 </div>

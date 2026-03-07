@@ -148,8 +148,8 @@ export default function ServicesClient() {
     return (
         <div className="flex flex-col min-h-screen bg-background pt-20">
             {/* Header */}
-            <div className="container px-4 md:px-6 py-12">
-                <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <div className="container mx-auto px-4 md:px-6 py-12">
+                <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12 space-y-4">
                     <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">
                         AI Automation & Consultancy
                     </h1>
@@ -160,13 +160,13 @@ export default function ServicesClient() {
             </div>
 
             {/* Tier 1: Done-For-You Automation */}
-            <div className="container px-4 md:px-6 pb-24">
-                <div className="mb-12">
+            <div className="container mx-auto px-4 md:px-6 pb-12 md:pb-16 flex flex-col items-center">
+                <div className="mb-12 text-center">
                     <h2 className="text-3xl font-bold mb-3">Done-For-You Automation</h2>
-                    <p className="text-lg text-muted-foreground">The tools you need, deployed fast and integrated smoothly.</p>
+                    <p className="text-lg text-muted-foreground max-w-2xl">The tools you need, deployed fast and integrated smoothly.</p>
                 </div>
 
-                <div className="grid gap-8 max-w-full">
+                <div className="grid gap-12 max-w-4xl w-full">
                     {automationServices.map((service, index) => (
                         <motion.div
                             key={service.id}
@@ -177,26 +177,26 @@ export default function ServicesClient() {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                         >
                             <Card className="overflow-hidden border-muted shadow-sm hover:shadow-md transition-shadow">
-                                <CardContent className="p-0 grid md:grid-cols-12 gap-6">
-                                    <div className="md:col-span-4 lg:col-span-3 bg-muted/30 p-8 flex flex-col items-center justify-center text-center space-y-4 border-b md:border-b-0 md:border-r border-border">
+                                <CardContent className="p-0 flex flex-col">
+                                    <div className="bg-muted/30 p-10 flex flex-col items-center justify-center text-center space-y-4 border-b border-border">
                                         <div className={`p-4 rounded-full bg-background shadow-sm ${service.color}`}>
                                             <service.icon className="w-10 h-10" />
                                         </div>
-                                        <h3 className="text-xl font-bold">{service.title}</h3>
+                                        <h3 className="text-2xl font-bold">{service.title}</h3>
                                     </div>
-                                    <div className="md:col-span-8 lg:col-span-9 p-8 flex flex-col justify-center">
-                                        <p className="text-lg text-muted-foreground mb-6">
+                                    <div className="p-10 flex flex-col items-center text-center">
+                                        <p className="text-lg text-muted-foreground mb-8 max-w-2xl">
                                             {service.description}
                                         </p>
-                                        <div className="grid sm:grid-cols-2 gap-4 mb-8">
+                                        <div className="grid sm:grid-cols-2 gap-x-12 gap-y-4 mb-10 text-left max-w-2xl mx-auto">
                                             {service.features.map((feature, i) => (
-                                                <div key={i} className="flex items-start gap-2">
+                                                <div key={i} className="flex items-start gap-3">
                                                     <Check className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                                                     <span className="text-sm font-medium">{feature}</span>
                                                 </div>
                                             ))}
                                         </div>
-                                        <Button asChild variant="outline" className="w-fit">
+                                        <Button asChild variant="outline" size="lg" className="w-fit">
                                             <Link href="/contact">Deploy this solution</Link>
                                         </Button>
                                     </div>
@@ -208,9 +208,9 @@ export default function ServicesClient() {
             </div>
 
             {/* Tier 2: Strategic AI Consultancy */}
-            <div className="bg-muted/30 border-y py-24">
-                <div className="container px-4 md:px-6">
-                    <div className="mb-16">
+            <div className="bg-muted/30 border-y py-12 md:py-16">
+                <div className="container mx-auto px-4 md:px-6">
+                    <div className="mb-8 md:mb-12">
                         <span className="text-violet-500 font-semibold tracking-wider uppercase text-sm mb-2 block">Enterprise Focus</span>
                         <h2 className="text-3xl sm:text-4xl font-bold mb-4">Strategic AI Consultancy</h2>
                         <p className="text-xl text-muted-foreground max-w-2xl">
@@ -246,18 +246,20 @@ export default function ServicesClient() {
                                         <CardTitle className="text-2xl mb-1">{phase.title}</CardTitle>
                                         <p className="font-medium text-primary">{phase.subtitle}</p>
                                     </CardHeader>
-                                    <CardContent className="flex-1 flex flex-col">
-                                        <p className="text-muted-foreground mb-6">
+                                    <CardContent className="flex-1 flex flex-col items-center text-center">
+                                        <p className="text-muted-foreground mb-8">
                                             {phase.description}
                                         </p>
-                                        <div className="space-y-3 mt-auto pt-6 border-t border-border">
+                                        <div className="space-y-3 mt-auto pt-6 border-t border-border w-full">
                                             <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">What we do:</p>
-                                            {phase.items.map((item, idx) => (
-                                                <div key={idx} className="flex items-start gap-2">
-                                                    <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                                                    <span className="text-sm">{item}</span>
-                                                </div>
-                                            ))}
+                                            <div className="space-y-3 max-w-[240px] mx-auto text-left">
+                                                {phase.items.map((item, idx) => (
+                                                    <div key={idx} className="flex items-start gap-2">
+                                                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
+                                                        <span className="text-sm">{item}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
                                         </div>
                                     </CardContent>
                                 </Card>
@@ -277,7 +279,7 @@ export default function ServicesClient() {
             </div>
 
             {/* ── FAQs for AEO ────────────────────────────────────── */}
-            <section className="bg-background py-24 border-b">
+            <section className="bg-background py-12 md:py-16 border-b">
                 <div className="container px-4 md:px-6 max-w-3xl mx-auto">
                     <h2 className="text-3xl font-bold mb-10 text-center">Frequently Asked Questions</h2>
                     <div className="space-y-6">
@@ -298,7 +300,7 @@ export default function ServicesClient() {
             </section>
 
             {/* Bottom CTA */}
-            <div className="container px-4 md:px-6 py-24">
+            <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
                 <div className="text-center bg-gradient-to-br from-primary/10 via-background to-muted rounded-3xl p-8 md:p-16 border border-primary/10">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4">Not sure where to start?</h2>
                     <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">

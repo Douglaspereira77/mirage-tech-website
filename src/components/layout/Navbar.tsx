@@ -41,16 +41,19 @@ export function Navbar() {
 
     return (
         <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
-            <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
-                <Link href="/" className="flex items-center gap-2 font-bold text-xl text-primary">
-                    <div className="relative h-8 w-8">
-                        <Image src="/logo.png" alt="Mirage Tech AI Logo" fill className="object-contain" />
-                    </div>
-                    <span>Mirage Tech AI</span>
-                </Link>
+            <div className="container mx-auto flex h-16 items-center px-4 md:px-6 relative">
+                {/* Logo - Start */}
+                <div className="flex-1 flex justify-start">
+                    <Link href="/" className="flex items-center gap-2 font-bold text-xl text-primary">
+                        <div className="relative h-8 w-8">
+                            <Image src="/logo.png" alt="Mirage Tech AI Logo" fill className="object-contain" />
+                        </div>
+                        <span>Mirage Tech AI</span>
+                    </Link>
+                </div>
 
-                {/* Desktop Navigation */}
-                <nav className="hidden md:flex gap-6 items-center">
+                {/* Desktop Navigation - Centered */}
+                <nav className="hidden md:flex gap-6 items-center absolute left-1/2 -translate-x-1/2">
                     <Link
                         href="/"
                         className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
@@ -84,71 +87,75 @@ export function Navbar() {
                             {item.name}
                         </Link>
                     ))}
-                    <div className="flex items-center gap-2 ml-4">
+                </nav>
+
+                {/* Actions - End */}
+                <div className="flex-1 flex justify-end items-center gap-2">
+                    <div className="hidden md:flex items-center gap-2">
                         <ModeToggle />
                         <Button asChild size="sm">
                             <Link href="/contact">Get Started</Link>
                         </Button>
                     </div>
-                </nav>
 
-                {/* Mobile Navigation */}
-                <div className="md:hidden flex items-center gap-2">
-                    <ModeToggle />
-                    <Sheet open={isOpen} onOpenChange={setIsOpen}>
-                        <SheetTrigger asChild>
-                            <Button variant="ghost" size="icon" aria-label="Menu">
-                                <Menu className="h-6 w-6" />
-                            </Button>
-                        </SheetTrigger>
-                        <SheetContent side="right">
-                            <SheetHeader>
-                                <SheetTitle className="text-left flex items-center gap-2">
-                                    <div className="relative h-6 w-6">
-                                        <Image src="/logo.png" alt="Logo" fill className="object-contain" />
-                                    </div>
-                                    Mirage Tech AI
-                                </SheetTitle>
-                            </SheetHeader>
-                            <div className="flex flex-col gap-4 mt-8">
-                                <Link
-                                    href="/"
-                                    onClick={() => setIsOpen(false)}
-                                    className="text-lg font-medium text-foreground hover:text-primary transition-colors"
-                                >
-                                    Home
-                                </Link>
-                                <div className="space-y-2">
-                                    <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Services</p>
-                                    {serviceLinks.map((link) => (
-                                        <Link
-                                            key={link.href}
-                                            href={link.href}
-                                            onClick={() => setIsOpen(false)}
-                                            className="block text-base font-medium text-foreground hover:text-primary transition-colors pl-3"
-                                        >
-                                            {link.name}
-                                        </Link>
-                                    ))}
-                                </div>
-                                {navItems.slice(1).map((item) => (
+                    {/* Mobile Navigation */}
+                    <div className="md:hidden flex items-center gap-2">
+                        <ModeToggle />
+                        <Sheet open={isOpen} onOpenChange={setIsOpen}>
+                            <SheetTrigger asChild>
+                                <Button variant="ghost" size="icon" aria-label="Menu">
+                                    <Menu className="h-6 w-6" />
+                                </Button>
+                            </SheetTrigger>
+                            <SheetContent side="right">
+                                <SheetHeader>
+                                    <SheetTitle className="text-left flex items-center gap-2">
+                                        <div className="relative h-6 w-6">
+                                            <Image src="/logo.png" alt="Logo" fill className="object-contain" />
+                                        </div>
+                                        Mirage Tech AI
+                                    </SheetTitle>
+                                </SheetHeader>
+                                <div className="flex flex-col gap-4 mt-8">
                                     <Link
-                                        key={item.href}
-                                        href={item.href}
+                                        href="/"
                                         onClick={() => setIsOpen(false)}
                                         className="text-lg font-medium text-foreground hover:text-primary transition-colors"
                                     >
-                                        {item.name}
+                                        Home
                                     </Link>
-                                ))}
-                                <Button asChild className="mt-4 w-full">
-                                    <Link href="/contact" onClick={() => setIsOpen(false)}>
-                                        Get Started
-                                    </Link>
-                                </Button>
-                            </div>
-                        </SheetContent>
-                    </Sheet>
+                                    <div className="space-y-2">
+                                        <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Services</p>
+                                        {serviceLinks.map((link) => (
+                                            <Link
+                                                key={link.href}
+                                                href={link.href}
+                                                onClick={() => setIsOpen(false)}
+                                                className="block text-base font-medium text-foreground hover:text-primary transition-colors pl-3"
+                                            >
+                                                {link.name}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                    {navItems.slice(1).map((item) => (
+                                        <Link
+                                            key={item.href}
+                                            href={item.href}
+                                            onClick={() => setIsOpen(false)}
+                                            className="text-lg font-medium text-foreground hover:text-primary transition-colors"
+                                        >
+                                            {item.name}
+                                        </Link>
+                                    ))}
+                                    <Button asChild className="mt-4 w-full">
+                                        <Link href="/contact" onClick={() => setIsOpen(false)}>
+                                            Get Started
+                                        </Link>
+                                    </Button>
+                                </div>
+                            </SheetContent>
+                        </Sheet>
+                    </div>
                 </div>
             </div>
         </header>

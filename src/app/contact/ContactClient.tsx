@@ -79,8 +79,8 @@ export default function ContactPage() {
 
     return (
         <div className="flex flex-col min-h-screen bg-background pt-20">
-            <div className="container px-4 md:px-6 py-12">
-                <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <div className="container mx-auto px-4 md:px-6 py-8 md:py-12">
+                <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12 space-y-4">
                     <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">
                         Get in Touch
                     </h1>
@@ -89,30 +89,30 @@ export default function ContactPage() {
                     </p>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <div className="flex flex-col items-center gap-16 max-w-4xl mx-auto">
                     {/* Contact Info */}
-                    <div className="space-y-8">
+                    <div className="w-full space-y-8 flex flex-col items-center text-center">
                         <h2 className="text-2xl font-bold">Contact Information</h2>
-                        <div className="space-y-6">
-                            <Card>
-                                <CardContent className="flex items-center gap-4 p-6">
+                        <div className="grid sm:grid-cols-3 gap-6 w-full">
+                            <Card className="hover:border-primary/50 transition-colors">
+                                <CardContent className="flex flex-col items-center gap-4 p-8 text-center">
                                     <div className="p-3 bg-primary/10 rounded-full text-primary">
                                         <Mail className="w-6 h-6" />
                                     </div>
                                     <div>
-                                        <h3 className="font-semibold">Email Us</h3>
-                                        <p className="text-muted-foreground">info@gomiragetech.com</p>
+                                        <h3 className="font-semibold mb-1">Email Us</h3>
+                                        <p className="text-muted-foreground text-sm">info@gomiragetech.com</p>
                                     </div>
                                 </CardContent>
                             </Card>
-                            <Card>
-                                <CardContent className="flex items-center gap-4 p-6">
+                            <Card className="hover:border-primary/50 transition-colors">
+                                <CardContent className="flex flex-col items-center gap-4 p-8 text-center">
                                     <div className="p-3 bg-primary/10 rounded-full text-primary">
                                         <Phone className="w-6 h-6" />
                                     </div>
                                     <div>
-                                        <h3 className="font-semibold">WhatsApp</h3>
-                                        <p className="text-muted-foreground">
+                                        <h3 className="font-semibold mb-1">WhatsApp</h3>
+                                        <p className="text-muted-foreground text-sm">
                                             <a href="https://wa.me/+96597524391" target="_blank" rel="noopener noreferrer" className="hover:text-primary">
                                                 +965 97524391
                                             </a>
@@ -120,14 +120,14 @@ export default function ContactPage() {
                                     </div>
                                 </CardContent>
                             </Card>
-                            <Card>
-                                <CardContent className="flex items-center gap-4 p-6">
+                            <Card className="hover:border-primary/50 transition-colors">
+                                <CardContent className="flex flex-col items-center gap-4 p-8 text-center">
                                     <div className="p-3 bg-primary/10 rounded-full text-primary">
                                         <Phone className="w-6 h-6" />
                                     </div>
                                     <div>
-                                        <h3 className="font-semibold">Call Us</h3>
-                                        <p className="text-muted-foreground">
+                                        <h3 className="font-semibold mb-1">Call Us</h3>
+                                        <p className="text-muted-foreground text-sm">
                                             <a href="tel:+96567067633" className="hover:text-primary">
                                                 +965 67067633
                                             </a>
@@ -139,7 +139,7 @@ export default function ContactPage() {
                     </div>
 
                     {/* Contact Form */}
-                    <div className="bg-card p-8 rounded-2xl border shadow-sm">
+                    <div className="w-full max-w-2xl bg-card p-8 md:p-12 rounded-2xl border shadow-sm">
                         {isSubmitted ? (
                             <div className="h-full flex flex-col items-center justify-center text-center space-y-4 min-h-[400px]">
                                 <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4">

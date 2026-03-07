@@ -112,13 +112,13 @@ export default function AIConsultancyClient() {
                     <div className="absolute inset-0 bg-gradient-to-br from-[#0a0f1e] via-[#0f1f38]/90 to-[#1a0533]/80" />
                 </div>
 
-                <div className="relative z-10 container px-4 md:px-6 py-24">
+                <div className="relative z-10 container mx-auto px-4 md:px-6 py-12 md:py-16">
                     <motion.div
                         initial="hidden"
                         animate="visible"
                         variants={fadeUp}
                         custom={0}
-                        className="max-w-3xl"
+                        className="max-w-4xl mx-auto text-center flex flex-col items-center"
                     >
                         <span className="inline-block text-teal-400 font-semibold tracking-widest text-sm uppercase mb-4">
                             AI Consultancy
@@ -129,12 +129,12 @@ export default function AIConsultancyClient() {
                                 With Intelligent AI
                             </span>
                         </h1>
-                        <p className="text-lg sm:text-xl text-slate-300 mb-10 max-w-2xl">
+                        <p className="text-lg sm:text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
                             We help companies in Kuwait and the Middle East harness the power
                             of AI — from strategy and process automation to custom model
                             deployment. Practical. Transparent. Results‑driven.
                         </p>
-                        <div className="flex flex-wrap gap-4">
+                        <div className="flex flex-wrap justify-center gap-4">
                             <Button
                                 asChild
                                 size="lg"
@@ -166,8 +166,8 @@ export default function AIConsultancyClient() {
             </section>
 
             {/* ── What We Do ──────────────────────────────────────── */}
-            <section className="py-24 bg-background">
-                <div className="container px-4 md:px-6">
+            <section className="py-12 md:py-16 bg-background">
+                <div className="container mx-auto px-4 md:px-6">
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
@@ -194,17 +194,17 @@ export default function AIConsultancyClient() {
                                 variants={fadeUp}
                                 custom={i + 1}
                             >
-                                <Card className="h-full hover:shadow-xl transition-shadow border-muted group">
-                                    <CardHeader>
+                                <Card className="h-full hover:shadow-xl transition-shadow border-muted group flex flex-col items-center text-center">
+                                    <CardHeader className="flex flex-col items-center text-center w-full">
                                         <div
                                             className={`w-14 h-14 rounded-2xl ${svc.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
                                         >
                                             <svc.icon className={`w-7 h-7 ${svc.color}`} />
                                         </div>
-                                        <CardTitle className="text-xl">{svc.title}</CardTitle>
+                                        <CardTitle className="text-xl font-bold text-center w-full">{svc.title}</CardTitle>
                                     </CardHeader>
-                                    <CardContent>
-                                        <p className="text-muted-foreground">{svc.description}</p>
+                                    <CardContent className="flex flex-col items-center text-center w-full">
+                                        <p className="text-muted-foreground max-w-[280px] mx-auto text-center">{svc.description}</p>
                                     </CardContent>
                                 </Card>
                             </motion.div>
@@ -214,8 +214,8 @@ export default function AIConsultancyClient() {
             </section>
 
             {/* ── Why Choose Us ───────────────────────────────────── */}
-            <section className="py-24 bg-muted/30">
-                <div className="container px-4 md:px-6">
+            <section className="py-12 md:py-16 bg-muted/30">
+                <div className="container mx-auto px-4 md:px-6">
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
@@ -257,8 +257,8 @@ export default function AIConsultancyClient() {
             </section>
 
             {/* ── How It Works ────────────────────────────────────── */}
-            <section className="py-24 bg-background">
-                <div className="container px-4 md:px-6">
+            <section className="py-12 md:py-16 bg-background">
+                <div className="container mx-auto px-4 md:px-6">
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
@@ -290,8 +290,8 @@ export default function AIConsultancyClient() {
                                 {i < steps.length - 1 && (
                                     <div className="hidden sm:block absolute top-7 left-full w-full h-px bg-gradient-to-r from-muted to-transparent -translate-x-1/2 z-0" />
                                 )}
-                                <div className="relative z-10 flex flex-col items-center text-center sm:items-start sm:text-left">
-                                    <div className="flex items-center gap-3 mb-4">
+                                <div className="relative z-10 flex flex-col items-center text-center">
+                                    <div className="flex flex-col items-center gap-3 mb-4">
                                         <span className="text-5xl font-black text-muted/30 select-none leading-none">
                                             {step.number}
                                         </span>
@@ -300,7 +300,7 @@ export default function AIConsultancyClient() {
                                         </div>
                                     </div>
                                     <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                                    <p className="text-muted-foreground text-sm">{step.description}</p>
+                                    <p className="text-muted-foreground text-sm max-w-[250px]">{step.description}</p>
                                 </div>
                             </motion.div>
                         ))}
@@ -309,7 +309,7 @@ export default function AIConsultancyClient() {
             </section>
 
             {/* ── FAQs for AEO ────────────────────────────────────── */}
-            <section className="bg-muted/50 py-24">
+            <section className="bg-muted/50 py-12 md:py-16">
                 <div className="container px-4 md:px-6 max-w-3xl mx-auto">
                     <h2 className="text-3xl font-bold mb-10 text-center">Frequently Asked Questions</h2>
                     <div className="space-y-6">
@@ -330,8 +330,8 @@ export default function AIConsultancyClient() {
             </section>
 
             {/* ── CTA Banner ──────────────────────────────────────── */}
-            <section className="py-20 bg-gradient-to-r from-teal-900/50 via-[#0f1f38] to-violet-900/50 border-y border-muted">
-                <div className="container px-4 md:px-6">
+            <section className="py-12 md:py-16 bg-gradient-to-r from-teal-900/50 via-[#0f1f38] to-violet-900/50 border-y border-muted">
+                <div className="container mx-auto px-4 md:px-6">
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
