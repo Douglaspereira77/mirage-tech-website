@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
     { name: "Home", href: "/" },
@@ -38,14 +39,15 @@ const serviceLinks = [
 
 export function Navbar() {
     const [isOpen, setIsOpen] = React.useState(false);
+    const [isServicesOpen, setIsServicesOpen] = React.useState(false);
 
     return (
         <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
             <div className="container mx-auto flex h-16 items-center px-4 md:px-6 relative">
                 {/* Logo - Start */}
-                <div className="flex-1 flex justify-start">
-                    <Link href="/" className="flex items-center gap-2 font-bold text-xl text-primary">
-                        <div className="relative h-8 w-8">
+                <div className="flex-1 flex justify-start items-center overflow-hidden">
+                    <Link href="/" className="flex items-center gap-2 font-bold text-lg sm:text-xl text-primary whitespace-nowrap shrink-0">
+                        <div className="relative h-7 w-7 sm:h-8 sm:w-8">
                             <Image src="/logo.png" alt="Mirage Tech AI Logo" fill className="object-contain" />
                         </div>
                         <span>Mirage Tech AI</span>
@@ -109,40 +111,60 @@ export function Navbar() {
                             </SheetTrigger>
                             <SheetContent side="right">
                                 <SheetHeader>
-                                    <SheetTitle className="text-left flex items-center gap-2">
+                                    <SheetTitle className="flex items-center justify-center gap-2">
                                         <div className="relative h-6 w-6">
                                             <Image src="/logo.png" alt="Logo" fill className="object-contain" />
                                         </div>
                                         Mirage Tech AI
                                     </SheetTitle>
                                 </SheetHeader>
-                                <div className="flex flex-col gap-4 mt-8">
+                                <div className="flex flex-col items-center gap-4 mt-8">
                                     <Link
                                         href="/"
                                         onClick={() => setIsOpen(false)}
-                                        className="text-lg font-medium text-foreground hover:text-primary transition-colors"
+                                        className="text-lg font-medium text-muted-foreground hover:text-primary transition-colors"
                                     >
                                         Home
                                     </Link>
                                     <div className="space-y-2">
-                                        <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Services</p>
-                                        {serviceLinks.map((link) => (
-                                            <Link
-                                                key={link.href}
-                                                href={link.href}
-                                                onClick={() => setIsOpen(false)}
-                                                className="block text-base font-medium text-foreground hover:text-primary transition-colors pl-3"
-                                            >
-                                                {link.name}
-                                            </Link>
-                                        ))}
+                                        <button
+                                            onClick={() => setIsServicesOpen(!isServicesOpen)}
+                                            className="flex items-center justify-center gap-2 w-full text-lg font-medium text-muted-foreground hover:text-primary transition-colors group outline-none"
+                                        >
+                                            <span>Services</span>
+                                            <ChevronDown
+                                                className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? "rotate-180" : ""}`}
+                                            />
+                                        </button>
+                                        <AnimatePresence>
+                                            {isServicesOpen && (
+                                                <motion.div
+                                                    initial={{ height: 0, opacity: 0 }}
+                                                    animate={{ height: "auto", opacity: 1 }}
+                                                    exit={{ height: 0, opacity: 0 }}
+                                                    transition={{ duration: 0.2 }}
+                                                    className="overflow-hidden flex flex-col gap-2"
+                                                >
+                                                    {serviceLinks.map((link) => (
+                                                        <Link
+                                                            key={link.href}
+                                                            href={link.href}
+                                                            onClick={() => setIsOpen(false)}
+                                                            className="block text-base font-medium text-muted-foreground hover:text-primary transition-colors text-center"
+                                                        >
+                                                            {link.name}
+                                                        </Link>
+                                                    ))}
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
                                     </div>
                                     {navItems.slice(1).map((item) => (
                                         <Link
                                             key={item.href}
                                             href={item.href}
                                             onClick={() => setIsOpen(false)}
-                                            className="text-lg font-medium text-foreground hover:text-primary transition-colors"
+                                            className="text-lg font-medium text-muted-foreground hover:text-primary transition-colors"
                                         >
                                             {item.name}
                                         </Link>
@@ -158,6 +180,6 @@ export function Navbar() {
                     </div>
                 </div>
             </div>
-        </header>
+        </header >
     );
 }
