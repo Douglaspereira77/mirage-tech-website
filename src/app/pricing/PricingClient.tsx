@@ -137,7 +137,7 @@ export default function PricingPage() {
                         </p>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                        Prices depend on message volume and complexity of automation flows. Vibe Coding and Consultancy projects are priced separately.
+                        Prices depend on message volume and complexity of automation flows. Custom Business Tools and Consultancy projects are priced separately.
                     </p>
                 </div>
             </div>

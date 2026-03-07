@@ -16,7 +16,7 @@ export function Footer() {
                             <span>Mirage Tech AI</span>
                         </Link>
                         <p className="text-sm text-muted-foreground">
-                            AI Automation & Vibe Coding Agency — Kuwait. Building intelligent systems for the Middle East.
+                            AI Automation & Custom Business Tools Agency — Kuwait. Building intelligent systems for the Middle East.
                         </p>
                         <div className="flex gap-4">
                             <Link href="#" className="text-muted-foreground hover:text-primary">
@@ -50,7 +50,7 @@ export function Footer() {
                         <h4 className="font-semibold text-foreground">Services</h4>
                         <ul className="space-y-2 text-sm text-muted-foreground">
                             <li><Link href="/services/whatsapp-automation" className="hover:text-primary">WhatsApp Automation</Link></li>
-                            <li><Link href="/services/vibe-coding" className="hover:text-primary">Vibe Coding & MVP</Link></li>
+                            <li><Link href="/services/custom-tools" className="hover:text-primary">AI Automation & Custom Business Tools</Link></li>
                             <li><Link href="/ai-consultancy" className="hover:text-primary">AI Consultancy</Link></li>
                             <li><Link href="/services" className="hover:text-primary">All Services</Link></li>
                         </ul>

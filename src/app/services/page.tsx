@@ -3,7 +3,7 @@ import ServicesClient from "./ServicesClient";
 
 export const metadata: Metadata = {
     title: "AI Automation & Chatbot Services | Mirage Tech AI",
-    description: "Explore our Done-For-You AI Automation services including WhatsApp chatbots, Vibe Coding rapid app development, and Strategic AI Consultancy in Kuwait.",
+    description: "Explore our Done-For-You AI Automation services including WhatsApp chatbots, AI Automation & Custom Business Tools, and Strategic AI Consultancy in Kuwait.",
 };
 
 export default function ServicesPage() {
@@ -22,7 +22,7 @@ export default function ServicesPage() {
                                     "@type": "Organization",
                                     "name": "Mirage Tech AI"
                                 },
-                                "description": "Custom AI chatbots, WhatsApp automation, and rapid application development (Vibe Coding).",
+                                "description": "Custom AI chatbots, WhatsApp automation, and rapid application development (AI Automation & Custom Business Tools).",
                                 "serviceType": "AI Development & Automation"
                             },
                             {

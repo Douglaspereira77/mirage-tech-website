@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const faqs = [
     {
         question: "What is Mirage Tech AI?",
-        answer: "Mirage Tech AI is a premier AI automation agency based in Kuwait. We specialize in rapidly deploying custom AI solutions like WhatsApp chatbots, Instagram DM automation, and custom web applications (Vibe Coding) for businesses across the Middle East."
+        answer: "Mirage Tech AI is a premier AI automation agency based in Kuwait. We specialize in rapidly deploying custom AI solutions like WhatsApp chatbots, Instagram DM automation, and custom web applications (AI Automation & Custom Business Tools) for businesses across the Middle East."
     },
     {
         question: "How long does it take to build an AI chatbot?",
@@ -28,7 +28,7 @@ export function FAQSection() {
                     className="text-center mb-10"
                 >
                     <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">Frequently Asked Questions</h2>
-                    <p className="text-muted-foreground text-lg">Common questions about our AI Automation and Vibe Coding services.</p>
+                    <p className="text-muted-foreground text-lg">Common questions about our AI Automation and Custom Business Tools.</p>
                 </motion.div>
 
                 <div className="space-y-6">

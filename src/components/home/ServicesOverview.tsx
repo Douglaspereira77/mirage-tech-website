@@ -18,7 +18,7 @@ const pillars = [
         bgGlow: "from-green-500/10 via-green-500/5 to-transparent",
     },
     {
-        title: "Vibe Coding",
+        title: "Custom Business Tools",
         subtitle: "Rapid App Development",
         description:
             "Turn your idea into a deployed, production-ready web application in days using AI-accelerated development. Modern stack. You own the code.",

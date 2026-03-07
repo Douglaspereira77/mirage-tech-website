@@ -1,17 +1,17 @@
 import { Metadata } from "next";
-import VibeCodingClient from "./VibeCodingClient";
+import CustomToolsClient from "./CustomToolsClient";
 
 export const metadata: Metadata = {
-    title: "Vibe Coding & Rapid AI Development | Mirage Tech AI",
-    description: "Build custom software applications at the speed of thought. What is Vibe Coding? It's our proprietary rapid MVP framework powered by AI.",
+    title: "AI Automation & Custom Business Tools | Mirage Tech AI",
+    description: "Build custom software applications at the speed of thought. What are Custom Business Tools? It's our proprietary rapid MVP framework powered by AI.",
     openGraph: {
-        title: "Vibe Coding | Mirage Tech AI",
+        title: "AI Automation & Custom Business Tools | Mirage Tech AI",
         description: "Build custom software in days, not months.",
         url: "https://miragetech.ai/services/vibe-coding",
     },
 };
 
-export default function VibeCodingPage() {
+export default function CustomToolsPage() {
     return (
         <>
             <script
@@ -23,18 +23,18 @@ export default function VibeCodingPage() {
                         "mainEntity": [
                             {
                                 "@type": "Question",
-                                "name": "What is Vibe Coding?",
+                                "name": "What are Custom Business Tools?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Vibe Coding is a rapid software development methodology where developers write applications asynchronously using AI copilots and generative models. It focuses on translating human intent ('vibes') into production-ready code almost instantly, shortening the concept-to-MVP timeline from months to days."
+                                    "text": "Custom Business Tools are rapid software solutions where we build applications using AI-accelerated workflows. We focus on translating business needs into production-ready code almost instantly, shortening the concept-to-MVP timeline from months to days."
                                 }
                             },
                             {
                                 "@type": "Question",
-                                "name": "How fast can I launch an app with Vibe Coding?",
+                                "name": "How fast can I launch a custom tool?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "For a standard MVP (Minimum Viable Product), Mirage Tech AI can deliver a fully functional, deployed web application in under 7 days using our Vibe Coding frameworks."
+                                    "text": "For a standard custom tool or MVP, Mirage Tech AI can deliver a fully functional, deployed web application in under 7 days using our AI-accelerated frameworks."
                                 }
                             },
                             {
@@ -49,7 +49,7 @@ export default function VibeCodingPage() {
                     })
                 }}
             />
-            <VibeCodingClient />
+            <CustomToolsClient />
         </>
     );
 }

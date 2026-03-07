@@ -46,14 +46,14 @@ export default function PortfolioPage() {
                         <div className="p-8 lg:p-12 space-y-8 flex flex-col items-center">
                             <div className="flex flex-wrap justify-center gap-2">
                                 <Badge className="bg-green-500/10 text-green-500 border-green-500/20">Live</Badge>
-                                <Badge variant="outline" className="border-primary/20 bg-primary/5">Vibe Coding</Badge>
+                                <Badge variant="outline" className="border-primary/20 bg-primary/5">Custom Business Tools</Badge>
                                 <Badge variant="outline">Next.js</Badge>
                                 <Badge variant="outline">Supabase</Badge>
                             </div>
                             <div className="space-y-4">
                                 <h3 className="text-3xl md:text-4xl font-bold tracking-tight">BestofKuwait.com</h3>
                                 <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl mx-auto">
-                                    A full-scale curated directory platform for Kuwait — featuring restaurants, fitness, schools, and more. Built from scratch using our <strong>Vibe Coding</strong> methodology in just <strong>a few weeks</strong>, proving that AI-accelerated development delivers production-grade applications at unprecedented speed.
+                                    A full-scale curated directory platform for Kuwait — featuring restaurants, fitness, schools, and more. Built from scratch using our <strong>AI Automation & Custom Business Tools</strong> methodology in just <strong>a few weeks</strong>, proving that AI-accelerated development delivers production-grade applications at unprecedented speed.
                                 </p>
                             </div>
                             <ul className="grid sm:grid-cols-2 gap-4 text-sm text-foreground/80 max-w-2xl w-full text-left">

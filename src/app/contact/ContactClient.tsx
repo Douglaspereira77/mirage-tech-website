@@ -225,7 +225,7 @@ export default function ContactPage() {
                                                     </FormControl>
                                                     <SelectContent>
                                                         <SelectItem value="whatsapp">WhatsApp / Instagram Automation</SelectItem>
-                                                        <SelectItem value="vibe-coding">Custom App Development (Vibe Coding)</SelectItem>
+                                                        <SelectItem value="vibe-coding">Custom App Development & Business Tools</SelectItem>
                                                         <SelectItem value="consultancy">AI Consultancy & Strategy</SelectItem>
                                                         <SelectItem value="web-chatbot">Web Chatbot</SelectItem>
                                                         <SelectItem value="all">Not Sure / General Inquiry</SelectItem>

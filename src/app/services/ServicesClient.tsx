@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MessageCircle, Instagram, Globe, Sparkles, Check, LayoutTemplate, TrendingUp, Search, Brain, Rocket, ArrowRight } from "lucide-react";
+import { MessageCircle, Instagram, Globe, Sparkles, Check, LayoutTemplate, TrendingUp, Search, Brain, Rocket, ArrowRight, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -9,9 +9,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 const automationServices = [
     {
         id: "vibe-coding",
-        title: "Vibe Coding & Rapid MVP",
-        description: "Turn your idea into a deployed application in days, not months. We leverage advanced AI to code at the speed of thought.",
-        icon: Sparkles,
+        title: "AI Automation & Custom Business Tools",
+        description: "Custom software and automated tools designed to fit your unique business workflows.",
+        icon: Wrench,
+        href: "/services/custom-tools",
         color: "text-amber-500",
         features: [
             "Idea to MVP in < 7 days",

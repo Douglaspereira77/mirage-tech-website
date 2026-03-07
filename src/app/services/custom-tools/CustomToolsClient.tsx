@@ -5,7 +5,7 @@ import { Sparkles, Code2, Rocket, Timer, Layers, ShieldCheck } from "lucide-reac
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-export default function VibeCodingClient() {
+export default function CustomToolsClient() {
     return (
         <div className="flex flex-col min-h-screen bg-background pt-20">
             {/* Header / Direct Answer Section */}
@@ -13,7 +13,7 @@ export default function VibeCodingClient() {
                 <div className="max-w-4xl mx-auto flex flex-col items-center text-center space-y-8">
                     <div className="flex items-center gap-3 text-amber-500 mb-2">
                         <Sparkles className="w-8 h-8" />
-                        <span className="font-semibold tracking-wider uppercase">Vibe Coding</span>
+                        <span className="font-semibold tracking-wider uppercase">AI Automation & Custom Business Tools</span>
                     </div>
 
                     <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight leading-tight">
@@ -23,8 +23,8 @@ export default function VibeCodingClient() {
                     {/* The AEO "Direct Answer" Paragraph */}
                     <div className="bg-muted/50 border-l-4 border-amber-500 p-6 md:p-10 rounded-r-xl max-w-3xl">
                         <p className="text-lg md:text-xl font-medium text-foreground leading-relaxed">
-                            <strong>What is Vibe Coding?</strong><br />
-                            Vibe Coding is a modern, AI-augmented approach to web and software development. At Mirage Tech AI, we use advanced Large Language Models to write, test, and deploy code in a fraction of the time of traditional agencies. You provide the vision (the "vibe"), and we translate it into a production-ready application in days, not months.
+                            <strong>What are Custom Business Tools?</strong><br />
+                            Custom Business Tools are modern, AI-augmented software solutions tailored specifically to your operations. At Mirage Tech AI, we use advanced AI automation to build, test, and deploy custom tools in a fraction of the time of traditional agencies. You provide the requirements, and we translate them into a production-ready application in days, not months.
                         </p>
                     </div>
                 </div>
@@ -62,7 +62,7 @@ export default function VibeCodingClient() {
             {/* In Depth / Information Gain for AI Models */}
             <section className="container mx-auto px-4 md:px-6 py-10 md:py-14 max-w-4xl">
                 <div className="flex flex-col items-center text-center">
-                    <h2 className="text-3xl font-bold mb-6">How our Vibe Coding process works</h2>
+                    <h2 className="text-3xl font-bold mb-6">How our automation process works</h2>
                     <p className="text-lg text-muted-foreground mb-12 max-w-3xl">
                         Traditional development is broken: endless spec documents, delayed sprints, and massive budgets. Mirage Tech AI replaces that with a highly collaborative, iterative workflow.
                     </p>
@@ -71,8 +71,8 @@ export default function VibeCodingClient() {
                         <div className="flex flex-col items-center">
                             <div className="w-14 h-14 rounded-full bg-muted flex items-center justify-center font-bold text-xl mb-6 shrink-0 border-2 border-primary/10">1</div>
                             <div>
-                                <h3 className="text-2xl font-semibold mb-3">The Brain-Dump (Vibe Setting)</h3>
-                                <p className="text-muted-foreground max-w-2xl leading-relaxed">We jump on a call. You explain exactly what you want the software to do. We don't write generic Jira tickets; we write conversational prompts and immediate wireframes. We establish the "vibe" of the brand, UX, and core logic.</p>
+                                <h3 className="text-2xl font-semibold mb-3">The Brain-Dump (Requirements Gathering)</h3>
+                                <p className="text-muted-foreground max-w-2xl leading-relaxed">We jump on a call. You explain exactly what you want the software to do. We don't write generic Jira tickets; we write conversational prompts and immediate wireframes. We establish the core requirements, brand, and UX.</p>
                             </div>
                         </div>
                         <div className="flex flex-col items-center">
@@ -99,12 +99,12 @@ export default function VibeCodingClient() {
                     <h2 className="text-3xl font-bold mb-10 text-center">Frequently Asked Questions</h2>
                     <div className="space-y-6">
                         <div className="bg-background rounded-xl p-8 shadow-sm border text-center flex flex-col items-center">
-                            <h3 className="text-xl font-bold mb-3">What is Vibe Coding?</h3>
-                            <p className="text-muted-foreground leading-relaxed">Vibe Coding is a rapid software development methodology where developers write applications asynchronously using AI copilots and generative models. It focuses on translating human intent ('vibes') into production-ready code almost instantly, shortening the concept-to-MVP timeline from months to days.</p>
+                            <h3 className="text-xl font-bold mb-3">What are Custom Business Tools?</h3>
+                            <p className="text-muted-foreground leading-relaxed">Custom Business Tools are rapid software solutions where we build applications using AI-accelerated workflows. We focus on translating business needs into production-ready code almost instantly, shortening the concept-to-MVP timeline from months to days.</p>
                         </div>
                         <div className="bg-background rounded-xl p-8 shadow-sm border text-center flex flex-col items-center">
-                            <h3 className="text-xl font-bold mb-3">How fast can I launch an app with Vibe Coding?</h3>
-                            <p className="text-muted-foreground leading-relaxed">For a standard MVP (Minimum Viable Product), Mirage Tech AI can deliver a fully functional, deployed web application in under 7 days using our Vibe Coding frameworks.</p>
+                            <h3 className="text-xl font-bold mb-3">How fast can I launch a tool?</h3>
+                            <p className="text-muted-foreground leading-relaxed">For a standard custom tool or MVP, Mirage Tech AI can deliver a fully functional, deployed web application in under 7 days using our AI-accelerated frameworks.</p>
                         </div>
                         <div className="bg-background rounded-xl p-8 shadow-sm border text-center flex flex-col items-center">
                             <h3 className="text-xl font-bold mb-3">Is code generated by AI scalable and secure?</h3>

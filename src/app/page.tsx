@@ -21,7 +21,7 @@ export default function Home() {
                 "name": "What is Mirage Tech AI?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Mirage Tech AI is a premier AI automation agency based in Kuwait. We specialize in rapidly deploying custom AI solutions like WhatsApp chatbots, Instagram DM automation, and custom web applications (Vibe Coding) for businesses across the Middle East."
+                  "text": "Mirage Tech AI is a premier AI automation agency based in Kuwait. We specialize in rapidly deploying custom AI solutions like WhatsApp chatbots, Instagram DM automation, and custom web applications (AI Automation & Custom Business Tools) for businesses across the Middle East."
                 }
               },
               {

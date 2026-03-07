@@ -32,7 +32,7 @@ const navItems = [
 
 const serviceLinks = [
     { name: "WhatsApp Automation", href: "/services/whatsapp-automation" },
-    { name: "Vibe Coding & MVP", href: "/services/vibe-coding" },
+    { name: "AI Automation & Custom Business Tools", href: "/services/custom-tools" },
     { name: "AI Consultancy", href: "/ai-consultancy" },
     { name: "All Services", href: "/services" },
 ];

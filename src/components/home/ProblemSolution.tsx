@@ -74,7 +74,7 @@ export function ProblemSolution() {
                             </li>
                             <li className="flex items-start gap-3">
                                 <span className="text-chart-2 mt-1">✓</span>
-                                <span className="text-foreground">Custom web apps shipped in under 7 days with Vibe Coding</span>
+                                <span className="text-foreground">Custom web apps shipped in under 7 days with AI-accelerated frameworks</span>
                             </li>
                             <li className="flex items-start gap-3">
                                 <span className="text-chart-2 mt-1">✓</span>
