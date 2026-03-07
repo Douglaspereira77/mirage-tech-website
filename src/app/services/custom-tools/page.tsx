@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "AI Automation & Custom Business Tools | Mirage Tech AI",
         description: "Build custom software in days, not months.",
-        url: "https://miragetech.ai/services/vibe-coding",
+        url: "https://miragetech.ai/services/custom-tools",
     },
 };
 

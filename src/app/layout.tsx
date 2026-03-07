@@ -23,6 +23,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://miragetech.ai",
+    title: "Mirage Tech AI | AI Automation & Custom Business Tools Agency Kuwait",
+    description: "Top AI automation agency in Kuwait and the Middle East. Specialized in Custom Business Tools and WhatsApp Automation.",
     siteName: "Mirage Tech AI",
     images: [
       {

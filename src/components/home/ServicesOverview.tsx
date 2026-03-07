@@ -23,7 +23,7 @@ const pillars = [
         description:
             "Turn your idea into a deployed, production-ready web application in days using AI-accelerated development. Modern stack. You own the code.",
         icon: Sparkles,
-        href: "/services/vibe-coding",
+        href: "/services/custom-tools",
         color: "text-amber-500",
         bgGlow: "from-amber-500/10 via-amber-500/5 to-transparent",
     },

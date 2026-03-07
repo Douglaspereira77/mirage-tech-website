@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const automationServices = [
     {
-        id: "vibe-coding",
+        id: "custom-tools",
         title: "AI Automation & Custom Business Tools",
         description: "Custom software and automated tools designed to fit your unique business workflows.",
         icon: Wrench,
@@ -18,7 +18,7 @@ const automationServices = [
             "Idea to MVP in < 7 days",
             "Real-time collaborative build sessions",
             "Modern Tech Stack (Next.js, Supabase, AI)",
-            "Focus on User Experience & 'Vibe'",
+            "Focus on Brand Experience",
             "Scalable, production-ready code",
         ],
     },
