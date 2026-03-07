@@ -24,11 +24,20 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://miragetech.ai",
     siteName: "Mirage Tech AI",
+    images: [
+      {
+        url: "/logo.png",
+        width: 800,
+        height: 800,
+        alt: "Mirage Tech AI Logo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Mirage Tech AI",
     description: "Intelligent Automation for the Middle East",
+    images: ["/logo.png"],
   },
 };
 
