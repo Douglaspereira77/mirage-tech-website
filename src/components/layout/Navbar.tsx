@@ -19,7 +19,7 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { ModeToggle } from "@/components/ModeToggle";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const navItems = [
     { name: "Home", href: "/" },
@@ -92,7 +92,7 @@ export function Navbar() {
                 {/* Actions - End */}
                 <div className="flex-1 flex justify-end items-center gap-2">
                     <div className="hidden md:flex items-center gap-2">
-                        <ModeToggle />
+                        <ThemeToggle />
                         <Button asChild size="sm">
                             <Link href="/contact">Get Started</Link>
                         </Button>
@@ -100,7 +100,7 @@ export function Navbar() {
 
                     {/* Mobile Navigation */}
                     <div className="md:hidden flex items-center gap-2">
-                        <ModeToggle />
+                        <ThemeToggle />
                         <Sheet open={isOpen} onOpenChange={setIsOpen}>
                             <SheetTrigger asChild>
                                 <Button variant="ghost" size="icon" aria-label="Menu">
