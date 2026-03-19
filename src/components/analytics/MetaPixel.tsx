@@ -38,6 +38,7 @@ export function MetaPixel() {
                         fbq('track', 'PageView');
                     `,
                 }}
+                data-iub-purposes="4"
             />
             <noscript>
                 <img

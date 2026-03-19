@@ -12,6 +12,7 @@ export function GoogleAnalytics() {
             <Script
                 strategy="afterInteractive"
                 src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+                data-iub-purposes="4"
             />
             <Script
                 id="google-analytics"
@@ -26,6 +27,7 @@ export function GoogleAnalytics() {
                         });
                     `,
                 }}
+                data-iub-purposes="4"
             />
         </>
     );
