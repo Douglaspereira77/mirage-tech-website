@@ -70,6 +70,8 @@ export default function RootLayout({
         <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/4467532.js" />
         <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js" />
         <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charSet="UTF-8" async />
+        <GoogleAnalytics />
+        <MetaPixel />
       </head>
       <body
         className={`${inter.variable} ${outfit.variable} antialiased font-sans flex flex-col min-h-screen`}
@@ -129,8 +131,6 @@ export default function RootLayout({
           </main>
           <Footer />
           <Chatbot />
-          <GoogleAnalytics />
-          <MetaPixel />
         </ThemeProvider>
       </body>
     </html>
