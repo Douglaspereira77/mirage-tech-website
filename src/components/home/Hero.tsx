@@ -27,7 +27,7 @@ export function Hero() {
                         transition={{ duration: 0.5, delay: 0.1 }}
                         className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-chart-2 pb-2"
                     >
-                        AI That Works. Built&nbsp;for&nbsp;Kuwait.
+                        Scale Your Business with AI
                     </motion.h1>
 
                     <motion.p
@@ -36,7 +36,7 @@ export function Hero() {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="text-xl text-muted-foreground max-w-[42rem] mx-auto leading-relaxed"
                     >
-                        We build intelligent chatbots, custom web applications, and AI strategies for businesses across the Middle East. Bilingual. Done-for-you. Deployed in days.
+                        We build high-performance AI growth engines and bilingual conversion systems that ruthlessly increase leads for Kuwaiti businesses. Done-for-you. Deployed in days.
                     </motion.p>
 
                     <motion.div
@@ -45,9 +45,9 @@ export function Hero() {
                         transition={{ duration: 0.5, delay: 0.3 }}
                         className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
                     >
-                        <Button asChild size="lg" className="h-12 px-8 text-base rounded-full">
-                            <Link href="/contact">
-                                Book a Strategy Call
+                        <Button asChild size="lg" className="h-12 px-8 text-base rounded-full shadow-lg shadow-primary/20">
+                            <Link href="/audit">
+                                Claim My Free Audit
                                 <ArrowRight className="ml-2 h-5 w-5" />
                             </Link>
                         </Button>
@@ -61,19 +61,32 @@ export function Hero() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.5 }}
-                        className="pt-8 flex flex-col items-center gap-3"
+                        className="pt-8 flex flex-col items-center gap-6"
                     >
-                        <p className="text-xs uppercase tracking-widest text-muted-foreground font-medium">
-                            Powered by
-                        </p>
-                        <div className="flex flex-wrap justify-center gap-6 text-sm font-semibold text-muted-foreground/70">
-                            <span>OpenAI</span>
-                            <span className="text-muted-foreground/30">·</span>
-                            <span>Anthropic</span>
-                            <span className="text-muted-foreground/30">·</span>
-                            <span>Meta AI</span>
-                            <span className="text-muted-foreground/30">·</span>
-                            <span>Google</span>
+                         <div className="flex flex-col items-center gap-2">
+                            <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold">
+                                Trusted by
+                            </p>
+                            <div className="flex items-center gap-4 bg-muted/50 px-4 py-2 rounded-full border border-border/50 backdrop-blur-sm">
+                                <span className="text-sm font-bold text-foreground/80">BestOfKuwait.com</span>
+                                <span className="text-muted-foreground/30 font-light">|</span>
+                                <span className="text-sm font-medium text-muted-foreground">Local Kuwaiti SMBs</span>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col items-center gap-2">
+                            <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60 font-medium">
+                                Infrastructure Powered by
+                            </p>
+                            <div className="flex flex-wrap justify-center gap-6 text-sm font-semibold text-muted-foreground/70">
+                                <span>OpenAI</span>
+                                <span className="text-muted-foreground/30">·</span>
+                                <span>Anthropic</span>
+                                <span className="text-muted-foreground/30">·</span>
+                                <span>Meta AI</span>
+                                <span className="text-muted-foreground/30">·</span>
+                                <span>Google</span>
+                            </div>
                         </div>
                     </motion.div>
                 </div>

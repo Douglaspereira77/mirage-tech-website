@@ -12,6 +12,17 @@ const formSchema = z.object({
     message: z.string().min(10),
 });
 
+const auditFormSchema = z.object({
+    businessName: z.string().min(1),
+    websiteUrl: z.string().min(1),
+    industry: z.string().min(1),
+    challenges: z.array(z.string()),
+    fullName: z.string().min(2),
+    email: z.string().email(),
+    phone: z.string().min(8),
+    specificNotes: z.string().optional(),
+});
+
 
 export async function sendContactEmail(formData: z.infer<typeof formSchema>) {
     console.log("Server Action called with:", formData);

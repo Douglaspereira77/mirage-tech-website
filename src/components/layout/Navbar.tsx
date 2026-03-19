@@ -31,9 +31,10 @@ const navItems = [
 ];
 
 const serviceLinks = [
+    { name: "AI Visibility Audit", href: "/audit" },
+    { name: "AI-SEO & AEO", href: "/services/ai-seo" },
     { name: "WhatsApp Automation", href: "/services/whatsapp-automation" },
-    { name: "AI Automation & Custom Business Tools", href: "/services/custom-tools" },
-    { name: "AI Consultancy", href: "/ai-consultancy" },
+    { name: "BestOfKuwait Partnership", href: "/partnership/bestofkuwait" },
     { name: "All Services", href: "/services" },
 ];
 

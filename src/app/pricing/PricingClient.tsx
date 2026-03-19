@@ -8,54 +8,53 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription }
 const plans = [
     {
         name: "Starter",
-        price: "100",
+        price: "300",
         period: "/mo",
-        description: "Perfect for small businesses starting with a single chatbot or automation.",
+        description: "The 'Visibility Foundation' — Automated review systems and basic local search dominance.",
         features: [
-            "Single Platform (WhatsApp OR Instagram)",
-            "AI Chatbot with FAQ Handling",
-            "Bilingual Support (Arabic & English)",
-            "Email Support",
-            "Monthly Performance Reports",
+            "AI Reputation & Review System",
+            "Google Maps Visibility (GBP)",
+            "Automated Multi-Channel Replies",
+            "Bilingual Lead Routing",
+            "Monthly ROI Growth Report",
         ],
         missing: [
-            "Multi-platform integration",
-            "CRM / Shopify Integration",
-            "Priority Support",
+            "AI Lead & Growth Engine",
+            "Bilingual Conversion Chatbots",
+            "AI-SEO / AEO Optimization",
         ],
     },
     {
-        name: "Business",
-        price: "250",
+        name: "Growth",
+        price: "650",
         period: "/mo",
-        description: "For growing companies needing multi-channel automation.",
+        description: "The 'Revenue Engine' — A full-scale AI lead capture and conversion system.",
         featured: true,
         features: [
-            "Two Platforms Included",
-            "Advanced AI Context Awareness",
-            "CRM / Calendar Integration",
-            "Priority Email & Chat Support",
-            "Live Analytics Dashboard",
-            "Human Handoff Protocols",
+            "Everything in Starter+",
+            "Bilingual AI Conversion Chatbots",
+            "WhatsApp & Instagram Lead Triage",
+            "AI-SEO & AEO Hub Optimization",
+            "AI Appointment Booking System",
+            "Weekly Performance Dashboard",
         ],
         missing: [
-            "Dedicated Account Manager",
-            "Custom Model Training",
+            "Multi-location Enterprise Support",
+            "Advanced Revenue Recovery Campaigns",
         ],
     },
     {
-        name: "Enterprise",
-        price: "Custom",
-        period: "",
-        description: "Full-scale AI transformation for large organizations.",
+        name: "Scale",
+        price: "1000",
+        period: "/mo",
+        description: "The 'Dominance System' — Total market capture with advanced AI voice and recovery.",
         features: [
-            "All Platforms (WhatsApp, Insta, Web)",
-            "Custom AI Model Training",
-            "24/7 Dedicated Support",
-            "Dedicated Account Manager",
-            "Full CRM & ERP Integration",
-            "SLA Guarantees",
-            "On-premise Deployment Options",
+            "Everything in Growth+",
+            "Enterprise Multi-location Engine",
+            "AI Revenue Recovery Engines",
+            "AI Voice Call Handling (Beta)",
+            "Dedicated Growth Strategist",
+            "Unlimited Workflow Automations",
         ],
         missing: [],
     },
@@ -70,7 +69,7 @@ export default function PricingPage() {
                         Transparent Pricing
                     </h1>
                     <p className="text-xl text-muted-foreground">
-                        Simple pricing that scales with your business. All prices in KWD.
+                        Simple pricing that scales with your business. All prices in USD.
                     </p>
                 </div>
 
@@ -97,7 +96,7 @@ export default function PricingPage() {
                                         <div className="flex flex-col items-center">
                                             <span className="text-sm text-muted-foreground">From </span>
                                             <div className="flex items-baseline gap-1">
-                                                <span className="text-4xl font-bold">{plan.price} KWD</span>
+                                                <span className="text-4xl font-bold">${plan.price}</span>
                                                 <span className="text-muted-foreground">{plan.period}</span>
                                             </div>
                                         </div>
@@ -133,7 +132,7 @@ export default function PricingPage() {
                     <div className="bg-muted/50 rounded-xl p-6 border">
                         <p className="font-semibold text-lg mb-2">💡 Annual Plans Available</p>
                         <p className="text-muted-foreground">
-                            Save with annual billing — starting from <strong>1,000 KWD/year</strong>. Contact us for details.
+                            Save with annual billing — starting from <strong>$3,000/year</strong>. Contact us for details.
                         </p>
                     </div>
                     <p className="text-sm text-muted-foreground">

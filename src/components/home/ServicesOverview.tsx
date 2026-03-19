@@ -8,32 +8,32 @@ import { motion } from "framer-motion";
 
 const pillars = [
     {
-        title: "Conversational AI",
-        subtitle: "WhatsApp & Instagram Automation",
+        title: "AI Reviews & Reputation",
+        subtitle: "Google & Maps Dominance",
         description:
-            "Automate customer support, order tracking, lead qualification, and appointment scheduling on WhatsApp and Instagram — 24/7, in Arabic and English.",
+            "Automate review generation and respond to customer feedback in seconds. We turn happy customers into your best marketing engine on autopilot.",
+        icon: Sparkles,
+        href: "/services/reputation",
+        color: "text-amber-500",
+        bgGlow: "from-amber-500/10 via-amber-500/5 to-transparent",
+    },
+    {
+        title: "AI Chat & Lead Capture",
+        subtitle: "WhatsApp & Web Integration",
+        description:
+            "Don't lose another lead to slow replies. Our bilingual AI agents handle inquiries, qualify leads, and book appointments on WhatsApp and Web 24/7.",
         icon: MessageCircle,
         href: "/services/whatsapp-automation",
         color: "text-green-500",
         bgGlow: "from-green-500/10 via-green-500/5 to-transparent",
     },
     {
-        title: "Custom Business Tools",
-        subtitle: "Rapid App Development",
+        title: "AI Follow-Up & Reactivation",
+        subtitle: "Revenue Recovery Systems",
         description:
-            "Turn your idea into a deployed, production-ready web application in days using AI-accelerated development. Modern stack. You own the code.",
-        icon: Sparkles,
-        href: "/services/custom-tools",
-        color: "text-amber-500",
-        bgGlow: "from-amber-500/10 via-amber-500/5 to-transparent",
-    },
-    {
-        title: "AI Consultancy",
-        subtitle: "Enterprise Strategy & Deployment",
-        description:
-            "We map your workflows, identify AI opportunities, and build an implementation roadmap. From process automation to custom model training.",
+            "Turn missed calls and old leads into fresh cashflow. Automated AI follow-ups that sound human and get results for clinics, salons, and more.",
         icon: Brain,
-        href: "/ai-consultancy",
+        href: "/services/follow-up",
         color: "text-violet-500",
         bgGlow: "from-violet-500/10 via-violet-500/5 to-transparent",
     },

@@ -15,16 +15,16 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.gomiragetech.com"),
   title: {
-    default: "Mirage Tech AI | AI Automation & Custom Business Tools Agency Kuwait",
+    default: "Mirage Tech AI | AI Visibility & Lead Systems for Kuwait SMBs",
     template: "%s | Mirage Tech AI",
   },
-  description: "Top AI automation agency in Kuwait and the Middle East. We specialize in Done-For-You automation, WhatsApp chatbots, AI Automation & Custom Business Tools, and Strategic AI Consultancy to transform your business operations.",
+  description: "Dominant AI visibility and lead generation systems for Kuwait businesses. Specialists in AI reviews engine, WhatsApp automation, and bilingual lead capture.",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://www.gomiragetech.com",
-    title: "Mirage Tech AI | AI Automation & Custom Business Tools Agency Kuwait",
-    description: "Top AI automation agency in Kuwait and the Middle East. Specialized in Custom Business Tools and WhatsApp Automation.",
+    title: "Mirage Tech AI | AI Visibility & Lead Systems for Kuwait SMBs",
+    description: "Dominant AI visibility and lead generation systems for Kuwait businesses. Specialized in AI reviews engine and WhatsApp Automation.",
     siteName: "Mirage Tech AI",
     images: [
       {

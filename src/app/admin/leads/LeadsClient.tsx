@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { RefreshCw, AlertCircle, Building2, Send, ExternalLink, LogOut } from "lucide-react";
+import { RefreshCw, AlertCircle, Building2, Send, ExternalLink, LogOut, Video, Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import type { RestaurantLead } from "@/lib/bok-api";
 import ProposalDialog from "./ProposalDialog";
@@ -24,7 +24,7 @@ function classifyLead(lead: RestaurantLead): PipelineStage {
   return "almost_complete";
 }
 
-function LeadCard({ lead, index, onSendProposal }: { lead: RestaurantLead; index: number; onSendProposal: (lead: RestaurantLead) => void }) {
+function LeadCard({ lead, index, onSendProposal, onGenerateVideo, isGenerating }: { lead: RestaurantLead; index: number; onSendProposal: (lead: RestaurantLead) => void; onGenerateVideo: (lead: RestaurantLead) => void; isGenerating: boolean }) {
   const stage = STAGES.find((s) => s.key === classifyLead(lead))!;
 
   return (
@@ -68,6 +68,20 @@ function LeadCard({ lead, index, onSendProposal }: { lead: RestaurantLead; index
               <Send className="w-3.5 h-3.5 mr-1.5" />
               Send Proposal
             </Button>
+            <Button
+              size="sm"
+              variant="outline"
+              className="flex-1 bg-primary/10 text-primary hover:bg-primary/20 border-primary/20"
+              onClick={() => onGenerateVideo(lead)}
+              disabled={isGenerating}
+            >
+              {isGenerating ? (
+                <Loader2 className="w-3.5 h-3.5 mr-1.5 animate-spin" />
+              ) : (
+                <Video className="w-3.5 h-3.5 mr-1.5" />
+              )}
+              {isGenerating ? "Generating..." : "Generate Video"}
+            </Button>
             {lead.bokUrl && (
               <Button
                 size="sm"
@@ -103,11 +117,33 @@ export default function LeadsClient() {
   const [error, setError] = useState<string | null>(null);
   const [selectedLead, setSelectedLead] = useState<RestaurantLead | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [generatingLeadId, setGeneratingLeadId] = useState<string | null>(null);
   const router = useRouter();
 
   async function handleLogout() {
     await fetch("/api/admin/auth", { method: "DELETE" });
     router.push("/admin/login");
+  }
+
+  async function handleGenerateVideo(lead: RestaurantLead) {
+    if (generatingLeadId) return;
+    setGeneratingLeadId(lead.id);
+    setError(null);
+    try {
+      const res = await fetch("/api/admin/demo-drop", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ leadId: lead.id, name: lead.name, category: lead.category }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Failed to generate video");
+      const cleanLeadId = lead.id.replace(/[^a-zA-Z0-9_-]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '').toLowerCase();
+      alert(`Video generated successfully! Link: /demo/${cleanLeadId}?name=${encodeURIComponent(lead.name)}`);
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setGeneratingLeadId(null);
+    }
   }
 
   async function fetchLeads() {
@@ -223,7 +259,7 @@ export default function LeadsClient() {
                   </p>
                 ) : (
                   grouped[stage.key].map((lead, i) => (
-                    <LeadCard key={lead.id} lead={lead} index={i} onSendProposal={(l) => { setSelectedLead(l); setDialogOpen(true); }} />
+                    <LeadCard key={lead.id} lead={lead} index={i} onSendProposal={(l) => { setSelectedLead(l); setDialogOpen(true); }} onGenerateVideo={handleGenerateVideo} isGenerating={generatingLeadId === lead.id} />
                   ))
                 )}
               </div>
