@@ -83,3 +83,66 @@ export async function sendContactEmail(formData: z.infer<typeof formSchema>) {
         return { error: error.message || "Failed to send email" };
     }
 }
+
+export async function sendAuditEmail(formData: z.infer<typeof auditFormSchema>) {
+    console.log("Audit Server Action called with:", formData);
+
+    const smtpUser = process.env.SMTP_USER;
+    const smtpPass = process.env.SMTP_PASS;
+    const smtpHost = process.env.SMTP_HOST || "smtp.hostinger.com";
+    const smtpPort = parseInt(process.env.SMTP_PORT || "465");
+
+    if (!smtpUser || !smtpPass) {
+        console.error("Missing SMTP credentials (SMTP_USER or SMTP_PASS)");
+        return { error: "Server configuration error: Missing Email Credentials" };
+    }
+
+    const validatedFields = auditFormSchema.safeParse(formData);
+
+    if (!validatedFields.success) {
+        console.error("Audit Validation failed:", validatedFields.error);
+        return { error: "Invalid form data" };
+    }
+
+    const { businessName, websiteUrl, industry, challenges, fullName, email, phone, specificNotes } = validatedFields.data;
+
+    try {
+        console.log("Attempting to send audit email via SMTP (" + smtpHost + ")...");
+
+        const transporter = nodemailer.createTransport({
+            host: smtpHost,
+            port: smtpPort,
+            secure: true,
+            auth: {
+                user: smtpUser,
+                pass: smtpPass,
+            },
+        });
+
+        const info = await transporter.sendMail({
+            from: `"Mirage Tech AI" <${smtpUser}>`,
+            to: "info@gomiragetech.com",
+            replyTo: email,
+            subject: `New AI Audit Request from ${businessName}`,
+            html: `
+        <h2>New Audit Request from Website</h2>
+        <p><strong>Business Name:</strong> ${businessName}</p>
+        <p><strong>Website:</strong> ${websiteUrl}</p>
+        <p><strong>Industry:</strong> ${industry}</p>
+        <p><strong>Challenges:</strong> ${challenges.join(", ")}</p>
+        <hr />
+        <h3>Contact Info</h3>
+        <p><strong>Name:</strong> ${fullName}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Specific Notes:</strong> ${specificNotes || "None"}</p>
+      `,
+        });
+
+        console.log("Audit Email sent successfully:", info.messageId);
+        return { success: true, data: { id: info.messageId } };
+    } catch (error: any) {
+        console.error("Audit Server error:", error);
+        return { error: error.message || "Failed to send audit request" };
+    }
+}
