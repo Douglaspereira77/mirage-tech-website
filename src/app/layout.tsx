@@ -47,6 +47,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Chatbot } from "@/components/Chatbot";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { MetaPixel } from "@/components/analytics/MetaPixel";
 
 export default function RootLayout({
   children,
@@ -113,6 +115,8 @@ export default function RootLayout({
           </main>
           <Footer />
           <Chatbot />
+          <GoogleAnalytics />
+          <MetaPixel />
         </ThemeProvider>
       </body>
     </html>

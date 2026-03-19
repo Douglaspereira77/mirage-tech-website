@@ -221,14 +221,19 @@ export function Chatbot() {
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 className={cn(
-                    "h-14 w-14 rounded-full shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-105",
+                    "h-14 w-14 rounded-full shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-105 relative",
                     isOpen
                         ? "bg-muted text-foreground rotate-90 scale-0 opacity-0"
                         : "bg-primary text-primary-foreground scale-100 opacity-100"
                 )}
                 style={{ position: isOpen ? 'absolute' : 'relative' }}
             >
+                {!isOpen && (
+                    <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-20 pointer-events-none"></span>
+                )}
                 <MessageSquare size={26} />
+                {/* Visual badge to show it's active */}
+                <span className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 border-2 border-background rounded-full"></span>
             </button>
         </div>
     );

@@ -100,6 +100,8 @@ export function Hero() {
                     fill
                     className="object-cover opacity-20 dark:opacity-40"
                     priority
+                    quality={75}
+                    sizes="100vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/50 to-background/90 z-0" />
             </div>
