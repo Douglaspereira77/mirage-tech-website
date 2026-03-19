@@ -57,6 +57,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `
+              var _iub = _iub || [];
+              _iub.csConfiguration = {"siteId":4467532,"cookiePolicyId":71050831,"lang":"en","storage":{"useSiteId":true}};
+            `,
+          }}
+        />
+        <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/4467532.js" />
+        <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js" />
+        <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charSet="UTF-8" async />
+      </head>
       <body
         className={`${inter.variable} ${outfit.variable} antialiased font-sans flex flex-col min-h-screen`}
         suppressHydrationWarning
