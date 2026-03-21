@@ -21,23 +21,23 @@ export default function Home() {
                 "name": "What is Mirage Tech AI?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Mirage Tech AI is a premier AI automation agency based in Kuwait. We specialize in rapidly deploying custom AI solutions like WhatsApp chatbots, Instagram DM automation, and custom web applications (AI Automation & Custom Business Tools) for businesses across the Middle East."
+                  "text": "Mirage Tech AI is a premier AI growth and automation agency based in Kuwait. We specialize in deploying powerful AI systems like Growth Engines, Voice Agents, and custom business tools to eliminate manual work and drive revenue."
                 }
               },
               {
                 "@type": "Question",
-                "name": "How long does it take to build an AI chatbot?",
+                "name": "How long does it take to deploy an AI system?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Standard WhatsApp or Instagram chatbots can be deployed in under 7 days. For highly complex, custom-trained LLMs connected to your proprietary CRM, timelines usually range from 2 to 4 weeks."
+                  "text": "Standard AI Growth Engines and Reputation systems can be deployed in under 7 days. For highly complex operations involving custom CRM integrations and specialized Voice Agents, delivery ranges from 2 to 4 weeks."
                 }
               },
               {
                 "@type": "Question",
-                "name": "Do your AI solutions support Arabic?",
+                "name": "Do your AI systems support Arabic?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Yes. All our AI deployments feature native bilingual support, understanding and generating fluid Arabic (including GCC dialects) and English with enterprise-grade accuracy."
+                  "text": "Yes. Every Mirage Tech AI system features full bilingual support, handling both Arabic (including GCC dialects) and English with enterprise-grade accuracy for the Kuwait market."
                 }
               }
             ]

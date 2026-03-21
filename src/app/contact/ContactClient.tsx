@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -22,8 +23,9 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
-import { Loader2, Mail, MapPin, Phone } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Loader2, Mail, MapPin, Phone, Search, MessageSquare, ArrowRight, ShieldCheck } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { sendContactEmail } from "./actions";
 
 const formSchema = z.object({
@@ -80,66 +82,101 @@ export default function ContactPage() {
     return (
         <div className="flex flex-col min-h-screen bg-background pt-20">
             <div className="container mx-auto px-4 md:px-6 py-8 md:py-12">
-                <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12 space-y-4">
+                <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
                     <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">
-                        Get in Touch
+                        Let&apos;s Grow Your Business
                     </h1>
                     <p className="text-xl text-muted-foreground">
-                        Ready to transform your customer communication? Let's talk.
+                        Choose the fastest path to results.
                     </p>
                 </div>
 
-                <div className="flex flex-col items-center gap-16 max-w-4xl mx-auto">
-                    {/* Contact Info */}
-                    <div className="w-full space-y-8 flex flex-col items-center text-center">
-                        <h2 className="text-2xl font-bold">Contact Information</h2>
-                        <div className="grid sm:grid-cols-3 gap-6 w-full">
-                            <Card className="hover:border-primary/50 transition-colors">
-                                <CardContent className="flex flex-col items-center gap-4 p-8 text-center">
-                                    <div className="p-3 bg-primary/10 rounded-full text-primary">
-                                        <Mail className="w-6 h-6" />
-                                    </div>
-                                    <div>
-                                        <h3 className="font-semibold mb-1">Email Us</h3>
-                                        <p className="text-muted-foreground text-sm">info@gomiragetech.com</p>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                            <Card className="hover:border-primary/50 transition-colors">
-                                <CardContent className="flex flex-col items-center gap-4 p-8 text-center">
-                                    <div className="p-3 bg-primary/10 rounded-full text-primary">
-                                        <Phone className="w-6 h-6" />
-                                    </div>
-                                    <div>
-                                        <h3 className="font-semibold mb-1">WhatsApp</h3>
-                                        <p className="text-muted-foreground text-sm">
-                                            <a href="https://wa.me/+96597524391" target="_blank" rel="noopener noreferrer" className="hover:text-primary">
-                                                +965 97524391
-                                            </a>
-                                        </p>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                            <Card className="hover:border-primary/50 transition-colors">
-                                <CardContent className="flex flex-col items-center gap-4 p-8 text-center">
-                                    <div className="p-3 bg-primary/10 rounded-full text-primary">
-                                        <Phone className="w-6 h-6" />
-                                    </div>
-                                    <div>
-                                        <h3 className="font-semibold mb-1">Call Us</h3>
-                                        <p className="text-muted-foreground text-sm">
-                                            <a href="tel:+96567067633" className="hover:text-primary">
-                                                +965 67067633
-                                            </a>
-                                        </p>
-                                    </div>
-                                </CardContent>
-                            </Card>
+                <div className="max-w-5xl mx-auto">
+                    <Tabs defaultValue="audit" className="w-full space-y-12">
+                        <div className="flex justify-center">
+                            <TabsList className="grid w-full max-w-md grid-cols-2 h-12">
+                                <TabsTrigger value="audit" className="text-base">Free Audit</TabsTrigger>
+                                <TabsTrigger value="contact" className="text-base">Direct Inquiry</TabsTrigger>
+                            </TabsList>
                         </div>
-                    </div>
 
-                    {/* Contact Form */}
-                    <div className="w-full max-w-2xl bg-card p-8 md:p-12 rounded-2xl border shadow-sm">
+                        <TabsContent value="audit" className="focus-visible:ring-0">
+                            <div className="grid md:grid-cols-2 gap-8 items-center bg-muted/30 p-8 rounded-3xl border">
+                                <div className="space-y-6">
+                                    <div className="inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium text-chart-2 bg-chart-2/10">
+                                        <Search className="mr-2 h-3 w-3" />
+                                        <span>Recommended for SMBs</span>
+                                    </div>
+                                    <h2 className="text-3xl font-bold tracking-tight">Claim Your Free Growth &amp; Visibility Audit</h2>
+                                    <p className="text-lg text-muted-foreground">
+                                        We&apos;ll analyze your business, find exactly where you are losing leads, and show you how to fix it with AI.
+                                    </p>
+                                    <ul className="space-y-3">
+                                        <li className="flex items-center gap-3 text-sm">
+                                            <ShieldCheck className="w-5 h-5 text-chart-2" />
+                                            <span>Full GMB & SEO performance check</span>
+                                        </li>
+                                        <li className="flex items-center gap-3 text-sm">
+                                            <ShieldCheck className="w-5 h-5 text-chart-2" />
+                                            <span>Lead response-time leakage report</span>
+                                        </li>
+                                        <li className="flex items-center gap-3 text-sm">
+                                            <ShieldCheck className="w-5 h-5 text-chart-2" />
+                                            <span>3-step AI implementation roadmap</span>
+                                        </li>
+                                    </ul>
+                                    <Button asChild size="lg" className="h-14 px-8 text-lg rounded-full w-full sm:w-auto">
+                                        <Link href="/audit">
+                                            Start My Free Audit
+                                            <ArrowRight className="ml-2 h-5 w-5" />
+                                        </Link>
+                                    </Button>
+                                    <p className="text-xs text-muted-foreground italic">Takes 2 minutes. No credit card required.</p>
+                                </div>
+                                <div className="relative aspect-video rounded-2xl overflow-hidden border shadow-2xl">
+                                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-chart-2/20 flex items-center justify-center">
+                                       <Search className="w-20 h-20 text-primary animate-pulse" />
+                                    </div>
+                                </div>
+                            </div>
+                        </TabsContent>
+
+                        <TabsContent value="contact" className="focus-visible:ring-0">
+                            <div className="grid md:grid-cols-5 gap-12">
+                                {/* Contact Info */}
+                                <div className="md:col-span-2 space-y-6">
+                                    <div className="space-y-2">
+                                        <h2 className="text-2xl font-bold">Specific Inquiry?</h2>
+                                        <p className="text-muted-foreground">Have a specific project or question? Send us a message and we&apos;ll reply within 24 hours.</p>
+                                    </div>
+                                    <div className="space-y-4">
+                                        <Card className="bg-muted/30 border-none">
+                                            <CardContent className="flex items-center gap-4 p-4">
+                                                <div className="p-2 bg-primary/10 rounded-lg text-primary">
+                                                    <Mail className="w-5 h-5" />
+                                                </div>
+                                                <div>
+                                                    <p className="text-xs text-muted-foreground uppercase font-semibold">Email</p>
+                                                    <p className="text-sm font-medium">info@gomiragetech.com</p>
+                                                </div>
+                                            </CardContent>
+                                        </Card>
+                                        <Card className="bg-muted/30 border-none">
+                                            <CardContent className="flex items-center gap-4 p-4">
+                                                <div className="p-2 bg-primary/10 rounded-lg text-primary">
+                                                    <Phone className="w-5 h-5" />
+                                                </div>
+                                                <div>
+                                                    <p className="text-xs text-muted-foreground uppercase font-semibold">WhatsApp</p>
+                                                    <p className="text-sm font-medium">+965 97524391</p>
+                                                </div>
+                                            </CardContent>
+                                        </Card>
+                                    </div>
+                                </div>
+
+                                {/* Form */}
+                                <div className="md:col-span-3 bg-card p-8 rounded-2xl border shadow-sm">
                         {isSubmitted ? (
                             <div className="h-full flex flex-col items-center justify-center text-center space-y-4 min-h-[400px]">
                                 <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4">
@@ -224,10 +261,10 @@ export default function ContactPage() {
                                                         </SelectTrigger>
                                                     </FormControl>
                                                     <SelectContent>
-                                                        <SelectItem value="whatsapp">WhatsApp / Instagram Automation</SelectItem>
+                                                        <SelectItem value="whatsapp">AI Growth Engines & Automation</SelectItem>
                                                         <SelectItem value="vibe-coding">Custom App Development & Business Tools</SelectItem>
                                                         <SelectItem value="consultancy">AI Consultancy & Strategy</SelectItem>
-                                                        <SelectItem value="web-chatbot">Web Chatbot</SelectItem>
+                                                        <SelectItem value="web-chatbot">AI Voice & Chat Systems</SelectItem>
                                                         <SelectItem value="all">Not Sure / General Inquiry</SelectItem>
                                                     </SelectContent>
                                                 </Select>
@@ -265,7 +302,10 @@ export default function ContactPage() {
                                 </form>
                             </Form>
                         )}
-                    </div>
+                                </div>
+                            </div>
+                        </TabsContent>
+                    </Tabs>
                 </div>
             </div>
         </div>

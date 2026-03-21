@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import ServicesClient from "./ServicesClient";
 
 export const metadata: Metadata = {
-    title: "AI Automation & Chatbot Services | Mirage Tech AI",
-    description: "Explore our Done-For-You AI Automation services including WhatsApp chatbots, AI Automation & Custom Business Tools, and Strategic AI Consultancy in Kuwait.",
+    title: "AI Growth & Automation Systems | Mirage Tech AI",
+    description: "Explore our Done-For-You AI Automation services including AI Growth Engines, AI Voice Agents, and Strategic AI Consultancy in Kuwait.",
 };
 
 export default function ServicesPage() {
@@ -22,7 +22,7 @@ export default function ServicesPage() {
                                     "@type": "Organization",
                                     "name": "Mirage Tech AI"
                                 },
-                                "description": "Custom AI chatbots, WhatsApp automation, and rapid application development (AI Automation & Custom Business Tools).",
+                                "description": "Custom AI Growth Engines, AI Voice Agents, and rapid business tool development.",
                                 "serviceType": "AI Development & Automation"
                             },
                             {
@@ -48,10 +48,10 @@ export default function ServicesPage() {
                                     },
                                     {
                                         "@type": "Question",
-                                        "name": "Can your automated chatbots connect to my Shopify store?",
+                                        "name": "Can your AI Growth Engines connect to my existing systems?",
                                         "acceptedAnswer": {
                                             "@type": "Answer",
-                                            "text": "Yes. Our WhatsApp and Web chatbots seamlessly integrate with Shopify, WooCommerce, and custom backends, allowing customers to query inventory, track orders, and even checkout directly inside the chat window."
+                                            "text": "Yes. Our AI systems seamlessly integrate with Shopify, WooCommerce, CRMs (like GoHighLevel), and custom backends, allowing you to automate customer follow-up, inventory queries, and even checkout directly 24/7."
                                         }
                                     },
                                     {

@@ -65,7 +65,7 @@ export default function AIConsultancyPage() {
                                         "name": "How much does AI consultancy cost in the Middle East?",
                                         "acceptedAnswer": {
                                             "@type": "Answer",
-                                            "text": "Costs vary based on the scope, from an initial $2,000 alignment workshop to $50,000+ for enterprise-wide custom model training and deployment. We offer transparent pricing with defined ROI models before any build phases begin."
+                                            "text": "Consultancy and implementation costs are custom-quoted based on your business size, complexity, and expected ROI. We focus on providing high-value AI solutions that pay for themselves through recovered revenue and automated growth."
                                         }
                                     },
                                     {

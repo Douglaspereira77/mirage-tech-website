@@ -36,7 +36,7 @@ export function Hero() {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="text-xl text-muted-foreground max-w-[42rem] mx-auto leading-relaxed"
                     >
-                        We build high-performance AI growth engines and bilingual conversion systems that ruthlessly increase leads for Kuwaiti businesses. Done-for-you. Deployed in days.
+                        Every missed call or slow WhatsApp reply is money lost. We build simple AI systems that follow up with every lead and book appointments for your Kuwaiti business 24/7.<br />Stop the leakage and start growing.
                     </motion.p>
 
                     <motion.div

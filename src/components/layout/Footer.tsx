@@ -40,7 +40,6 @@ export function Footer() {
                         <ul className="space-y-2 text-sm text-muted-foreground">
                             <li><Link href="/about" className="hover:text-primary">About Us</Link></li>
                             <li><Link href="/portfolio" className="hover:text-primary">Portfolio</Link></li>
-                            <li><Link href="/pricing" className="hover:text-primary">Pricing</Link></li>
                             <li><Link href="/contact" className="hover:text-primary">Contact</Link></li>
                         </ul>
                     </div>
@@ -49,8 +48,8 @@ export function Footer() {
                     <div className="space-y-4">
                         <h4 className="font-semibold text-foreground">Services</h4>
                         <ul className="space-y-2 text-sm text-muted-foreground">
-                            <li><Link href="/services/whatsapp-automation" className="hover:text-primary">WhatsApp Automation</Link></li>
-                            <li><Link href="/services/custom-tools" className="hover:text-primary">AI Automation & Custom Business Tools</Link></li>
+                            <li><Link href="/services/ai-automation" className="hover:text-primary">AI Automation Systems</Link></li>
+                            <li><Link href="/services/custom-tools" className="hover:text-primary">Custom AI Business Tools</Link></li>
                             <li><Link href="/ai-consultancy" className="hover:text-primary">AI Consultancy</Link></li>
                             <li><Link href="/services" className="hover:text-primary">All Services</Link></li>
                         </ul>

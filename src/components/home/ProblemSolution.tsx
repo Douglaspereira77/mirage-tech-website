@@ -9,10 +9,10 @@ export function ProblemSolution() {
             <div className="container mx-auto px-4 md:px-6">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">
-                        Your Competitors Are Already Using AI
+                        Is Your Business Losing Money on Auto-Pilot?
                     </h2>
                     <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Manual processes are costing you time, money, and customers. AI changes the game.
+                        In Kuwait, if you don&apos;t answer a lead in 5 minutes, they&apos;ve already called your competitor.
                     </p>
                 </div>
 
@@ -35,19 +35,19 @@ export function ProblemSolution() {
                         <ul className="space-y-4 max-w-sm mx-auto">
                             <li className="flex items-start gap-3">
                                 <span className="text-destructive mt-1">✕</span>
-                                <span className="text-muted-foreground">Manual replies to hundreds of WhatsApp/Instagram messages</span>
+                                <span className="text-muted-foreground">Slow WhatsApp replies (dead leads)</span>
                             </li>
                             <li className="flex items-start gap-3">
                                 <span className="text-destructive mt-1">✕</span>
-                                <span className="text-muted-foreground">6-month software projects that launch over budget</span>
+                                <span className="text-muted-foreground">Missing calls when you&apos;re busy</span>
                             </li>
                             <li className="flex items-start gap-3">
                                 <span className="text-destructive mt-1">✕</span>
-                                <span className="text-muted-foreground">No AI strategy — watching competitors automate while you wait</span>
+                                <span className="text-muted-foreground">No follow-up on old customer lists</span>
                             </li>
                             <li className="flex items-start gap-3">
                                 <span className="text-destructive mt-1">✕</span>
-                                <span className="text-muted-foreground">Hiring expensive full-time staff for repetitive tasks</span>
+                                <span className="text-muted-foreground">Hiring people for simple, repetitive tasks</span>
                             </li>
                         </ul>
                     </motion.div>
@@ -70,19 +70,19 @@ export function ProblemSolution() {
                         <ul className="space-y-4 max-w-sm mx-auto">
                             <li className="flex items-start gap-3">
                                 <span className="text-chart-2 mt-1">✓</span>
-                                <span className="text-foreground">AI chatbots that handle customers 24/7 in Arabic & English</span>
+                                <span className="text-foreground">AI that replies in seconds (24/7)</span>
                             </li>
                             <li className="flex items-start gap-3">
                                 <span className="text-chart-2 mt-1">✓</span>
-                                <span className="text-foreground">Custom web apps shipped in under 7 days with AI-accelerated frameworks</span>
+                                <span className="text-foreground">Automated missed-call text-backs</span>
                             </li>
                             <li className="flex items-start gap-3">
                                 <span className="text-chart-2 mt-1">✓</span>
-                                <span className="text-foreground">Clear AI roadmaps that turn strategy into working systems</span>
+                                <span className="text-foreground">Re-engaging old leads on auto-pilot</span>
                             </li>
                             <li className="flex items-start gap-3">
                                 <span className="text-chart-2 mt-1">✓</span>
-                                <span className="text-foreground">Fraction of the cost — done-for-you, no hiring needed</span>
+                                <span className="text-foreground">Scaling without hiring more staff</span>
                             </li>
                         </ul>
                     </motion.div>

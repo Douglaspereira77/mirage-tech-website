@@ -2,26 +2,26 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, ArrowRight, Building2, User, Mail, Phone, ChevronRight, Sparkles, TrendingUp, AlertCircle } from "lucide-react";
+import { Check, ArrowRight, Building2, User, Mail, Phone, ChevronRight, Sparkles, TrendingUp, AlertCircle, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 const steps = [
     {
-        title: "Company Info",
-        icon: Building2,
-        description: "Tell us about your business."
-    },
-    {
-        title: "Growth Needs",
-        icon: TrendingUp,
-        description: "Where are you losing leads?"
-    },
-    {
-        title: "Contact Details",
+        title: "Your Identity",
         icon: User,
-        description: "How can we reach you?"
+        description: "Connect your profile."
+    },
+    {
+        title: "Business Audit",
+        icon: Building2,
+        description: "Identify your target assets."
+    },
+    {
+        title: "Revenue Gaps",
+        icon: TrendingUp,
+        description: "Calculate your leakages."
     }
 ];
 
@@ -57,11 +57,28 @@ export function DiscoveryForm() {
         }));
     };
 
-    const nextStep = () => setCurrentStep((prev) => Math.min(prev + 1, steps.length - 1));
+    const nextStep = async () => {
+        // If finishing Step 1 (Contact Info), push to GHL immediately
+        if (currentStep === 0) {
+            if (!formData.email || !formData.fullName) return;
+            // Fire and forget GHL push
+            try {
+                sendAuditEmail({ ...formData, _partial: true });
+            } catch (e) {}
+        }
+        setCurrentStep((prev) => Math.min(prev + 1, steps.length - 1));
+    };
     const prevStep = () => setCurrentStep((prev) => Math.max(prev - 1, 0));
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        
+        // If they press Enter on a Step that isn't the last one, move to Next Step
+        if (currentStep < steps.length - 1) {
+            nextStep();
+            return;
+        }
+
         setIsSubmitting(true);
         
         try {
@@ -131,8 +148,56 @@ export function DiscoveryForm() {
                                     className="space-y-6"
                                 >
                                     <div className="space-y-2">
-                                        <h3 className="text-2xl font-bold italic">Step 1: Company Profile</h3>
-                                        <p className="text-muted-foreground">We need your website to audit your search presence.</p>
+                                        <h3 className="text-2xl font-bold italic underline decoration-primary/30">Phase 1: Identity & Delivery</h3>
+                                        <p className="text-muted-foreground">Where should we deliver your custom Revenue Growth Audit?</p>
+                                    </div>
+                                    <div className="space-y-4">
+                                        <div className="space-y-2">
+                                            <Input 
+                                                name="fullName"
+                                                value={formData.fullName}
+                                                onChange={handleInputChange}
+                                                placeholder="Full Name" 
+                                                className="h-12 rounded-xl" 
+                                                required 
+                                            />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <Input 
+                                                type="email" 
+                                                name="email"
+                                                value={formData.email}
+                                                onChange={handleInputChange}
+                                                placeholder="Work Email" 
+                                                className="h-12 rounded-xl" 
+                                                required 
+                                            />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <Input 
+                                                name="phone"
+                                                value={formData.phone}
+                                                onChange={handleInputChange}
+                                                placeholder="WhatsApp Number" 
+                                                className="h-12 rounded-xl" 
+                                                required 
+                                            />
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            )}
+
+                            {currentStep === 1 && (
+                                <motion.div
+                                    key="step2"
+                                    initial={{ opacity: 0, x: 20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    exit={{ opacity: 0, x: -20 }}
+                                    className="space-y-6"
+                                >
+                                    <div className="space-y-2">
+                                        <h3 className="text-2xl font-bold italic">Phase 2: Revenue Asset Analysis</h3>
+                                        <p className="text-muted-foreground">We need your digital footprint to calculate your total addressable revenue in Kuwait.</p>
                                     </div>
                                     <div className="space-y-4">
                                         <div className="space-y-2">
@@ -175,19 +240,19 @@ export function DiscoveryForm() {
                                 </motion.div>
                             )}
 
-                            {currentStep === 1 && (
+                            {currentStep === 2 && (
                                 <motion.div
-                                    key="step2"
+                                    key="step3"
                                     initial={{ opacity: 0, x: 20 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     exit={{ opacity: 0, x: -20 }}
                                     className="space-y-6"
                                 >
                                     <div className="space-y-2">
-                                        <h3 className="text-2xl font-bold italic text-primary">Step 2: Revenue Gaps</h3>
-                                        <p className="text-muted-foreground">Where are you losing the most customers?</p>
+                                        <h3 className="text-2xl font-bold italic text-primary">Phase 3: Leakage Identification</h3>
+                                        <p className="text-muted-foreground">Where is your business losing the most revenue right now?</p>
                                     </div>
-                                    <div className="grid gap-3">
+                                    <div className="grid gap-3 mb-4">
                                         {[
                                             "Slow response to WhatsApp/Web leads",
                                             "Low Google rating/No reviews",
@@ -206,61 +271,13 @@ export function DiscoveryForm() {
                                             </label>
                                         ))}
                                     </div>
-                                </motion.div>
-                            )}
-
-                            {currentStep === 2 && (
-                                <motion.div
-                                    key="step3"
-                                    initial={{ opacity: 0, x: 20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    exit={{ opacity: 0, x: -20 }}
-                                    className="space-y-6"
-                                >
-                                    <div className="space-y-2">
-                                        <h3 className="text-2xl font-bold italic underline decoration-primary/30">Final Step: Contact</h3>
-                                        <p className="text-muted-foreground">Where should we send your free Loom audit?</p>
-                                    </div>
-                                    <div className="space-y-4">
-                                        <div className="space-y-2">
-                                            <Input 
-                                                name="fullName"
-                                                value={formData.fullName}
-                                                onChange={handleInputChange}
-                                                placeholder="Full Name" 
-                                                className="h-12 rounded-xl" 
-                                                required 
-                                            />
-                                        </div>
-                                        <div className="space-y-2">
-                                            <Input 
-                                                type="email" 
-                                                name="email"
-                                                value={formData.email}
-                                                onChange={handleInputChange}
-                                                placeholder="Work Email" 
-                                                className="h-12 rounded-xl" 
-                                                required 
-                                            />
-                                        </div>
-                                        <div className="space-y-2">
-                                            <Input 
-                                                name="phone"
-                                                value={formData.phone}
-                                                onChange={handleInputChange}
-                                                placeholder="WhatsApp Number" 
-                                                className="h-12 rounded-xl" 
-                                                required 
-                                            />
-                                        </div>
-                                        <Textarea 
-                                            name="specificNotes"
-                                            value={formData.specificNotes}
-                                            onChange={handleInputChange}
-                                            placeholder="Any specific challenges we should look at?" 
-                                            className="min-h-[100px] rounded-xl" 
-                                        />
-                                    </div>
+                                    <Textarea 
+                                        name="specificNotes"
+                                        value={formData.specificNotes}
+                                        onChange={handleInputChange}
+                                        placeholder="Any specific challenges or goals we should know about?" 
+                                        className="min-h-[100px] rounded-xl" 
+                                    />
                                 </motion.div>
                             )}
                         </AnimatePresence>
@@ -288,7 +305,7 @@ export function DiscoveryForm() {
                                     className="rounded-full px-12 bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/20"
                                     disabled={isSubmitting}
                                 >
-                                    {isSubmitting ? "Sending..." : "Submit Audit Request"}
+                                    {isSubmitting ? "Verifying Application..." : "Submit My Revenue Application"}
                                     {!isSubmitting && <Sparkles className="ml-2 w-4 h-4" />}
                                 </Button>
                             )}
@@ -297,14 +314,22 @@ export function DiscoveryForm() {
                 </form>
             </Card>
 
-            <div className="mt-8 flex items-center justify-center gap-4 text-xs text-muted-foreground">
-                <div className="flex items-center gap-1">
+            <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs text-muted-foreground">
+                <div className="flex items-center gap-1 justify-center">
                     <AlertCircle className="w-3 h-3" />
                     <span>No obligation.</span>
                 </div>
-                <div className="flex items-center gap-1">
+                <div className="flex items-center gap-1 justify-center">
                     <Check className="w-3 h-3 text-emerald-500" />
-                    <span>Free Loom Audit included.</span>
+                    <span>100% Privacy.</span>
+                </div>
+                <div className="flex items-center gap-1 justify-center">
+                    <Globe className="w-3 h-3 text-primary" />
+                    <span>Kuwait Based.</span>
+                </div>
+                <div className="flex items-center gap-1 justify-center">
+                    <Sparkles className="w-3 h-3 text-amber-500" />
+                    <span>Free Video Audit.</span>
                 </div>
             </div>
         </div>

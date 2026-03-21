@@ -148,7 +148,7 @@ export function Chatbot() {
                                         <img src="/logo.png" alt="Logo" className="w-8 h-8 object-contain" />
                                     </div>
                                     <p>Hi! I&apos;m Mira. 👋</p>
-                                    <p>Ask me about our AI chatbots, custom app development, pricing, or how we can automate your business.</p>
+                                    <p>Ask me about our AI chatbots, custom app development, or how we can automate your business.</p>
                                     <div className="pt-3">
                                         <a
                                             href={WHATSAPP_URL}

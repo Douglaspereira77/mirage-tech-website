@@ -18,11 +18,8 @@ SERVICES:
 3. AI Voice Agents — Automated call handling and missed call text-back.
 4. AI-SEO & AEO — Optimizing for AI search engines like ChatGPT & Perplexity.
 
-PRICING (USD):
-- Starter (Visibility Foundation): From $300/month
-- Growth (Revenue Engine): From $650/month
-- Scale (Dominance System): From $1,000/month
-- Custom AI Solutions: From $2,000+ per project
+PRICING:
+- Every project is custom-quoted based on your specific revenue goals and automation complexity. We don't do "one size fits all" pricing.
 
 FLOW:
 1. Ask their name.

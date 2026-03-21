@@ -7,23 +7,23 @@ const steps = [
     {
         number: "01",
         icon: Phone,
-        title: "Discovery Call",
+        title: "Audit Your Gaps",
         description:
-            "We jump on a 30-minute call to understand your business, your pain points, and where AI can make the biggest impact.",
+            "We identify exactly where you are losing leads and money in your current business process.",
     },
     {
         number: "02",
         icon: Wrench,
-        title: "Custom Build",
+        title: "Engineer Solutions",
         description:
-            "Our team designs, builds, and tests your solution — whether it's a chatbot, a web app, or a strategic roadmap.",
+            "We build and test your custom AI system to handle your WhatsApp, calls, and customer follow-ups.",
     },
     {
         number: "03",
         icon: Rocket,
-        title: "Deploy & Optimize",
+        title: "Scale Growth",
         description:
-            "We deploy to production and stay by your side. You get ongoing support, analytics, and optimization as your business grows.",
+            "We launch your system and keep it optimized. You focus on your business while AI handles the growth.",
     },
 ];
 

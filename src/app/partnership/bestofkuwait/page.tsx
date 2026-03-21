@@ -85,7 +85,7 @@ export default function BestOfKuwaitPartnership() {
                                         <Zap className="w-5 h-5 text-emerald-600" />
                                     </div>
                                     <span className="text-sm font-bold">Mirage AI Systems</span>
-                                    <span className="text-[10px] uppercase font-bold text-emerald-600/70">Chat • Forms • Automations</span>
+                                    <span className="text-[10px] uppercase font-bold text-emerald-600/70">Engines • Voice • Automations</span>
                                 </div>
                             </div>
                         </div>

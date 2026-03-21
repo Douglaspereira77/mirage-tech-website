@@ -17,7 +17,7 @@ export default function PortfolioPage() {
                         Our Work
                     </h1>
                     <p className="text-xl text-muted-foreground">
-                        High-performance AI systems built to ruthlessly generate leads and revenue for Kuwait businesses.
+                        Simple AI systems that stop your business from losing leads and start generating more revenue.
                     </p>
                 </div>
 
@@ -53,7 +53,7 @@ export default function PortfolioPage() {
                             <div className="space-y-4">
                                 <h3 className="text-3xl md:text-4xl font-bold tracking-tight">BestofKuwait.com</h3>
                                 <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl mx-auto">
-                                    We transformed Kuwait&apos;s leading local directory into a high-intent lead engine, <strong>recovering $40,000+ in annual missed lead value</strong> through optimized search dominance.
+                                    We turned Kuwait&apos;s leading local directory into a customer-generating machine, <strong>recovering $40,000+ in annual lead value</strong> that was previously being missed.
                                 </p>
                             </div>
                             <ul className="grid sm:grid-cols-2 gap-4 text-sm text-foreground/80 max-w-2xl w-full text-left">
@@ -139,13 +139,13 @@ export default function PortfolioPage() {
                 {/* CTA */}
                 <div className="mt-12 md:mt-16 text-center">
                     <div className="bg-muted/50 rounded-3xl p-8 md:p-16 border max-w-3xl mx-auto">
-                        <h2 className="text-3xl font-bold mb-4">Want to be our next case study?</h2>
+                        <h2 className="text-3xl font-bold mb-4">Ready for Your Free Growth Audit?</h2>
                         <p className="text-lg text-muted-foreground mb-8">
-                            Let's build something remarkable together.
+                            We&apos;ll show you exactly where you&apos;re losing leads and how to fix it.
                         </p>
                         <Button asChild size="lg" className="rounded-full">
-                            <Link href="/contact">
-                                Start Your Project
+                            <Link href="/audit">
+                                Claim My Free Audit
                             </Link>
                         </Button>
                     </div>

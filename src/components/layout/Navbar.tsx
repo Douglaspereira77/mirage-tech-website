@@ -25,7 +25,6 @@ import { motion, AnimatePresence } from "framer-motion";
 const navItems = [
     { name: "Home", href: "/" },
     { name: "Portfolio", href: "/portfolio" },
-    { name: "Pricing", href: "/pricing" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
 ];
@@ -33,7 +32,7 @@ const navItems = [
 const serviceLinks = [
     { name: "AI Visibility Audit", href: "/audit" },
     { name: "AI-SEO & AEO", href: "/services/ai-seo" },
-    { name: "WhatsApp Automation", href: "/services/whatsapp-automation" },
+    { name: "AI Automation Systems", href: "/services/ai-automation" },
     { name: "BestOfKuwait Partnership", href: "/partnership/bestofkuwait" },
     { name: "All Services", href: "/services" },
 ];
@@ -96,8 +95,8 @@ export function Navbar() {
                 <div className="flex-1 flex justify-end items-center gap-2">
                     <div className="hidden md:flex items-center gap-2">
                         <ThemeToggle />
-                        <Button asChild size="sm">
-                            <Link href="/contact">Get Started</Link>
+                        <Button asChild size="sm" className="bg-primary hover:bg-primary/90 shadow-md shadow-primary/20">
+                            <Link href="/audit">Free AI Audit</Link>
                         </Button>
                     </div>
 
@@ -170,9 +169,9 @@ export function Navbar() {
                                             {item.name}
                                         </Link>
                                     ))}
-                                    <Button asChild className="mt-4 w-full">
-                                        <Link href="/contact" onClick={() => setIsOpen(false)}>
-                                            Get Started
+                                    <Button asChild className="mt-4 w-full bg-primary hover:bg-primary/90 shadow-md shadow-primary/20">
+                                        <Link href="/audit" onClick={() => setIsOpen(false)}>
+                                            Free AI Audit
                                         </Link>
                                     </Button>
                                 </div>

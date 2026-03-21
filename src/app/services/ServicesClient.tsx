@@ -10,9 +10,9 @@ const automationServices = [
     {
         id: "reviews-engine",
         title: "AI Reputation & Review Systems",
-        problem: "Local businesses in Kuwait often miss leads because of low review counts or slow responses to feedback.",
-        solution: "A fully hands-off system that generates 5-star reviews and uses AI to respond to every customer comment instantly in Arabic and English.",
-        outcome: "Dominant local search ranking and higher trust for clinics, salons, and restaurants.",
+        problem: "Are you losing local Kuwaiti leads to competitors with more stars? Every day you stay at 3.5 stars is another day your revenue leaks to others in Salmiya and Sharq.",
+        solution: "A 100% automated system that generates 5-star reviews on autopilot and uses bilingual AI to respond to every customer comment instantly, boosting your rank.",
+        outcome: "Dominant local search ranking in Kuwait City and absolute trust for your clinic, salon, or restaurant.",
         icon: Sparkles,
         color: "text-amber-500",
         features: [
@@ -24,9 +24,9 @@ const automationServices = [
     {
         id: "growth-engine",
         title: "AI Lead & Growth Engine",
-        problem: "Kuwaiti SMBs lose up to 30% of their WhatsApp and web leads because of delayed human replies.",
-        solution: "Native bilingual AI agents that live on your WhatsApp and website to answer questions, qualify leads, and book appointments 24/7.",
-        outcome: "2x increase in booked appointments without hiring more staff.",
+        problem: "30% of your Kuwaiti WhatsApp leads are dying in your inbox due to slow human replies. If you don't answer in 5 minutes, that customer is gone forever.",
+        solution: "Native bilingual AI Agents that live on your WhatsApp 24/7 to answer questions, qualify leads, and book appointments while you sleep.",
+        outcome: "2x increase in booked appointments across Kuwait without hiring a single extra staff member.",
         icon: MessageCircle,
         color: "text-green-500",
         features: [
@@ -38,9 +38,9 @@ const automationServices = [
     {
         id: "voice-agent",
         title: "AI Voice & Call Handling",
-        problem: "Missed calls are missed revenue. Staff are often too busy to answer every inquiry during peak hours.",
-        solution: "Intelligent AI voice agents that answer calls, handle basic inquiries, and send instant 'Missed Call Text-Backs' on WhatsApp.",
-        outcome: "Zero missed opportunities and 30%+ increase in staff productivity.",
+        problem: "Missed calls are missed revenue. Your staff is too busy to answer every inquiry, leaving thousands of KWD on the table every month in missed bookings.",
+        solution: "Intelligent AI Voice Agents that handle calls, manage inquiries, and send instant 'Missed Call Text-Backs' on WhatsApp to keep the conversation alive.",
+        outcome: "Zero missed opportunities and a 30%+ increase in staff productivity for local Kuwaiti teams.",
         icon: Brain,
         color: "text-blue-500",
         features: [
@@ -52,9 +52,9 @@ const automationServices = [
     {
         id: "revenue-recovery",
         title: "AI Revenue Recovery Engine",
-        problem: "Old leads and 'no-shows' are dead capital sitting in your database or phone.",
-        solution: "Automated AI systems that reach out to missed calls or old databases to reactivate interest and book new sales.",
-        outcome: "Recovered revenue from leads you already paid for.",
+        problem: "You've already paid for your Kuwaiti leads—stop letting them rot. Old databases and 'no-shows' are dead capital sitting in your phone right now.",
+        solution: "Automated AI Reactivation systems that reach out to your old leads and database to spark new interest and book fresh sales instantly.",
+        outcome: "Recovered revenue from the Kuwaiti leads you've already spent your marketing budget on.",
         icon: TrendingUp,
         color: "text-violet-500",
         features: [

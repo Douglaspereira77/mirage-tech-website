@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     default: "Mirage Tech AI | AI Visibility & Lead Systems for Kuwait SMBs",
     template: "%s | Mirage Tech AI",
   },
-  description: "Dominant AI visibility and lead generation systems for Kuwait businesses. Specialists in AI reviews engine, WhatsApp automation, and bilingual lead capture.",
+  description: "Dominant AI visibility and lead generation systems for Kuwait businesses. Specialists in AI reviews engine, AI Growth Engines, and bilingual lead capture.",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://www.gomiragetech.com",
     title: "Mirage Tech AI | AI Visibility & Lead Systems for Kuwait SMBs",
-    description: "Dominant AI visibility and lead generation systems for Kuwait businesses. Specialized in AI reviews engine and WhatsApp Automation.",
+    description: "Dominant AI visibility and lead generation systems for Kuwait businesses. Specialized in AI reviews engine and AI Growth Systems.",
     siteName: "Mirage Tech AI",
     images: [
       {

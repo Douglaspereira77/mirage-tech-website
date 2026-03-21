@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Search, Star, MessageSquare, CheckCircle2, ArrowRight, Play } from "lucide-react";
+import { Search, Star, MessageSquare, CheckCircle2, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import NextImage from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { DiscoveryForm } from "@/components/forms/DiscoveryForm";
 
@@ -35,7 +36,7 @@ export default function AuditPage() {
                             transition={{ delay: 0.2 }}
                             className="text-xl text-muted-foreground"
                         >
-                            Get a free 5-minute Loom video audit of your Google presence, review reputation, and website lead capture. Start dominating local search.
+                            Get a free, comprehensive analysis of your Google presence, review reputation, and website lead capture. See exactly where you are losing customers.
                         </motion.p>
                         <motion.div 
                             initial={{ opacity: 0, y: 20 }}
@@ -98,13 +99,8 @@ export default function AuditPage() {
                                 </div>
                             </div>
 
-                            <div className="pt-6 border-t">
-                                <div className="flex items-center gap-3 p-4 bg-muted rounded-2xl border border-dashed border-border">
-                                    <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center animate-pulse">
-                                        <Play className="w-4 h-4 text-primary fill-primary" />
-                                    </div>
-                                    <p className="text-sm font-semibold">Your Loom Video is being prepared...</p>
-                                </div>
+                            <div className="pt-6 border-t text-center">
+                                <p className="text-sm font-semibold text-primary">Comprehensive Report Generated Instantly</p>
                             </div>
                         </div>
                     </motion.div>
@@ -117,7 +113,7 @@ export default function AuditPage() {
                     <h2 className="text-3xl font-bold mb-4">What you get</h2>
                     <p className="text-muted-foreground italic">No fluff. Just actionable insights for your business.</p>
                 </div>
-                <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-20">
                     {[
                         { title: "Visibility Audit", desc: "How you appear on Google Maps vs your competitors." },
                         { title: "Reputation Score", desc: "Analysis of your reviews and where you're losing trust." },
@@ -132,6 +128,28 @@ export default function AuditPage() {
                         </div>
                     ))}
                 </div>
+
+                {/* Sample Report Image */}
+                <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="max-w-4xl mx-auto space-y-8 text-center"
+                >
+                    <div className="space-y-2">
+                        <h3 className="text-2xl font-bold italic text-primary">Sample Report: Your Business at a Glance</h3>
+                        <p className="text-muted-foreground">Every audit includes a detailed visual breakdown like the one below.</p>
+                    </div>
+                    <div className="relative rounded-3xl overflow-hidden border shadow-2xl bg-white p-2">
+                        <NextImage 
+                            src="/audit-sample.png" 
+                            alt="Sample AI Visibility & Reviews Audit Report" 
+                            width={1200}
+                            height={1600}
+                            className="w-full h-auto rounded-2xl"
+                        />
+                    </div>
+                </motion.div>
             </div>
 
             {/* Audit Form Section */}

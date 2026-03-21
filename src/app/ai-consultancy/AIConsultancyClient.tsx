@@ -50,7 +50,7 @@ const services = [
 const whyUs = [
     { stat: "5+", label: "Years Track Record", icon: CheckCircle },
     { stat: "100%", label: "Client Satisfaction", icon: CheckCircle },
-    { stat: "0 BS", label: "Transparent Pricing", icon: CheckCircle },
+    { stat: "0 BS", label: "Transparent ROI", icon: CheckCircle },
 ];
 
 const steps = [
@@ -318,8 +318,8 @@ export default function AIConsultancyClient() {
                             <p className="text-muted-foreground">An AI consultant evaluates your current business workflows, tech stack, and data architecture to build a strategic roadmap for AI integration. At Mirage Tech AI, we don't just advise; we actively build and deploy the automated systems we recommend.</p>
                         </div>
                         <div className="bg-background rounded-xl p-6 shadow-sm border">
-                            <h3 className="text-xl font-bold mb-2">How much does AI consultancy cost in the Middle East?</h3>
-                            <p className="text-muted-foreground">Costs vary based on the scope, from an initial $2,000 alignment workshop to $50,000+ for enterprise-wide custom model training and deployment. We offer transparent pricing with defined ROI models before any build phases begin.</p>
+                            <h3 className="text-xl font-bold mb-2">How much does AI consultancy cost?</h3>
+                            <p className="text-muted-foreground">Investment varies based on the scope, logic complexiy, and automation depth. We focus on building clear ROI models so the automation pays for itself through saved labor and increased revenue. Book a discovery call for a custom quote.</p>
                         </div>
                         <div className="bg-background rounded-xl p-6 shadow-sm border">
                             <h3 className="text-xl font-bold mb-2">Is generative AI safe for enterprise data?</h3>

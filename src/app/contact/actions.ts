@@ -2,6 +2,7 @@
 
 import nodemailer from "nodemailer";
 import { z } from "zod";
+import { createGHLContact } from "@/lib/ghl";
 
 const formSchema = z.object({
     name: z.string().min(2),
@@ -21,6 +22,7 @@ const auditFormSchema = z.object({
     email: z.string().email(),
     phone: z.string().min(8),
     specificNotes: z.string().optional(),
+    _partial: z.boolean().optional(),
 });
 
 
@@ -77,6 +79,26 @@ export async function sendContactEmail(formData: z.infer<typeof formSchema>) {
         });
 
         console.log("Email sent successfully using Nodemailer:", info.messageId);
+
+        // --- GHL Integration ---
+        try {
+            const [firstName, ...lastNameParts] = name.split(" ");
+            await createGHLContact({
+                firstName,
+                lastName: lastNameParts.join(" "),
+                email,
+                phone,
+                companyName: company,
+                tags: ["Website Lead", "Contact Form", platform],
+                customFields: {
+                    message_content: message
+                }
+            });
+        } catch (ghlError) {
+            console.error("GHL Async Error (Non-blocking):", ghlError);
+        }
+        // -----------------------
+
         return { success: true, data: { id: info.messageId } };
     } catch (error: any) {
         console.error("Unexpected Server error:", error);
@@ -104,9 +126,36 @@ export async function sendAuditEmail(formData: z.infer<typeof auditFormSchema>) 
         return { error: "Invalid form data" };
     }
 
-    const { businessName, websiteUrl, industry, challenges, fullName, email, phone, specificNotes } = validatedFields.data;
+    const { businessName, websiteUrl, industry, challenges, fullName, email, phone, specificNotes, _partial } = validatedFields.data;
 
     try {
+        // --- GHL Integration (Early Capture & Progressive Enrichment) ---
+        try {
+            const [firstName, ...lastNameParts] = fullName.split(" ");
+            await createGHLContact({
+                firstName,
+                lastName: lastNameParts.join(" "),
+                email,
+                phone,
+                companyName: businessName,
+                website: websiteUrl,
+                tags: _partial ? ["Website Lead", "Early Capture"] : ["Website Lead", "Audit Request", "Full Submission", industry, ...challenges],
+                customFields: {
+                    industry: industry || "Pending",
+                    challenges: challenges.length > 0 ? challenges.join(", ") : "Pending",
+                    specific_notes: specificNotes || "None"
+                }
+            });
+        } catch (ghlError) {
+            console.error("GHL Async Error (Non-blocking):", ghlError);
+        }
+        // -------------------------------------------------------------
+
+        // Stop here if it's just a partial (Step 1) capture
+        if (_partial) {
+            return { success: true, message: "Partial lead captured in CRM" };
+        }
+
         console.log("Attempting to send audit email via SMTP (" + smtpHost + ")...");
 
         const transporter = nodemailer.createTransport({
