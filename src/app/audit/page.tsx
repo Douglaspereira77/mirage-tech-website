@@ -7,6 +7,7 @@ import Link from "next/link";
 import NextImage from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { DiscoveryForm } from "@/components/forms/DiscoveryForm";
+import { LeadConnectorProspecting } from "@/components/forms/LeadConnectorProspecting";
 
 export default function AuditPage() {
     return (
@@ -158,7 +159,8 @@ export default function AuditPage() {
                     <h2 className="text-4xl font-bold mb-4 italic">Start Your Growth Audit</h2>
                     <p className="text-muted-foreground">Complete the 3-step application below. We only offer 5 free audits per week to ensure maximum quality for Kuwaiti businesses.</p>
                 </div>
-                <DiscoveryForm />
+                <LeadConnectorProspecting />
+                {/* <DiscoveryForm /> */}
             </div>
 
             {/* Bottom Support */}
