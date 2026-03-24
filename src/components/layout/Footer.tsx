@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Linkedin, Instagram, Twitter } from "lucide-react";
+import { Linkedin, Instagram, Twitter, Facebook } from "lucide-react";
 
 export function Footer() {
     return (
@@ -19,17 +19,21 @@ export function Footer() {
                             AI Automation & Custom Business Tools Agency — Kuwait. Building intelligent systems for the Middle East.
                         </p>
                         <div className="flex gap-4">
-                            <Link href="#" className="text-muted-foreground hover:text-primary">
+                            <Link href="https://www.linkedin.com/company/112511725/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                                 <Linkedin className="h-5 w-5" />
                                 <span className="sr-only">LinkedIn</span>
                             </Link>
-                            <Link href="#" className="text-muted-foreground hover:text-primary">
+                            <Link href="https://www.instagram.com/miragetechai/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                                 <Instagram className="h-5 w-5" />
                                 <span className="sr-only">Instagram</span>
                             </Link>
-                            <Link href="#" className="text-muted-foreground hover:text-primary">
+                            <Link href="https://x.com/MirageTech_AI" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                                 <Twitter className="h-5 w-5" />
-                                <span className="sr-only">Twitter</span>
+                                <span className="sr-only">X (Twitter)</span>
+                            </Link>
+                            <Link href="https://www.facebook.com/profile.php?id=61577670448931" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                                <Facebook className="h-5 w-5" />
+                                <span className="sr-only">Facebook</span>
                             </Link>
                         </div>
                     </div>

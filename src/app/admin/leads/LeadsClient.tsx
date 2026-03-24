@@ -5,8 +5,9 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { RefreshCw, AlertCircle, Building2, Send, ExternalLink, LogOut, Video, Loader2 } from "lucide-react";
+import { RefreshCw, AlertCircle, Building2, Send, ExternalLink, LogOut, Video, Loader2, LayoutDashboard } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import type { RestaurantLead } from "@/lib/bok-api";
 import ProposalDialog from "./ProposalDialog";
 
@@ -193,6 +194,12 @@ export default function LeadsClient() {
             </p>
           </div>
           <div className="flex gap-2">
+            <Link href="/admin/crm">
+              <Button variant="outline" className="w-fit">
+                <LayoutDashboard className="w-4 h-4 mr-2" />
+                CRM Pipeline
+              </Button>
+            </Link>
             <Button
               variant="outline"
               onClick={fetchLeads}

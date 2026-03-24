@@ -2,7 +2,7 @@
 
 import nodemailer from "nodemailer";
 import { z } from "zod";
-import { createGHLContact } from "@/lib/ghl";
+import { createGHLContact, createGHLOpportunity } from "@/lib/ghl";
 
 const formSchema = z.object({
     name: z.string().min(2),
@@ -25,46 +25,39 @@ const auditFormSchema = z.object({
     _partial: z.boolean().optional(),
 });
 
-
-export async function sendContactEmail(formData: z.infer<typeof formSchema>) {
-    console.log("Server Action called with:", formData);
-
+function createTransport() {
     const smtpUser = process.env.SMTP_USER;
     const smtpPass = process.env.SMTP_PASS;
     const smtpHost = process.env.SMTP_HOST || "smtp.hostinger.com";
     const smtpPort = parseInt(process.env.SMTP_PORT || "465");
 
-    if (!smtpUser || !smtpPass) {
-        console.error("Missing SMTP credentials (SMTP_USER or SMTP_PASS)");
-        return { error: "Server configuration error: Missing Email Credentials" };
-    }
+    if (!smtpUser || !smtpPass) throw new Error("Missing SMTP credentials");
 
+    return nodemailer.createTransport({
+        host: smtpHost,
+        port: smtpPort,
+        secure: true,
+        auth: { user: smtpUser, pass: smtpPass },
+    });
+}
+
+// ─── Contact Form ─────────────────────────────────────────────────────────────
+export async function sendContactEmail(formData: z.infer<typeof formSchema>) {
     const validatedFields = formSchema.safeParse(formData);
-
     if (!validatedFields.success) {
-        console.error("Validation failed:", validatedFields.error);
         return { error: "Invalid form data" };
     }
 
     const { name, email, phone, company, platform, message } = validatedFields.data;
 
     try {
-        console.log("Attempting to send email via SMTP (" + smtpHost + ")...");
-
-        const transporter = nodemailer.createTransport({
-            host: smtpHost,
-            port: smtpPort,
-            secure: true, // true for 465, false for other ports
-            auth: {
-                user: smtpUser,
-                pass: smtpPass,
-            },
-        });
+        const transporter = createTransport();
+        const smtpUser = process.env.SMTP_USER!;
 
         const info = await transporter.sendMail({
-            from: `"Mirage Tech AI" <${smtpUser}>`, // sender address
-            to: "info@gomiragetech.com", // Your receiving email
-            replyTo: email, // Allow replying directly to the user
+            from: `"Mirage Tech AI" <${smtpUser}>`,
+            to: "info@gomiragetech.com",
+            replyTo: email,
             subject: `New Contact Form Submission from ${name}`,
             html: `
         <h2>New Lead from Website</h2>
@@ -78,95 +71,101 @@ export async function sendContactEmail(formData: z.infer<typeof formSchema>) {
       `,
         });
 
-        console.log("Email sent successfully using Nodemailer:", info.messageId);
+        console.log("Contact email sent:", info.messageId);
 
-        // --- GHL Integration ---
+        // Push to GHL — contact + opportunity
         try {
             const [firstName, ...lastNameParts] = name.split(" ");
-            await createGHLContact({
+            const ghlResult = await createGHLContact({
                 firstName,
                 lastName: lastNameParts.join(" "),
                 email,
                 phone,
                 companyName: company,
                 tags: ["Website Lead", "Contact Form", platform],
-                customFields: {
-                    message_content: message
-                }
+                customFields: { message_content: message },
             });
+
+            if (ghlResult.success && ghlResult.contactId) {
+                await createGHLOpportunity({
+                    contactId: ghlResult.contactId,
+                    name: `${name} — Contact Form`,
+                    source: "Website Contact Form",
+                });
+            }
         } catch (ghlError) {
-            console.error("GHL Async Error (Non-blocking):", ghlError);
+            console.error("[GHL] Non-blocking error:", ghlError);
         }
-        // -----------------------
 
         return { success: true, data: { id: info.messageId } };
     } catch (error: any) {
-        console.error("Unexpected Server error:", error);
-        return { error: error.message || "Failed to send email" };
+        console.error("Contact form error:", error);
+        return { error: error.message || "Failed to send" };
     }
 }
 
+// ─── Audit / Discovery Form ───────────────────────────────────────────────────
 export async function sendAuditEmail(formData: z.infer<typeof auditFormSchema>) {
-    console.log("Audit Server Action called with:", formData);
-
-    const smtpUser = process.env.SMTP_USER;
-    const smtpPass = process.env.SMTP_PASS;
-    const smtpHost = process.env.SMTP_HOST || "smtp.hostinger.com";
-    const smtpPort = parseInt(process.env.SMTP_PORT || "465");
-
-    if (!smtpUser || !smtpPass) {
-        console.error("Missing SMTP credentials (SMTP_USER or SMTP_PASS)");
-        return { error: "Server configuration error: Missing Email Credentials" };
-    }
-
     const validatedFields = auditFormSchema.safeParse(formData);
-
     if (!validatedFields.success) {
-        console.error("Audit Validation failed:", validatedFields.error);
         return { error: "Invalid form data" };
     }
 
-    const { businessName, websiteUrl, industry, challenges, fullName, email, phone, specificNotes, _partial } = validatedFields.data;
+    const {
+        businessName,
+        websiteUrl,
+        industry,
+        challenges,
+        fullName,
+        email,
+        phone,
+        specificNotes,
+        _partial,
+    } = validatedFields.data;
 
+    // ── Push to GHL (always — partial or full) ────────────────────────────────
     try {
-        // --- GHL Integration (Early Capture & Progressive Enrichment) ---
-        try {
-            const [firstName, ...lastNameParts] = fullName.split(" ");
-            await createGHLContact({
-                firstName,
-                lastName: lastNameParts.join(" "),
-                email,
-                phone,
-                companyName: businessName,
-                website: websiteUrl,
-                tags: _partial ? ["Website Lead", "Early Capture"] : ["Website Lead", "Audit Request", "Full Submission", industry, ...challenges],
-                customFields: {
-                    industry: industry || "Pending",
-                    challenges: challenges.length > 0 ? challenges.join(", ") : "Pending",
-                    specific_notes: specificNotes || "None"
-                }
-            });
-        } catch (ghlError) {
-            console.error("GHL Async Error (Non-blocking):", ghlError);
-        }
-        // -------------------------------------------------------------
+        const [firstName, ...lastNameParts] = fullName.split(" ");
+        const tags = _partial
+            ? ["Website Lead", "Early Capture"]
+            : ["Website Lead", "Audit Request", "Full Submission", industry, ...challenges];
 
-        // Stop here if it's just a partial (Step 1) capture
-        if (_partial) {
-            return { success: true, message: "Partial lead captured in CRM" };
-        }
-
-        console.log("Attempting to send audit email via SMTP (" + smtpHost + ")...");
-
-        const transporter = nodemailer.createTransport({
-            host: smtpHost,
-            port: smtpPort,
-            secure: true,
-            auth: {
-                user: smtpUser,
-                pass: smtpPass,
+        const ghlResult = await createGHLContact({
+            firstName,
+            lastName: lastNameParts.join(" "),
+            email,
+            phone,
+            companyName: businessName,
+            website: websiteUrl,
+            tags,
+            customFields: {
+                industry: industry || "Pending",
+                challenges: challenges.length > 0 ? challenges.join(", ") : "Pending",
+                specific_notes: specificNotes || "None",
             },
         });
+
+        // Create Opportunity only on full submission
+        if (!_partial && ghlResult.success && ghlResult.contactId) {
+            await createGHLOpportunity({
+                contactId: ghlResult.contactId,
+                name: `${businessName} — AI Audit Request`,
+                source: "Website Audit Form",
+            });
+        }
+    } catch (ghlError) {
+        console.error("[GHL] Audit non-blocking error:", ghlError);
+    }
+
+    // ── Early capture stops here ───────────────────────────────────────────────
+    if (_partial) {
+        return { success: true, message: "Lead captured in CRM" };
+    }
+
+    // ── Send email on full submission ─────────────────────────────────────────
+    try {
+        const transporter = createTransport();
+        const smtpUser = process.env.SMTP_USER!;
 
         const info = await transporter.sendMail({
             from: `"Mirage Tech AI" <${smtpUser}>`,
@@ -188,10 +187,10 @@ export async function sendAuditEmail(formData: z.infer<typeof auditFormSchema>) 
       `,
         });
 
-        console.log("Audit Email sent successfully:", info.messageId);
+        console.log("Audit email sent:", info.messageId);
         return { success: true, data: { id: info.messageId } };
     } catch (error: any) {
-        console.error("Audit Server error:", error);
+        console.error("Audit email error:", error);
         return { error: error.message || "Failed to send audit request" };
     }
 }
