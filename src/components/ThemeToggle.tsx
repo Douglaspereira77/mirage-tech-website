@@ -3,8 +3,9 @@
 import * as React from "react"
 import { useTheme } from "next-themes"
 import { IconSun, IconMoon } from "@tabler/icons-react"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { useEffect, useState } from "react"
+import { Button } from "@/components/ui/button"
 
 export function ThemeToggle() {
     const { theme, setTheme } = useTheme()
@@ -16,56 +17,43 @@ export function ThemeToggle() {
     }, [])
 
     if (!mounted) {
-        return <div className="w-[180px] h-[40px] bg-muted/20 rounded-full animate-pulse" />
+        return <div className="w-10 h-10 bg-muted/20 rounded-full animate-pulse" />
     }
 
-    const options = [
-        { value: "light", icon: <IconSun size={18} /> },
-        { value: "dark", icon: <IconMoon size={18} /> },
-    ]
+    const isDark = theme === "dark" || (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches)
 
-    const selectedIndex = options.findIndex(opt => opt.value === (theme === "system" ? "dark" : theme))
-    const buttonWidth = 44
-    const highlightLeft = 4 + (selectedIndex * buttonWidth)
-
-    const handleSelect = (value: string) => {
-        setTheme(value)
+    const toggleTheme = () => {
+        setTheme(isDark ? "light" : "dark")
     }
 
     return (
-        <div className="flex items-center justify-center">
-            <div
-                className="relative flex items-center bg-muted/50 border border-border/50 rounded-full p-1 overflow-hidden w-fit backdrop-blur-sm"
-                style={{ height: "40px" }}
-            >
+        <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleTheme}
+            className="relative h-10 w-10 rounded-full bg-muted/50 hover:bg-muted/80 border border-border/50 backdrop-blur-sm transition-all duration-300"
+            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+            title={isDark ? "Switch to light mode" : "Switch to dark mode"}
+        >
+            <AnimatePresence mode="wait" initial={false}>
                 <motion.div
-                    className="absolute bg-background shadow-sm border border-border/50 rounded-full"
-                    initial={false}
-                    animate={{
-                        left: highlightLeft,
-                        width: buttonWidth - 4,
-                    }}
+                    key={isDark ? "dark" : "light"}
+                    initial={{ y: -20, opacity: 0, rotate: -45 }}
+                    animate={{ y: 0, opacity: 1, rotate: 0 }}
+                    exit={{ y: 20, opacity: 0, rotate: 45 }}
                     transition={{
-                        type: "spring",
-                        stiffness: 400,
-                        damping: 30,
+                        duration: 0.2,
+                        ease: "easeInOut"
                     }}
-                    style={{ height: "32px" }}
-                />
-                {options.map((option) => (
-                    <button
-                        key={option.value}
-                        onClick={() => handleSelect(option.value)}
-                        className={`relative z-10 flex items-center justify-center rounded-full transition-colors cursor-pointer outline-none ${theme === option.value
-                                ? "text-foreground"
-                                : "text-muted-foreground hover:text-foreground"
-                            }`}
-                        style={{ width: buttonWidth, height: "32px" }}
-                    >
-                        {option.icon}
-                    </button>
-                ))}
-            </div>
-        </div>
+                    className="flex justify-center items-center"
+                >
+                    {isDark ? (
+                        <IconMoon size={20} className="text-foreground" stroke={1.5} />
+                    ) : (
+                        <IconSun size={20} className="text-foreground" stroke={1.5} />
+                    )}
+                </motion.div>
+            </AnimatePresence>
+        </Button>
     )
 }
