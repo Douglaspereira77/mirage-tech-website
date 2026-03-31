@@ -8,10 +8,10 @@ import { motion } from "framer-motion";
 
 const pillars = [
     {
-        title: "AI Reviews & Reputation",
-        subtitle: "Google & Maps Dominance",
+        title: "AI Reputation & Local SEO",
+        subtitle: "Google, Maps & AEO Dominance",
         description:
-            "Automate review generation and respond to customer feedback in seconds. We turn happy customers into your best marketing engine on autopilot.",
+            "Automate review generation and dominate local Kuwait SEO. We ensure your business is the #1 answer for 'AI search' and map queries on autopilot.",
         icon: Sparkles,
         href: "/services/ai-automation#reputation",
         color: "text-amber-500",

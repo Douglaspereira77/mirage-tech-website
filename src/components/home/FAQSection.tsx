@@ -9,7 +9,7 @@ const faqs = [
     },
     {
         question: "How long does it take to build an AI chatbot?",
-        answer: "Standard WhatsApp or Instagram chatbots can be deployed in under 7 days. For highly complex, custom-trained LLMs connected to your proprietary CRM, timelines usually range from 2 to 4 weeks."
+        answer: "Standard WhatsApp or Instagram chatbots can be deployed in under 48 hours. For highly complex, custom-trained LLMs connected to your proprietary CRM, timelines are typically achieved within 7 days."
     },
     {
         question: "Do your AI solutions support Arabic?",

@@ -29,7 +29,7 @@ export default function Home() {
                 "name": "How long does it take to deploy an AI system?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Standard AI Growth Engines and Reputation systems can be deployed in under 7 days. For highly complex operations involving custom CRM integrations and specialized Voice Agents, delivery ranges from 2 to 4 weeks."
+                  "text": "Standard AI Growth Engines and Reputation systems can be deployed in under 48 hours. For highly complex operations involving custom CRM integrations and specialized Voice Agents, delivery is typically achieved within 7 days."
                 }
               },
               {

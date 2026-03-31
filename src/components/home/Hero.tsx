@@ -36,7 +36,7 @@ export function Hero() {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="text-xl text-muted-foreground max-w-[42rem] mx-auto leading-relaxed"
                     >
-                        Every missed call or slow WhatsApp reply is money lost. We build simple AI systems that follow up with every lead and book appointments for your Kuwaiti business 24/7.<br />Stop the leakage and start growing.
+                        Kuwait's leading AI SEO & AEO agency. We build high-performance AI systems that dominate local search, follow up with every lead, and book appointments for your business 24/7.<br />Stop the leakage and start growing.
                     </motion.p>
 
                     <motion.div

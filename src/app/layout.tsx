@@ -15,16 +15,16 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.gomiragetech.com"),
   title: {
-    default: "Mirage Tech AI | AI Visibility & Lead Systems for Kuwait SMBs",
+    default: "Mirage Tech AI | AI SEO, AEO & Visibility Systems for Kuwait SMBs",
     template: "%s | Mirage Tech AI",
   },
-  description: "Dominant AI visibility and lead generation systems for Kuwait businesses. Specialists in AI reviews engine, AI Growth Engines, and bilingual lead capture.",
+  description: "Dominant AI SEO, AEO (Answer Engine Optimization) and visibility systems for Kuwait businesses. Specialists in AI reviews, local Kuwait search dominance, and bilingual lead capture.",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://www.gomiragetech.com",
-    title: "Mirage Tech AI | AI Visibility & Lead Systems for Kuwait SMBs",
-    description: "Dominant AI visibility and lead generation systems for Kuwait businesses. Specialized in AI reviews engine and AI Growth Systems.",
+    title: "Mirage Tech AI | AI SEO, AEO & Visibility Systems for Kuwait SMBs",
+    description: "Dominant AI SEO, AEO (Answer Engine Optimization) and visibility systems for Kuwait businesses. Specialized in AI reviews engine and local search dominance.",
     siteName: "Mirage Tech AI",
     images: [
       {

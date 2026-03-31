@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import ServicesClient from "./ServicesClient";
 
 export const metadata: Metadata = {
-    title: "AI Growth & Automation Systems | Mirage Tech AI",
-    description: "Explore our Done-For-You AI Automation services including AI Growth Engines, AI Voice Agents, and Strategic AI Consultancy in Kuwait.",
+    title: "AI SEO, AEO & Growth Automation Systems | Mirage Tech AI",
+    description: "Explore our Done-For-You AI SEO, AEO (Answer Engine Optimization), and Growth Engines in Kuwait. Dominate search and AI answers with Mirage Tech.",
 };
 
 export default function ServicesPage() {

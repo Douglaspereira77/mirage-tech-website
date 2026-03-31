@@ -118,7 +118,7 @@ export default function AuditPage() {
                     {[
                         { title: "Visibility Audit", desc: "How you appear on Google Maps vs your competitors." },
                         { title: "Reputation Score", desc: "Analysis of your reviews and where you're losing trust." },
-                        { title: "Lead Action Plan", desc: "3 simple steps to fix your lead capture in 7 days." }
+                        { title: "Lead Action Plan", desc: "3 simple steps to fix your lead capture in 48 hours." }
                     ].map((item, i) => (
                         <div key={i} className="space-y-4 p-6 border rounded-2xl bg-muted/30">
                             <div className="w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold">

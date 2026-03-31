@@ -48,7 +48,7 @@ export function WhyChooseUs() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className="flex flex-col items-center text-center space-y-2 p-8 rounded-3xl bg-white dark:bg-card/50 backdrop-blur-sm border border-slate-200 dark:border-muted hover:border-primary/50 transition-all group shadow-sm hover:shadow-xl"
+                                className="flex flex-col items-center text-center space-y-2 p-8 rounded-3xl bg-card dark:bg-card/50 backdrop-blur-sm border border-slate-200 dark:border-muted hover:border-primary/50 transition-all group shadow-sm hover:shadow-xl"
                             >
                                 <feature.icon className="w-8 h-8 text-primary mb-2 mx-auto group-hover:scale-110 transition-transform" />
                                 <h3 className="font-bold text-lg text-slate-900 dark:text-foreground">{feature.title}</h3>

@@ -34,7 +34,7 @@ export default function CustomToolsPage() {
                                 "name": "How fast can I launch a custom tool?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "For a standard custom tool or MVP, Mirage Tech AI can deliver a fully functional, deployed web application in under 7 days using our AI-accelerated frameworks."
+                                    "text": "For a standard custom tool or MVP, Mirage Tech AI can deliver a fully functional, deployed web application in under 4 days using our AI-accelerated frameworks."
                                 }
                             },
                             {

@@ -9,15 +9,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 const automationServices = [
     {
         id: "reviews-engine",
-        title: "AI Reputation & Review Systems",
+        title: "AI Reputation & Local SEO Dominance",
         problem: "Are you losing local Kuwaiti leads to competitors with more stars? Every day you stay at 3.5 stars is another day your revenue leaks to others in Salmiya and Sharq.",
-        solution: "A 100% automated system that generates 5-star reviews on autopilot and uses bilingual AI to respond to every customer comment instantly, boosting your rank.",
-        outcome: "Dominant local search ranking in Kuwait City and absolute trust for your clinic, salon, or restaurant.",
+        solution: "A 100% automated system that generates 5-star reviews on autopilot and uses AEO (Answer Engine Optimization) to ensure your business is the #1 answer for AI search queries.",
+        outcome: "Dominant AI SEO ranking in Kuwait City and absolute trust for your clinic, salon, or restaurant.",
         icon: Sparkles,
         color: "text-amber-500",
         features: [
-            "Auto-Review Generation",
-            "Bilingual Sentiment Analysis",
+            "AI-Driven Local SEO",
+            "AEO (Answer Engine Optimization)",
             "Google Business Profile Sync",
         ],
     },
@@ -67,19 +67,19 @@ const automationServices = [
 
 const timelineSteps = [
     {
-        week: "Week 1",
+        week: "Day 1",
         title: "Audit & Strategy",
         description: "We audit your current visibility and set up your core AI reputation engine.",
     },
     {
-        week: "Weeks 2-4",
+        week: "Days 2-3",
         title: "Launch & Automate",
         description: "Deployment of AI Chat, WhatsApp triage, and automated follow-up systems.",
     },
     {
         week: "Ongoing",
         title: "Optimize & Grow",
-        description: "Monthly performance reporting and AI prompt tuning for maximum conversion.",
+        description: "Weekly performance reporting and AI prompt tuning for maximum conversion.",
     },
 ];
 
@@ -90,10 +90,10 @@ export default function ServicesClient() {
             <div className="container mx-auto px-4 md:px-6 py-12">
                 <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12 space-y-4">
                     <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">
-                        AI Visibility & Growth Engines for Kuwait Businesses
+                        AI SEO, AEO & Growth Engines for Kuwait Businesses
                     </h1>
                     <p className="text-xl text-muted-foreground">
-                        Stop missing leads. Start dominating local search and WhatsApp with high-performance AI systems that ruthlessly increase your revenue.
+                        Stop missing leads. Start dominating local search and AI-driven Answer Engines (AEO) with high-performance systems that ruthlessly increase your revenue.
                     </p>
                 </div>
             </div>
@@ -156,12 +156,12 @@ export default function ServicesClient() {
                 </div>
             </div>
 
-            {/* Timeline: How it works in 30 days */}
+            {/* Timeline: How it works in 7 days */}
             <div className="bg-muted/30 border-y py-16 md:py-24">
                 <div className="container mx-auto px-4 md:px-6">
                     <div className="text-center max-w-2xl mx-auto mb-16">
-                        <h2 className="text-3xl font-bold mb-4">How it works in 30 days</h2>
-                        <p className="text-muted-foreground max-w-lg mx-auto">Our proven deployment roadmap to turn AI into a revenue driver for your business.</p>
+                        <h2 className="text-3xl font-bold mb-4">How it works in 7 days</h2>
+                        <p className="text-muted-foreground max-w-lg mx-auto">Our rapid deployment roadmap to turn AI into a revenue driver for your business.</p>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8 relative max-w-5xl mx-auto">
@@ -204,11 +204,15 @@ export default function ServicesClient() {
                     <div className="space-y-6">
                         <div className="bg-background rounded-xl p-6 shadow-sm border">
                             <h3 className="text-xl font-bold mb-2">How fast can we see results?</h3>
-                            <p className="text-muted-foreground">Most businesses see a spike in Google reviews and lead response speed within the first 14 days of deployment.</p>
+                            <p className="text-muted-foreground">Most businesses see a spike in Google reviews and lead response speed within the first 48 hours of deployment.</p>
                         </div>
                         <div className="bg-background rounded-xl p-6 shadow-sm border">
                             <h3 className="text-xl font-bold mb-2">Does the AI speak Kuwaiti Arabic?</h3>
                             <p className="text-muted-foreground">Yes. Our models are specifically tuned for Gulf and Kuwaiti dialects to ensure your brand sounds natural and professional, not robotic.</p>
+                        </div>
+                        <div className="bg-background rounded-xl p-6 shadow-sm border">
+                            <h3 className="text-xl font-bold mb-2">What is AEO?</h3>
+                            <p className="text-muted-foreground">Answer Engine Optimization (AEO) is the next evolution of SEO. It ensures your business is the top result when customers ask AI tools like ChatGPT, Perplexity, or Gemini for local recommendations in Kuwait.</p>
                         </div>
                         <div className="bg-background rounded-xl p-6 shadow-sm border">
                             <h3 className="text-xl font-bold mb-2">Is it compatible with my current WhatsApp?</h3>
