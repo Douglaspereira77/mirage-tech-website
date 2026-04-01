@@ -10,7 +10,10 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     };
 }
 
-export default function ServicesPage() {
+export default async function ServicesPage({ params: { locale } }: { params: { locale: string } }) {
+    const t = await getTranslations({ locale, namespace: 'Services' });
+    const faqs = t.raw('faqs.list') as { question: string, answer: string }[];
+
     return (
         <>
             <script
@@ -21,52 +24,34 @@ export default function ServicesPage() {
                         "@graph": [
                             {
                                 "@type": "Service",
-                                "name": "Done-For-You AI Automation",
+                                "name": t('schema.automationName'),
                                 "provider": {
                                     "@type": "Organization",
                                     "name": "Mirage Tech AI"
                                 },
-                                "description": "Custom AI Growth Engines, AI Voice Agents, and rapid business tool development.",
+                                "description": t('schema.automationDesc'),
                                 "serviceType": "AI Development & Automation"
                             },
                             {
                                 "@type": "Service",
-                                "name": "Strategic AI Consultancy",
+                                "name": t('schema.consultancyName'),
                                 "provider": {
                                     "@type": "Organization",
                                     "name": "Mirage Tech AI"
                                 },
-                                "description": "Enterprise AI readiness assessment, digital transformation strategy, and AI implementation roadmaps.",
+                                "description": t('schema.consultancyDesc'),
                                 "serviceType": "Business Consulting"
                             },
                             {
                                 "@type": "FAQPage",
-                                "mainEntity": [
-                                    {
-                                        "@type": "Question",
-                                        "name": "What is Done-For-You AI Automation?",
-                                        "acceptedAnswer": {
-                                            "@type": "Answer",
-                                            "text": "It means we handle everything. From conversational design and prompt engineering to database integrations and deployment. You don't need to learn how to prompt AI—we deliver the finished, working product."
-                                        }
-                                    },
-                                    {
-                                        "@type": "Question",
-                                        "name": "Can your AI Growth Engines connect to my existing systems?",
-                                        "acceptedAnswer": {
-                                            "@type": "Answer",
-                                            "text": "Yes. Our AI systems seamlessly integrate with Shopify, WooCommerce, CRMs (like GoHighLevel), and custom backends, allowing you to automate customer follow-up, inventory queries, and even checkout directly 24/7."
-                                        }
-                                    },
-                                    {
-                                        "@type": "Question",
-                                        "name": "What happens if the AI chatbot doesn't know the answer?",
-                                        "acceptedAnswer": {
-                                            "@type": "Answer",
-                                            "text": "Every Mirage Tech AI chatbot comes equipped with \"Human Handoff\" protocols. If the AI encounters a query it cannot answer with high confidence, it immediately escalates the conversation to a human agent, providing them with the full chat history."
-                                        }
+                                "mainEntity": faqs.map(faq => ({
+                                    "@type": "Question",
+                                    "name": faq.question,
+                                    "acceptedAnswer": {
+                                        "@type": "Answer",
+                                        "text": faq.answer
                                     }
-                                ]
+                                }))
                             }
                         ]
                     })

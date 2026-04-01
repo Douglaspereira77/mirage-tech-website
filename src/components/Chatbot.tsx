@@ -4,14 +4,13 @@ import { useState, useRef, useEffect } from "react";
 import { MessageSquare, X, Send, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 type Message = {
     id: string;
     role: 'user' | 'assistant' | 'system';
     content: string;
 };
-
-const WHATSAPP_URL = "https://wa.me/96597524391?text=Hi%2C%20I%20was%20chatting%20with%20Mira%20on%20your%20website%20and%20would%20like%20to%20speak%20with%20someone.";
 
 /** Converts plain-text URLs in a string into clickable <a> elements */
 function linkify(text: string) {
@@ -27,10 +26,13 @@ function linkify(text: string) {
 }
 
 export function Chatbot() {
+    const t = useTranslations("Chatbot");
     const [isOpen, setIsOpen] = useState(false);
     const [inputValue, setInputValue] = useState("");
     const [messages, setMessages] = useState<Message[]>([]);
     const [isLoading, setIsLoading] = useState(false);
+
+    const WHATSAPP_URL = `https://wa.me/96597524391?text=${encodeURIComponent(t("whatsappMsg"))}`;
 
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -91,7 +93,7 @@ export function Chatbot() {
             setMessages(prev => [...prev, {
                 id: Date.now().toString(),
                 role: 'assistant',
-                content: "Sorry, I'm having trouble connecting right now. You can reach our sales team on WhatsApp: https://wa.me/96597524391"
+                content: t("errorMessage")
             }]);
         } finally {
             setIsLoading(false);
@@ -99,7 +101,7 @@ export function Chatbot() {
     };
 
     return (
-        <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end">
+        <div className="fixed bottom-4 right-4 rtl:right-auto rtl:left-4 z-50 flex flex-col items-end rtl:items-start">
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
@@ -115,21 +117,21 @@ export function Chatbot() {
                                     <img src="/logo.png" alt="Bot" className="w-5 h-5 object-contain" />
                                 </div>
                                 <div>
-                                    <h3 className="font-semibold text-sm">Mira</h3>
-                                    <p className="text-xs opacity-90">AI Assistant</p>
+                                    <h3 className="font-semibold text-sm">{t("name")}</h3>
+                                    <p className="text-xs opacity-90">{t("role")}</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-1">
                                 {/* Talk to Human button */}
-                                <a
+                                    <a
                                     href={WHATSAPP_URL}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="p-1.5 hover:bg-white/20 rounded transition-colors flex items-center gap-1 text-xs font-medium"
-                                    title="Talk to a human on WhatsApp"
+                                    title={t("humanTitle")}
                                 >
                                     <Phone size={14} />
-                                    <span className="hidden sm:inline">Human</span>
+                                    <span className="hidden sm:inline">{t("humanButton")}</span>
                                 </a>
                                 <button
                                     onClick={() => setIsOpen(false)}
@@ -147,8 +149,8 @@ export function Chatbot() {
                                     <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 overflow-hidden">
                                         <img src="/logo.png" alt="Logo" className="w-8 h-8 object-contain" />
                                     </div>
-                                    <p>Hi! I&apos;m Mira. 👋</p>
-                                    <p>Ask me about our AI chatbots, custom app development, or how we can automate your business.</p>
+                                    <p>{t("welcome")}</p>
+                                    <p>{t("initialMessage")}</p>
                                     <div className="pt-3">
                                         <a
                                             href={WHATSAPP_URL}
@@ -157,7 +159,7 @@ export function Chatbot() {
                                             className="text-xs text-primary hover:underline inline-flex items-center gap-1"
                                         >
                                             <Phone size={12} />
-                                            Or speak with our sales team on WhatsApp
+                                            {t("whatsappLabel")}
                                         </a>
                                     </div>
                                 </div>
@@ -200,11 +202,11 @@ export function Chatbot() {
                             onSubmit={handleSubmitForm}
                             className="p-3 bg-background border-t flex gap-2"
                         >
-                            <input
+                                <input
                                 className="flex-1 bg-muted/50 border-0 focus:ring-1 focus:ring-primary rounded-xl px-4 py-2 text-sm"
                                 value={inputValue}
                                 onChange={(e) => setInputValue(e.target.value)}
-                                placeholder="Type a message..."
+                                placeholder={t("placeholder")}
                             />
                             <button
                                 type="submit"
@@ -226,14 +228,18 @@ export function Chatbot() {
                         ? "bg-muted text-foreground rotate-90 scale-0 opacity-0"
                         : "bg-primary text-primary-foreground scale-100 opacity-100"
                 )}
-                style={{ position: isOpen ? 'absolute' : 'relative' }}
+                style={{ 
+                    position: isOpen ? 'absolute' : 'relative',
+                }}
             >
                 {!isOpen && (
                     <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-20 pointer-events-none"></span>
                 )}
                 <MessageSquare size={26} />
-                {/* Visual badge to show it's active */}
-                <span className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 border-2 border-background rounded-full"></span>
+                <span className={cn(
+                    "absolute -top-1 -right-1 w-4 h-4 bg-green-500 border-2 border-background rounded-full",
+                    "rtl:right-auto rtl:-left-1"
+                )}></span>
             </button>
         </div>
     );

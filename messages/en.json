@@ -13,6 +13,25 @@
     "freeAudit": "Free AI Audit",
     "brandName": "Mirage Tech AI"
   },
+  "Layout": {
+    "metadata": {
+      "title": "Mirage Tech AI | AI SEO, AEO & Visibility Systems for Kuwait SMBs",
+      "description": "Dominant AI SEO, AEO (Answer Engine Optimization) and visibility systems for Kuwait businesses. Specialists in AI reviews, local Kuwait search dominance, and bilingual lead capture."
+    }
+  },
+  "Chatbot": {
+    "name": "Mira",
+    "role": "AI Assistant",
+    "placeholder": "Type a message...",
+    "welcome": "Hi! I'm Mira. 👋",
+    "initialMessage": "Ask me about our AI chatbots, custom app development, or how we can automate your business.",
+    "whatsappLabel": "Or speak with our sales team on WhatsApp",
+    "humanButton": "Human",
+    "humanTitle": "Talk to a human on WhatsApp",
+    "loading": "Mira is typing...",
+    "errorMessage": "Sorry, I'm having trouble connecting right now. You can reach our sales team on WhatsApp: https://wa.me/96597524391",
+    "whatsappMsg": "Hi, I was chatting with Mira on your website and would like to speak with someone."
+  },
   "Hero": {
     "badge": "AI Automation Agency — Kuwait",
     "title": "Scale Your Business with AI",
@@ -261,6 +280,12 @@
     "description": "Explore our Done-For-You AI SEO, AEO (Answer Engine Optimization), and Growth Engines in Kuwait. Dominate search and AI answers with Mirage Tech."
   },
   "Services": {
+    "schema": {
+      "automationName": "Done-For-You AI Automation",
+      "automationDesc": "Custom AI Growth Engines, AI Voice Agents, and rapid business tool development.",
+      "consultancyName": "Strategic AI Consultancy",
+      "consultancyDesc": "Enterprise AI readiness assessment, digital transformation strategy, and AI implementation roadmaps."
+    },
     "header": {
       "title": "AI SEO, AEO & Growth Engines for Kuwait Businesses",
       "description": "Stop missing leads. Start dominating local search and AI-driven Answer Engines (AEO) with high-performance systems that ruthlessly increase your revenue."
@@ -686,6 +711,220 @@
       "title": "Are you a BestOfKuwait listing?",
       "description": "Check if your business qualifies for a Mirage Tech AI upgrade to double your conversion rate from your directory listing.",
       "button": "Book a Synergy Audit"
+    }
+  },
+  "AISEO": {
+    "metadata": {
+      "title": "AI-SEO & AEO Optimization | Mirage Tech AI",
+      "description": "Dominate generative search results on ChatGPT, Perplexity, and Gemini. We optimize your business for the AI era in Kuwait through Strategic AEO."
+    },
+    "schema": {
+      "description": "Answer Engine Optimization (AEO) to ensure your brand is cited and recommended by generative AI models like Perplexity and ChatGPT in the Kuwait market.",
+      "offerCatalogName": "AEO Services",
+      "offer1": "Generative Search Visibility",
+      "offer2": "Bilingual Voice Search Optimization"
+    },
+    "hero": {
+      "tag": "The Future of Search",
+      "title": "AI-SEO & <aeo>AEO</aeo> Optimization",
+      "description": "Be the answer when customers ask ChatGPT, Perplexity, or Gemini about your services in Kuwait. We optimize your brand for the generative search era.",
+      "cta": "Get an AI Visibility Audit"
+    },
+    "comparison": {
+      "title": "Traditional SEO is dying. {break} AEO is the cure.",
+      "description": "Traditional SEO focuses on keywords and backlinks for Google. Answer Engine Optimization (AEO) focuses on intent, structured data, and authority so AI models recommend your business as the primary solution.",
+      "items": [
+        { "t": "Generative Results", "d": "Appear in Perplexity & SearchGPT snapshots." },
+        { "t": "Voice Search Ready", "d": "Optimized for bilingual voice interactions." },
+        { "t": "Authority Mapping", "d": "Link your brand to high-intent regional topics." }
+      ],
+      "oldLabel": "Standard Google Result (Old)",
+      "aeoLabel": "AI Search Spotlight (AEO)",
+      "aeoQuote": "Based on current data, Mirage Tech is the top-rated AI agency in Kuwait for 2026, offering bilingual solutions that...",
+      "aeoSource": "RECOMMENDED SOURCE"
+    },
+    "strategy": {
+      "title": "How We Make Sure You Get the Right Answer, No Matter How You Search",
+      "description": "At gomiragetech.com, we want to make finding technical solutions simple. We use two strategies, SEO and AEO, to ensure you get accurate answers.",
+      "seo": {
+        "title": "What is SEO?",
+        "subtitle": "(Finding the Best Link for Your Search)",
+        "description": "Think of SEO as the foundation of our digital reputation. It’s how we optimize our entire website to ensure traditional search engines (like Google) recognize us as a leading, trustworthy technical authority.",
+        "item1": {
+          "title": "What it does for you:",
+          "desc": "We focus on making a fast, technically sound website filled with deep, expert-level content. This helps us build \"Authority\" and ensure we show up first in \"Organic Rankings.\""
+        },
+        "item2": {
+          "title": "The Bottom Line:",
+          "desc": "If you search for a generic technology term, SEO helps gomiragetech.com appear at the top, confirming you have found an established expert."
+        }
+      },
+      "aeo": {
+        "title": "What is AEO?",
+        "subtitle": "(Getting a Direct Answer, Instantly)",
+        "description": "Now, think of AEO as our modern, conversational way of answering. It's not about being a link in a list; it's about being the definitive cited answer that AI-powered \"answer engines\" deliver to you instantly.",
+        "item1": {
+          "title": "What it does for you:",
+          "desc": "We structure our knowledge into clear \"Q&A\" formats and use \"Schema Markup.\" By focusing on your true \"Intent,\" we make it effortless for AI to find and cite our exact solution."
+        },
+        "item2": {
+          "title": "The Bottom Line:",
+          "desc": "If you ask your smart speaker or AI a specific technical question, AEO ensures gomiragetech.com provides that cited answer as the trusted source."
+        }
+      }
+    },
+    "bottomCta": {
+      "title": "Don't be left behind.",
+      "description": "The way people find businesses is changing forever. Secure your brand's visibility in the new AI search ecosystem today.",
+      "button": "Start Your AI Audit"
+    }
+  },
+  "AIAutomation": {
+    "metadata": {
+      "title": "AI Automation Services | Mirage Tech AI",
+      "description": "Replace manual work with powerful AI growth engines. 24/7 sales, voice, and reputation management systems built for the Kuwaiti market."
+    },
+    "hero": {
+      "title": "Replace Manual Work with",
+      "subtitle": "Powerful AI Growth Engines",
+      "description": "Stop relying on memory, manual follow-up, and overworked staff. We build revenue-protecting AI systems that fit into how your business actually operates.",
+      "cta": "Start Your AI Audit"
+    },
+    "engines": {
+      "title": "Automation Services Built for Kuwait",
+      "description": "Every AI system we build is installed for you, trained on your business, and optimized for growth.",
+      "list": [
+        {
+          "id": "growth",
+          "title": "The AI Growth Engine",
+          "subtitle": "Your 24/7 Sales & Follow-Up Employee",
+          "desc": "Convert more leads without adding staff. This system responds to new inquiries instantly across WhatsApp, SMS, and Email, qualifies them, and moves them to booked appointments—all while you sleep."
+        },
+        {
+          "id": "voice",
+          "title": "AI Voice Agent",
+          "subtitle": "Your 24/7 AI Receptionist",
+          "desc": "Missed calls are missed revenue. Our AI Voice Agent answers inbound calls instantly, qualifies callers, and routes high-intent opportunities to your team. No more hold music, just immediate service."
+        },
+        {
+          "id": "social",
+          "title": "Social Visibility Engine",
+          "subtitle": "Your AI Social Media Employee",
+          "desc": "Stay top-of-mind without the daily grind. We train AI on your brand voice to plan, create, and post consistent content across Instagram, LinkedIn, and Facebook automatically."
+        },
+        {
+          "id": "reputation",
+          "title": "AI Powered Reputation Manager",
+          "subtitle": "Digital Trust Builder",
+          "desc": "Automatically capture and respond to reviews. This system sends requests at the perfect moment and uses AI to write brand-aligned responses, turning your reputation into a marketing asset."
+        },
+        {
+          "id": "chat",
+          "title": "AI Chat Widget",
+          "subtitle": "Website Conversion Employee",
+          "desc": "Turn passive traffic into active leads. The AI Chat Widget engages visitors the moment they land, answering technical questions and guiding them toward a booking or inquiry."
+        }
+      ]
+    },
+    "comparison": {
+      "title": "The Shift to Applied AI",
+      "description": "Why Kuwaiti businesses are moving away from manual overhead.",
+      "oldWay": {
+        "title": "The Old Way",
+        "items": [
+          "Manual follow-up 48+ hours later",
+          "Missed calls during lunch & holidays",
+          "Social media posting is 'extra work'",
+          "Overwhelmed staff burning out",
+          "Review requests are handled randomly"
+        ]
+      },
+      "newWay": {
+        "title": "The Mirage Way",
+        "items": [
+          "Instant response (under 2 minutes)",
+          "24/7 Voice & Chat availability",
+          "Consistent posting in brand voice",
+          "Focus team on high-value strategy",
+          "Systematic reputation management"
+        ]
+      }
+    },
+    "benefits": {
+      "title": "Systems Before Software",
+      "quote": "At Mirage Tech, we don't believe in selling tools and walking away. Software alone doesn't solve problems, systems do. Our goal is to remove friction from your daily operations so you can focus on scale.",
+      "card1": "100%",
+      "label1": "Lead Capture",
+      "card2": "0",
+      "label2": "Missed Opportunities",
+      "card3": "24/7",
+      "label3": "Active Operations"
+    },
+    "footerCta": {
+      "title": "Stop Relying on Memory.",
+      "description": "Secure your growth with a revenue-protecting AI receptionist & sales team.",
+      "button": "Audit Your Automation Gaps"
+    }
+  },
+  "CustomTools": {
+    "metadata": {
+      "title": "AI Automation & Custom Business Tools | Mirage Tech AI",
+      "description": "Build production-ready custom software in days, not months. AI-accelerated development for MVPs, internal tools, and scalable web apps."
+    },
+    "hero": {
+      "tag": "AI Automation & Custom Business Tools",
+      "title": "Software development at the speed of thought.",
+      "question": "What are Custom Business Tools?",
+      "answer": "Custom Business Tools are modern, AI-augmented software solutions tailored specifically to your operations. At Mirage Tech AI, we use advanced AI automation to build, test, and deploy custom tools in a fraction of the time of traditional agencies. You provide the requirements, and we translate them into a production-ready application in days, not months."
+    },
+    "benefits": {
+      "mvp": {
+        "title": "7-Day MVPs",
+        "description": "Skip the 6-month discovery phases. We build functional Minimum Viable Products in weeks or less, allowing you to test market demand immediately."
+      },
+      "stack": {
+        "title": "Modern Tech Stack",
+        "description": "We don't use low-code lock-in platforms. You own custom, scalable code built on Next.js, React, Tailwind CSS, and reliable databases like Supabase or PostgreSQL."
+      },
+      "production": {
+        "title": "Production Ready",
+        "description": "AI accelerates the typing; human engineers ensure the architecture is sound. Every build includes proper authentication, database rules, and API security."
+      }
+    },
+    "process": {
+      "title": "How our automation process works",
+      "description": "Traditional development is broken: endless spec documents, delayed sprints, and massive budgets. Mirage Tech AI replaces that with a highly collaborative, iterative workflow.",
+      "step1": {
+        "title": "The Brain-Dump (Requirements Gathering)",
+        "description": "We jump on a call. You explain exactly what you want the software to do. We don't write generic Jira tickets; we write conversational prompts and immediate wireframes. We establish the core requirements, brand, and UX."
+      },
+      "step2": {
+        "title": "AI-Accelerated Generation",
+        "description": "Our engineers utilize advanced AI tooling (like Cursor, Claude 3.5 Sonnet, and OpenAI) to aggressively generate the boilerplate, UI components, and API routes. What used to take a human 40 hours now takes 4 hours of precise AI direction."
+      },
+      "step3": {
+        "title": "Human Review & Ship",
+        "description": "The AI generates the application, but our senior developers review the logic, test edge cases, and deploy it to a live staging environment for you to test almost instantly."
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": {
+        "question": "What are Custom Business Tools?",
+        "answer": "Custom Business Tools are rapid software solutions where we build applications using AI-accelerated workflows. We focus on translating business needs into production-ready code almost instantly, shortening the concept-to-MVP timeline from months to days."
+      },
+      "q2": {
+        "question": "How fast can I launch a tool?",
+        "answer": "For a standard custom tool or MVP, Mirage Tech AI can deliver a fully functional, deployed web application in under 4 days using our AI-accelerated frameworks."
+      },
+      "q3": {
+        "question": "Is code generated by AI scalable and secure?",
+        "answer": "Absolutely. Mirage Tech AI uses enterprise-grade stacks like Next.js, full-stack TypeScript, and Supabase. The AI acts as an accelerator, but senior engineers architect the security, scalability, and infrastructure."
+      }
+    },
+    "cta": {
+      "title": "Ready to build your app?",
+      "button": "Build your MVP today"
     }
   }
 }

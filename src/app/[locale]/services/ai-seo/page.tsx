@@ -1,12 +1,27 @@
 import { Metadata } from "next";
 import AISEOClient from "./AISEOClient";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-    title: "AI-SEO & AEO Optimization | Mirage Tech AI",
-    description: "Dominate generative search results on ChatGPT, Perplexity, and Gemini. We optimize your business for the AI era in Kuwait through Strategic AEO.",
-};
+export async function generateMetadata({
+    params: { locale }
+}: {
+    params: { locale: string };
+}): Promise<Metadata> {
+    const t = await getTranslations({ locale, namespace: "AISEO.metadata" });
 
-export default function AISEOPage() {
+    return {
+        title: t("title"),
+        description: t("description"),
+    };
+}
+
+export default async function AISEOPage({
+    params: { locale }
+}: {
+    params: { locale: string };
+}) {
+    const t = await getTranslations({ locale, namespace: "AISEO.schema" });
+
     return (
         <>
             <script
@@ -20,24 +35,24 @@ export default function AISEOPage() {
                             "@type": "Organization",
                             "name": "Mirage Tech AI"
                         },
-                        "description": "Answer Engine Optimization (AEO) to ensure your brand is cited and recommended by generative AI models like Perplexity and ChatGPT in the Kuwait market.",
+                        "description": t("description"),
                         "areaServed": "Kuwait",
                         "hasOfferCatalog": {
                             "@type": "OfferCatalog",
-                            "name": "AEO Services",
+                            "name": t("offerCatalogName"),
                             "itemListElement": [
                                 {
                                     "@type": "Offer",
                                     "itemOffered": {
                                         "@type": "Service",
-                                        "name": "Generative Search Visibility"
+                                        "name": t("offer1")
                                     }
                                 },
                                 {
                                     "@type": "Offer",
                                     "itemOffered": {
                                         "@type": "Service",
-                                        "name": "Bilingual Voice Search Optimization"
+                                        "name": t("offer2")
                                     }
                                 }
                             ]

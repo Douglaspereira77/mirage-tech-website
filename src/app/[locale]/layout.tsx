@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "../globals.css";
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, setRequestLocale } from 'next-intl/server';
+import { getMessages, setRequestLocale, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/navigation';
 
@@ -20,36 +20,45 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://www.gomiragetech.com"),
-  title: {
-    default: "Mirage Tech AI | AI SEO, AEO & Visibility Systems for Kuwait SMBs",
-    template: "%s | Mirage Tech AI",
-  },
-  description: "Dominant AI SEO, AEO (Answer Engine Optimization) and visibility systems for Kuwait businesses. Specialists in AI reviews, local Kuwait search dominance, and bilingual lead capture.",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://www.gomiragetech.com",
-    title: "Mirage Tech AI | AI SEO, AEO & Visibility Systems for Kuwait SMBs",
-    description: "Dominant AI SEO, AEO (Answer Engine Optimization) and visibility systems for Kuwait businesses. Specialized in AI reviews engine and local search dominance.",
-    siteName: "Mirage Tech AI",
-    images: [
-      {
-        url: "/logo.png",
-        width: 800,
-        height: 800,
-        alt: "Mirage Tech AI Logo",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Mirage Tech AI",
-    description: "Intelligent Automation for the Middle East",
-    images: ["/logo.png"],
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Layout.metadata" });
+
+  return {
+    metadataBase: new URL("https://www.gomiragetech.com"),
+    title: {
+      default: t("title"),
+      template: `%s | ${t("title").split('|')[0].trim()}`,
+    },
+    description: t("description"),
+    openGraph: {
+      type: "website",
+      locale: locale === 'ar' ? 'ar_KW' : 'en_US',
+      url: "https://www.gomiragetech.com",
+      title: t("title"),
+      description: t("description"),
+      siteName: "Mirage Tech AI",
+      images: [
+        {
+          url: "/logo.png",
+          width: 800,
+          height: 800,
+          alt: "Mirage Tech AI Logo",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Mirage Tech AI",
+      description: locale === 'ar' ? "أتمتة ذكية للشرق الأوسط" : "Intelligent Automation for the Middle East",
+      images: ["/logo.png"],
+    },
+  };
+}
 
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/layout/Navbar";
