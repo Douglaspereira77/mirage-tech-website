@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -23,23 +23,25 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Loader2, Mail, MapPin, Phone, Search, MessageSquare, ArrowRight, ShieldCheck } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Loader2, Mail, Phone, Search, ArrowRight, ShieldCheck, CheckCircle2 } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { sendContactEmail } from "./actions";
-
-const formSchema = z.object({
-    name: z.string().min(2, "Name is required"),
-    email: z.string().email("Invalid email address"),
-    phone: z.string().min(8, "Valid phone number is required"),
-    company: z.string().min(1, "Company name is required"),
-    platform: z.string().min(1, "Please select a platform"),
-    message: z.string().min(10, "Please provide more details about your needs"),
-});
+import { useTranslations } from "next-intl";
 
 export default function ContactPage() {
+    const t = useTranslations("Contact");
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+
+    const formSchema = z.object({
+        name: z.string().min(2, t("form.validation.name")),
+        email: z.string().email(t("form.validation.email")),
+        phone: z.string().min(8, t("form.validation.phone")),
+        company: z.string().min(1, t("form.validation.company")),
+        platform: z.string().min(1, t("form.validation.platform")),
+        message: z.string().min(10, t("form.validation.message")),
+    });
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -48,13 +50,10 @@ export default function ContactPage() {
             email: "",
             phone: "",
             company: "",
+            platform: "",
             message: "",
         },
     });
-
-
-
-    // existing code ...
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
         setIsSubmitting(true);
@@ -63,9 +62,8 @@ export default function ContactPage() {
             const result = await sendContactEmail(values);
 
             if (result.error) {
-                // In a real app we'd show a toast error here
                 console.error(result.error);
-                alert("Failed to send message: " + result.error);
+                alert(t("form.validation.generic") + ": " + result.error);
                 setIsSubmitting(false);
                 return;
             }
@@ -73,7 +71,7 @@ export default function ContactPage() {
             setIsSubmitted(true);
         } catch (error) {
             console.error(error);
-            alert("Something went wrong. Please try again.");
+            alert(t("form.validation.generic"));
         } finally {
             setIsSubmitting(false);
         }
@@ -84,10 +82,10 @@ export default function ContactPage() {
             <div className="container mx-auto px-4 md:px-6 py-8 md:py-12">
                 <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
                     <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">
-                        Let&apos;s Grow Your Business
+                        {t("title")}
                     </h1>
                     <p className="text-xl text-muted-foreground">
-                        Choose the fastest path to results.
+                        {t("subtitle")}
                     </p>
                 </div>
 
@@ -95,8 +93,8 @@ export default function ContactPage() {
                     <Tabs defaultValue="audit" className="w-full space-y-12">
                         <div className="flex justify-center">
                             <TabsList className="grid w-full max-w-md grid-cols-2 h-12">
-                                <TabsTrigger value="audit" className="text-base">Free Audit</TabsTrigger>
-                                <TabsTrigger value="contact" className="text-base">Direct Inquiry</TabsTrigger>
+                                <TabsTrigger value="audit" className="text-base">{t("tabs.audit")}</TabsTrigger>
+                                <TabsTrigger value="contact" className="text-base">{t("tabs.contact")}</TabsTrigger>
                             </TabsList>
                         </div>
 
@@ -105,33 +103,27 @@ export default function ContactPage() {
                                 <div className="space-y-6">
                                     <div className="inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium text-chart-2 bg-chart-2/10">
                                         <Search className="mr-2 h-3 w-3" />
-                                        <span>Recommended for SMBs</span>
+                                        <span>{t("auditSection.badge")}</span>
                                     </div>
-                                    <h2 className="text-3xl font-bold tracking-tight">Claim Your Free Growth &amp; Visibility Audit</h2>
+                                    <h2 className="text-3xl font-bold tracking-tight">{t("auditSection.title")}</h2>
                                     <p className="text-lg text-muted-foreground">
-                                        We&apos;ll analyze your business, find exactly where you are losing leads, and show you how to fix it with AI.
+                                        {t("auditSection.description")}
                                     </p>
                                     <ul className="space-y-3">
-                                        <li className="flex items-center gap-3 text-sm">
-                                            <ShieldCheck className="w-5 h-5 text-chart-2" />
-                                            <span>Full GMB & SEO performance check</span>
-                                        </li>
-                                        <li className="flex items-center gap-3 text-sm">
-                                            <ShieldCheck className="w-5 h-5 text-chart-2" />
-                                            <span>Lead response-time leakage report</span>
-                                        </li>
-                                        <li className="flex items-center gap-3 text-sm">
-                                            <ShieldCheck className="w-5 h-5 text-chart-2" />
-                                            <span>3-step AI implementation roadmap</span>
-                                        </li>
+                                        {[0, 1, 2].map((i) => (
+                                            <li key={i} className="flex items-center gap-3 text-sm">
+                                                <ShieldCheck className="w-5 h-5 text-chart-2" />
+                                                <span>{t(`auditSection.items.${i}`)}</span>
+                                            </li>
+                                        ))}
                                     </ul>
                                     <Button asChild size="lg" className="h-14 px-8 text-lg rounded-full w-full sm:w-auto">
                                         <Link href="/audit">
-                                            Start My Free Audit
-                                            <ArrowRight className="ml-2 h-5 w-5" />
+                                            {t("auditSection.cta")}
+                                            <ArrowRight className="ml-2 h-5 w-5 rtl:rotate-180" />
                                         </Link>
                                     </Button>
-                                    <p className="text-xs text-muted-foreground italic">Takes 2 minutes. No credit card required.</p>
+                                    <p className="text-xs text-muted-foreground italic">{t("auditSection.footer")}</p>
                                 </div>
                                 <div className="relative aspect-video rounded-2xl overflow-hidden border shadow-2xl">
                                     <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-chart-2/20 flex items-center justify-center">
@@ -146,8 +138,8 @@ export default function ContactPage() {
                                 {/* Contact Info */}
                                 <div className="md:col-span-2 space-y-6">
                                     <div className="space-y-2">
-                                        <h2 className="text-2xl font-bold">Specific Inquiry?</h2>
-                                        <p className="text-muted-foreground">Have a specific project or question? Send us a message and we&apos;ll reply within 24 hours.</p>
+                                        <h2 className="text-2xl font-bold">{t("contactSection.title")}</h2>
+                                        <p className="text-muted-foreground">{t("contactSection.description")}</p>
                                     </div>
                                     <div className="space-y-4">
                                         <Card className="bg-muted/30 border-none">
@@ -156,7 +148,7 @@ export default function ContactPage() {
                                                     <Mail className="w-5 h-5" />
                                                 </div>
                                                 <div>
-                                                    <p className="text-xs text-muted-foreground uppercase font-semibold">Email</p>
+                                                    <p className="text-xs text-muted-foreground uppercase font-semibold">{t("contactSection.emailLabel")}</p>
                                                     <p className="text-sm font-medium">info@gomiragetech.com</p>
                                                 </div>
                                             </CardContent>
@@ -167,7 +159,7 @@ export default function ContactPage() {
                                                     <Phone className="w-5 h-5" />
                                                 </div>
                                                 <div>
-                                                    <p className="text-xs text-muted-foreground uppercase font-semibold">WhatsApp</p>
+                                                    <p className="text-xs text-muted-foreground uppercase font-semibold">{t("contactSection.whatsappLabel")}</p>
                                                     <p className="text-sm font-medium">+965 97524391</p>
                                                 </div>
                                             </CardContent>
@@ -180,15 +172,14 @@ export default function ContactPage() {
                         {isSubmitted ? (
                             <div className="h-full flex flex-col items-center justify-center text-center space-y-4 min-h-[400px]">
                                 <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4">
-                                    <Loader2 className="w-8 h-8 animate-spin" /> {/* Just teasing, static check would be better but reusing loader symbol loosely or finding Check */}
-                                    {/* Actually let's use check circle */}
+                                    <CheckCircle2 className="w-8 h-8 text-green-600" />
                                 </div>
-                                <h3 className="text-2xl font-bold text-green-600">Message Sent!</h3>
+                                <h3 className="text-2xl font-bold text-green-600">{t("form.success.title")}</h3>
                                 <p className="text-muted-foreground">
-                                    Thank you for reaching out. Our team will get back to you within 24 hours.
+                                    {t("form.success.message")}
                                 </p>
                                 <Button onClick={() => setIsSubmitted(false)} variant="outline">
-                                    Send Another Message
+                                    {t("form.success.sendAnother")}
                                 </Button>
                             </div>
                         ) : (
@@ -199,9 +190,9 @@ export default function ContactPage() {
                                         name="name"
                                         render={({ field }) => (
                                             <FormItem>
-                                                <FormLabel>Full Name</FormLabel>
+                                                <FormLabel>{t("form.labels.name")}</FormLabel>
                                                 <FormControl>
-                                                    <Input placeholder="John Doe" {...field} />
+                                                    <Input placeholder={t("form.placeholders.name")} {...field} />
                                                 </FormControl>
                                                 <FormMessage />
                                             </FormItem>
@@ -212,9 +203,9 @@ export default function ContactPage() {
                                         name="email"
                                         render={({ field }) => (
                                             <FormItem>
-                                                <FormLabel>Email Address</FormLabel>
+                                                <FormLabel>{t("form.labels.email")}</FormLabel>
                                                 <FormControl>
-                                                    <Input placeholder="john@company.com" {...field} />
+                                                    <Input placeholder={t("form.placeholders.email")} {...field} />
                                                 </FormControl>
                                                 <FormMessage />
                                             </FormItem>
@@ -226,9 +217,9 @@ export default function ContactPage() {
                                             name="phone"
                                             render={({ field }) => (
                                                 <FormItem>
-                                                    <FormLabel>Phone Number</FormLabel>
+                                                    <FormLabel>{t("form.labels.phone")}</FormLabel>
                                                     <FormControl>
-                                                        <Input placeholder="+965 ..." {...field} />
+                                                        <Input placeholder={t("form.placeholders.phone")} {...field} />
                                                     </FormControl>
                                                     <FormMessage />
                                                 </FormItem>
@@ -239,9 +230,9 @@ export default function ContactPage() {
                                             name="company"
                                             render={({ field }) => (
                                                 <FormItem>
-                                                    <FormLabel>Company Name</FormLabel>
+                                                    <FormLabel>{t("form.labels.company")}</FormLabel>
                                                     <FormControl>
-                                                        <Input placeholder="Your Business" {...field} />
+                                                        <Input placeholder={t("form.placeholders.company")} {...field} />
                                                     </FormControl>
                                                     <FormMessage />
                                                 </FormItem>
@@ -253,19 +244,19 @@ export default function ContactPage() {
                                         name="platform"
                                         render={({ field }) => (
                                             <FormItem>
-                                                <FormLabel>What are you interested in?</FormLabel>
+                                                <FormLabel>{t("form.labels.interest")}</FormLabel>
                                                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                                                     <FormControl>
                                                         <SelectTrigger>
-                                                            <SelectValue placeholder="Select a service" />
+                                                            <SelectValue placeholder={t("form.placeholders.interest")} />
                                                         </SelectTrigger>
                                                     </FormControl>
                                                     <SelectContent>
-                                                        <SelectItem value="whatsapp">AI Growth Engines & Automation</SelectItem>
-                                                        <SelectItem value="vibe-coding">Custom App Development & Business Tools</SelectItem>
-                                                        <SelectItem value="consultancy">AI Consultancy & Strategy</SelectItem>
-                                                        <SelectItem value="web-chatbot">AI Voice & Chat Systems</SelectItem>
-                                                        <SelectItem value="all">Not Sure / General Inquiry</SelectItem>
+                                                        <SelectItem value="whatsapp">{t("form.services.automation")}</SelectItem>
+                                                        <SelectItem value="vibe-coding">{t("form.services.customApp")}</SelectItem>
+                                                        <SelectItem value="consultancy">{t("form.services.consultancy")}</SelectItem>
+                                                        <SelectItem value="web-chatbot">{t("form.services.voiceChat")}</SelectItem>
+                                                        <SelectItem value="all">{t("form.services.general")}</SelectItem>
                                                     </SelectContent>
                                                 </Select>
                                                 <FormMessage />
@@ -277,10 +268,10 @@ export default function ContactPage() {
                                         name="message"
                                         render={({ field }) => (
                                             <FormItem>
-                                                <FormLabel>Message</FormLabel>
+                                                <FormLabel>{t("form.labels.message")}</FormLabel>
                                                 <FormControl>
                                                     <Textarea
-                                                        placeholder="Tell us about your automation needs..."
+                                                        placeholder={t("form.placeholders.message")}
                                                         className="min-h-[120px]"
                                                         {...field}
                                                     />
@@ -293,10 +284,10 @@ export default function ContactPage() {
                                         {isSubmitting ? (
                                             <>
                                                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                                                Sending...
+                                                {t("form.submitting")}
                                             </>
                                         ) : (
-                                            "Send Message"
+                                            t("form.submit")
                                         )}
                                     </Button>
                                 </form>

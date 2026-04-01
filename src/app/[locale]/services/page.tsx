@@ -1,10 +1,14 @@
-import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import ServicesClient from "./ServicesClient";
 
-export const metadata: Metadata = {
-    title: "AI SEO, AEO & Growth Automation Systems | Mirage Tech AI",
-    description: "Explore our Done-For-You AI SEO, AEO (Answer Engine Optimization), and Growth Engines in Kuwait. Dominate search and AI answers with Mirage Tech.",
-};
+export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+    const t = await getTranslations({ locale, namespace: 'ServicesMetadata' });
+
+    return {
+        title: t('title'),
+        description: t('description'),
+    };
+}
 
 export default function ServicesPage() {
     return (

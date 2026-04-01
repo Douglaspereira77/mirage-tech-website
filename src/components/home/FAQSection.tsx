@@ -1,23 +1,11 @@
 "use client";
-
+import { useTranslations } from 'next-intl';
 import { motion } from "framer-motion";
 
-const faqs = [
-    {
-        question: "What is Mirage Tech AI?",
-        answer: "Mirage Tech AI is a premier AI automation agency based in Kuwait. We specialize in rapidly deploying custom AI solutions like WhatsApp chatbots, Instagram DM automation, and custom web applications (AI Automation & Custom Business Tools) for businesses across the Middle East."
-    },
-    {
-        question: "How long does it take to build an AI chatbot?",
-        answer: "Standard WhatsApp or Instagram chatbots can be deployed in under 48 hours. For highly complex, custom-trained LLMs connected to your proprietary CRM, timelines are typically achieved within 7 days."
-    },
-    {
-        question: "Do your AI solutions support Arabic?",
-        answer: "Yes. All our AI deployments feature native bilingual support, understanding and generating fluid Arabic (including GCC dialects) and English with enterprise-grade accuracy."
-    }
-];
-
 export function FAQSection() {
+    const t = useTranslations('FAQ');
+    const items = [0, 1, 2];
+
     return (
         <section className="bg-muted/50 py-24">
             <div className="container px-4 md:px-6 max-w-3xl mx-auto">
@@ -27,22 +15,22 @@ export function FAQSection() {
                     viewport={{ once: true }}
                     className="text-center mb-10"
                 >
-                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">Frequently Asked Questions</h2>
-                    <p className="text-muted-foreground text-lg">Common questions about our AI Automation and Custom Business Tools.</p>
+                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">{t('title')}</h2>
+                    <p className="text-muted-foreground text-lg">{t('subtitle')}</p>
                 </motion.div>
 
                 <div className="space-y-6">
-                    {faqs.map((faq, index) => (
+                    {items.map((i) => (
                         <motion.div
-                            key={index}
+                            key={i}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
+                            transition={{ delay: i * 0.1 }}
                             className="bg-background rounded-xl p-6 shadow-sm border border-border text-center flex flex-col items-center"
                         >
-                            <h3 className="text-xl font-bold mb-2">{faq.question}</h3>
-                            <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto">{faq.answer}</p>
+                            <h3 className="text-xl font-bold mb-2">{t(`items.${i}.question`)}</h3>
+                            <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto">{t(`items.${i}.answer`)}</p>
                         </motion.div>
                     ))}
                 </div>

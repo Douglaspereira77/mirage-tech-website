@@ -3,10 +3,11 @@ import { Button } from "@/components/ui/button";
 import { MoveRight, PhoneCall, Sparkles } from "lucide-react";
 import fs from "fs";
 import path from "path";
+import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
 
 // Mock database fetch for the lead's company info
 function getLeadInfo(id: string) {
-    // Try to find the generated video to get the company name from the file
     return {
         id,
         companyName: "Your Restaurant", // In a real app, fetch from DB
@@ -17,12 +18,13 @@ export default async function DemoPage({
     params,
     searchParams,
 }: {
-    params: Promise<{ leadId: string }>;
+    params: Promise<{ locale: string; leadId: string }>;
     searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
-    const resolvedParams = await params;
+    const { locale, leadId } = await params;
     const resolvedSearch = await searchParams;
-    const leadId = resolvedParams.leadId;
+
+    const t = await getTranslations({ locale, namespace: "Demo" });
 
     // Get company name from search params or default
     const nameParam = resolvedSearch.name;
@@ -39,17 +41,19 @@ export default async function DemoPage({
     const videoExists = fs.existsSync(absoluteVideoPath);
 
     if (!videoExists && process.env.NODE_ENV !== "development") {
-        // Return 404 in production if it doesn't exist
-        // In development we might just show a placeholder
         notFound();
     }
+
+    const features = t.raw("content.features");
 
     return (
         <div className="flex flex-col min-h-screen bg-black text-white selection:bg-primary/30">
             <header className="absolute top-0 w-full p-6 flex justify-between items-center z-10">
                 <div className="font-bold text-xl tracking-tight">Mirage Tech AI</div>
-                <Button variant="outline" className="text-black bg-white hover:bg-gray-200 border-none">
-                    Contact Us
+                <Button asChild variant="outline" className="text-black bg-white hover:bg-gray-200 border-none">
+                    <Link href="/contact">
+                        {t("header.contact")}
+                    </Link>
                 </Button>
             </header>
 
@@ -74,8 +78,8 @@ export default async function DemoPage({
                         ) : (
                             <div className="w-full h-full flex flex-col items-center justify-center p-8 text-center text-zinc-500">
                                 <Sparkles className="w-12 h-12 mb-4 opacity-50" />
-                                <p>Generating your custom AI experience...</p>
-                                <p className="text-xs mt-2 opacity-50">Video not found locally</p>
+                                <p>{t("video.placeholder")}</p>
+                                <p className="text-xs mt-2 opacity-50">{t("video.notFound")}</p>
                             </div>
                         )}
                     </div>
@@ -86,47 +90,48 @@ export default async function DemoPage({
                     <div className="max-w-xl mx-auto xl:mx-0">
                         <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-sm font-medium text-primary mb-6">
                             <Sparkles className="mr-2 h-4 w-4" />
-                            Automated AI Voice
+                            {t("content.tag")}
                         </div>
 
                         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-                            Imagine an employee that <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">never sleeps</span>.
+                            {t.rich("content.title", {
+                                gradient: (chunks) => <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">{chunks}</span>
+                            })}
                         </h1>
 
                         <p className="text-xl text-zinc-400 mb-8 leading-relaxed">
-                            We generated this demo specifically for <span className="text-white font-medium">{leadInfo.companyName}</span> to show you how our AI voice agents sound and sell your services 24/7.
+                            {t.rich("content.description", {
+                                companyName: leadInfo.companyName,
+                                company: (chunks) => <span className="text-white font-medium">{chunks}</span>
+                            })}
                         </p>
 
                         <div className="space-y-6 mb-10">
-                            <div className="flex items-start">
-                                <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800 text-primary">
-                                    1
+                            {features.map((feature: any, i: number) => (
+                                <div key={i} className="flex items-start">
+                                    <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800 text-primary">
+                                        {i + 1}
+                                    </div>
+                                    <div className="ml-4">
+                                        <h3 className="text-lg font-medium text-white">{feature.title}</h3>
+                                        <p className="mt-1 text-zinc-500">{feature.description}</p>
+                                    </div>
                                 </div>
-                                <div className="ml-4">
-                                    <h3 className="text-lg font-medium text-white">Inbound Lead Handling</h3>
-                                    <p className="mt-1 text-zinc-500">Answers FAQs instantly based on your website's knowledge base.</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start">
-                                <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800 text-primary">
-                                    2
-                                </div>
-                                <div className="ml-4">
-                                    <h3 className="text-lg font-medium text-white">Automated Booking</h3>
-                                    <p className="mt-1 text-zinc-500">Books appointments and tables directly into your calendar software.</p>
-                                </div>
-                            </div>
+                            ))}
                         </div>
 
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <Button size="lg" className="h-14 px-8 text-base rounded-full gap-2 shadow-lg shadow-primary/20 bg-primary text-primary-foreground hover:bg-primary/90">
-                                <PhoneCall className="w-5 h-5" />
-                                Book Strategy Call
+                            <Button asChild size="lg" className="h-14 px-8 text-base rounded-full gap-2 shadow-lg shadow-primary/20 bg-primary text-primary-foreground hover:bg-primary/90">
+                                <Link href="/contact">
+                                    <PhoneCall className="w-5 h-5" />
+                                    {t("content.cta")}
+                                </Link>
                             </Button>
-                            <Button size="lg" variant="outline" className="h-14 px-8 text-base rounded-full gap-2 border-zinc-700 hover:bg-zinc-900 text-white bg-transparent">
-                                Learn More
-                                <MoveRight className="w-5 h-5" />
+                            <Button asChild size="lg" variant="outline" className="h-14 px-8 text-base rounded-full gap-2 border-zinc-700 hover:bg-zinc-900 text-white bg-transparent">
+                                <Link href="/services">
+                                    {t("content.learnMore")}
+                                    <MoveRight className="w-5 h-5" />
+                                </Link>
                             </Button>
                         </div>
                     </div>

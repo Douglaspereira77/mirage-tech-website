@@ -2,11 +2,14 @@
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function Hero() {
+    const t = useTranslations("Hero");
+
     return (
         <section className="relative overflow-hidden bg-background pt-12 pb-8 md:pt-16 md:pb-12">
             <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -18,7 +21,7 @@ export function Hero() {
                         className="inline-flex items-center rounded-full border px-3 py-1 text-sm font-medium text-chart-2 bg-chart-2/10"
                     >
                         <Sparkles className="mr-2 h-4 w-4" />
-                        <span>AI Automation Agency — Kuwait</span>
+                        <span>{t("badge")}</span>
                     </motion.div>
 
                     <motion.h1
@@ -27,7 +30,7 @@ export function Hero() {
                         transition={{ duration: 0.5, delay: 0.1 }}
                         className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-chart-2 pb-2"
                     >
-                        Scale Your Business with AI
+                        {t("title")}
                     </motion.h1>
 
                     <motion.p
@@ -36,7 +39,7 @@ export function Hero() {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="text-xl text-muted-foreground max-w-[42rem] mx-auto leading-relaxed"
                     >
-                        Kuwait's leading AI SEO & AEO agency. We build high-performance AI systems that dominate local search, follow up with every lead, and book appointments for your business 24/7.<br />Stop the leakage and start growing.
+                        {t("subtitle")}
                     </motion.p>
 
                     <motion.div
@@ -47,12 +50,12 @@ export function Hero() {
                     >
                         <Button asChild size="lg" className="h-12 px-8 text-base rounded-full shadow-lg shadow-primary/20">
                             <Link href="/audit">
-                                Claim My Free Audit
-                                <ArrowRight className="ml-2 h-5 w-5" />
+                                {t("cta")}
+                                <ArrowRight className="ml-2 h-5 w-5 rtl:rotate-180" />
                             </Link>
                         </Button>
                         <Button asChild variant="outline" size="lg" className="h-12 px-8 text-base rounded-full">
-                            <Link href="/services">Explore Our Services</Link>
+                            <Link href="/services">{t("secondaryCta")}</Link>
                         </Button>
                     </motion.div>
 
@@ -65,7 +68,7 @@ export function Hero() {
                     >
                          <div className="flex flex-col items-center gap-2">
                             <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold">
-                                Trusted by
+                                {t("trustedBy")}
                             </p>
                             <div className="flex items-center gap-4 bg-muted/50 px-4 py-2 rounded-full border border-border/50 backdrop-blur-sm">
                                 <span className="text-sm font-bold text-foreground/80">BestOfKuwait.com</span>
@@ -76,7 +79,7 @@ export function Hero() {
 
                         <div className="flex flex-col items-center gap-2">
                             <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60 font-medium">
-                                Infrastructure Powered by
+                                {t("poweredBy")}
                             </p>
                             <div className="flex flex-wrap justify-center gap-6 text-sm font-semibold text-muted-foreground/70">
                                 <span>OpenAI</span>

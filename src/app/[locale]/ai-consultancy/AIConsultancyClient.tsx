@@ -1,10 +1,11 @@
 "use client";
 
 import { motion, type Easing } from "framer-motion";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useTranslations } from "next-intl";
 import {
     Brain,
     Cpu,
@@ -17,65 +18,6 @@ import {
     Settings,
     Rocket,
 } from "lucide-react";
-
-/* ─── Data ─────────────────────────────────────────────────── */
-
-const services = [
-    {
-        icon: Settings,
-        title: "Business‑Process Automation",
-        description:
-            "We map your existing workflows, identify bottlenecks, and deploy AI agents that eliminate repetitive work — cutting costs and freeing your team for high‑value tasks.",
-        color: "text-teal-400",
-        bg: "bg-teal-400/10",
-    },
-    {
-        icon: Lightbulb,
-        title: "AI‑Driven Product Strategy",
-        description:
-            "From ideation to roadmap, we help you evaluate which AI capabilities will move the needle for your product and customers — without the hype.",
-        color: "text-violet-400",
-        bg: "bg-violet-400/10",
-    },
-    {
-        icon: Cpu,
-        title: "Custom Model Training & Deployment",
-        description:
-            "Need a model trained on your own data? We design, fine‑tune, and deploy custom LLMs, vision models, and classifiers — on‑prem or cloud.",
-        color: "text-blue-400",
-        bg: "bg-blue-400/10",
-    },
-];
-
-const whyUs = [
-    { stat: "5+", label: "Years Track Record", icon: CheckCircle },
-    { stat: "100%", label: "Client Satisfaction", icon: CheckCircle },
-    { stat: "0 BS", label: "Transparent ROI", icon: CheckCircle },
-];
-
-const steps = [
-    {
-        number: "01",
-        icon: Search,
-        title: "Identify",
-        description:
-            "We run a deep‑dive audit of your processes, data assets, and competitive landscape to surface the highest‑impact AI opportunities.",
-    },
-    {
-        number: "02",
-        icon: Brain,
-        title: "Develop",
-        description:
-            "Our team architects a tailored AI roadmap — selecting the right models, integrations, and timelines for your business.",
-    },
-    {
-        number: "03",
-        icon: Rocket,
-        title: "Adopt",
-        description:
-            "We build, test, and launch your AI solution, then stay by your side for ongoing optimisation and support.",
-    },
-];
 
 /* ─── Animation helpers ─────────────────────────────────────── */
 
@@ -91,6 +33,16 @@ const fadeUp = {
 /* ─── Component ─────────────────────────────────────────────── */
 
 export default function AIConsultancyClient() {
+    const t = useTranslations("AIConsultancy");
+
+    const servicesData = t.raw("services.items");
+    const whyUsData = t.raw("whyUs.stats");
+    const stepsData = t.raw("howItWorks.steps");
+    const faqData = t.raw("faqs.items");
+
+    const serviceIcons = [Settings, Lightbulb, Cpu];
+    const stepIcons = [Search, Brain, Rocket];
+
     return (
         <div className="flex flex-col min-h-screen">
             {/* ── Hero ────────────────────────────────────────────── */}
@@ -99,7 +51,7 @@ export default function AIConsultancyClient() {
                 <div className="absolute inset-0 z-0">
                     <Image
                         src="/ai-consultancy-hero.jpg"
-                        alt="AI Consultancy hero"
+                        alt={t("hero.tag")}
                         fill
                         className="object-cover"
                         priority
@@ -121,18 +73,19 @@ export default function AIConsultancyClient() {
                         className="max-w-4xl mx-auto text-center flex flex-col items-center"
                     >
                         <span className="inline-block text-teal-400 font-semibold tracking-widest text-sm uppercase mb-4">
-                            AI Consultancy
+                            {t("hero.tag")}
                         </span>
                         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
-                            Transform Your Business{" "}
-                            <span className="bg-gradient-to-r from-teal-400 to-violet-400 bg-clip-text text-transparent">
-                                With Intelligent AI
-                            </span>
+                            {t.rich("hero.title", {
+                                gradient: (chunks) => (
+                                    <span className="bg-gradient-to-r from-teal-400 to-violet-400 bg-clip-text text-transparent">
+                                        {chunks}
+                                    </span>
+                                )
+                            })}
                         </h1>
                         <p className="text-lg sm:text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
-                            We help companies in Kuwait and the Middle East harness the power
-                            of AI — from strategy and process automation to custom model
-                            deployment. Practical. Transparent. Results‑driven.
+                            {t("hero.description")}
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
                             <Button
@@ -142,7 +95,7 @@ export default function AIConsultancyClient() {
                             >
                                 <Link href="/contact">
                                     <CalendarCheck className="w-5 h-5 mr-2" />
-                                    Schedule a Call
+                                    {t("hero.cta")}
                                 </Link>
                             </Button>
                             <Button
@@ -153,7 +106,7 @@ export default function AIConsultancyClient() {
                             >
                                 <a href="/ai-consultancy-brochure.pdf" download>
                                     <FileText className="w-5 h-5 mr-2" />
-                                    Download Brochure
+                                    {t("hero.brochure")}
                                 </a>
                             </Button>
                         </div>
@@ -177,38 +130,46 @@ export default function AIConsultancyClient() {
                         className="text-center mb-16"
                     >
                         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-4">
-                            What We Do
+                            {t("services.title")}
                         </h2>
                         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                            Three core disciplines. One seamless AI partnership.
+                            {t("services.subtitle")}
                         </p>
                     </motion.div>
 
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                        {services.map((svc, i) => (
-                            <motion.div
-                                key={svc.title}
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true }}
-                                variants={fadeUp}
-                                custom={i + 1}
-                            >
-                                <Card className="h-full hover:shadow-xl transition-shadow border-muted group flex flex-col items-center text-center">
-                                    <CardHeader className="flex flex-col items-center text-center w-full">
-                                        <div
-                                            className={`w-14 h-14 rounded-2xl ${svc.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
-                                        >
-                                            <svc.icon className={`w-7 h-7 ${svc.color}`} />
-                                        </div>
-                                        <CardTitle className="text-xl font-bold text-center w-full">{svc.title}</CardTitle>
-                                    </CardHeader>
-                                    <CardContent className="flex flex-col items-center text-center w-full">
-                                        <p className="text-muted-foreground max-w-[280px] mx-auto text-center">{svc.description}</p>
-                                    </CardContent>
-                                </Card>
-                            </motion.div>
-                        ))}
+                        {servicesData.map((svc: any, i: number) => {
+                            const Icon = serviceIcons[i];
+                            const colors = [
+                                { text: "text-teal-400", bg: "bg-teal-400/10" },
+                                { text: "text-violet-400", bg: "bg-violet-400/10" },
+                                { text: "text-blue-400", bg: "bg-blue-400/10" }
+                            ];
+                            return (
+                                <motion.div
+                                    key={svc.title}
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={{ once: true }}
+                                    variants={fadeUp}
+                                    custom={i + 1}
+                                >
+                                    <Card className="h-full hover:shadow-xl transition-shadow border-muted group flex flex-col items-center text-center">
+                                        <CardHeader className="flex flex-col items-center text-center w-full">
+                                            <div
+                                                className={`w-14 h-14 rounded-2xl ${colors[i].bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
+                                            >
+                                                <Icon className={`w-7 h-7 ${colors[i].text}`} />
+                                            </div>
+                                            <CardTitle className="text-xl font-bold text-center w-full">{svc.title}</CardTitle>
+                                        </CardHeader>
+                                        <CardContent className="flex flex-col items-center text-center w-full">
+                                            <p className="text-muted-foreground max-w-[280px] mx-auto text-center">{svc.description}</p>
+                                        </CardContent>
+                                    </Card>
+                                </motion.div>
+                            );
+                        })}
                     </div>
                 </div>
             </section>
@@ -225,15 +186,15 @@ export default function AIConsultancyClient() {
                         className="text-center mb-16"
                     >
                         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-4">
-                            Why Choose Us
+                            {t("whyUs.title")}
                         </h2>
                         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                            We don&#39;t sell buzzwords. We deliver measurable outcomes.
+                            {t("whyUs.subtitle")}
                         </p>
                     </motion.div>
 
                     <div className="grid sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                        {whyUs.map((item, i) => (
+                        {whyUsData.map((item: any, i: number) => (
                             <motion.div
                                 key={item.label}
                                 initial="hidden"
@@ -244,7 +205,7 @@ export default function AIConsultancyClient() {
                                 className="text-center"
                             >
                                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
-                                    <item.icon className="w-8 h-8 text-primary" />
+                                    <CheckCircle className="w-8 h-8 text-primary" />
                                 </div>
                                 <div className="text-5xl font-extrabold bg-gradient-to-r from-teal-400 to-violet-500 bg-clip-text text-transparent mb-2">
                                     {item.stat}
@@ -268,42 +229,45 @@ export default function AIConsultancyClient() {
                         className="text-center mb-16"
                     >
                         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-4">
-                            How It Works
+                            {t("howItWorks.title")}
                         </h2>
                         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                            A clear, three‑step path from conversation to live AI solution.
+                            {t("howItWorks.subtitle")}
                         </p>
                     </motion.div>
 
                     <div className="grid sm:grid-cols-3 gap-10 max-w-5xl mx-auto">
-                        {steps.map((step, i) => (
-                            <motion.div
-                                key={step.number}
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true }}
-                                variants={fadeUp}
-                                custom={i + 1}
-                                className="relative"
-                            >
-                                {/* connector line (hidden on last item) */}
-                                {i < steps.length - 1 && (
-                                    <div className="hidden sm:block absolute top-7 left-full w-full h-px bg-gradient-to-r from-muted to-transparent -translate-x-1/2 z-0" />
-                                )}
-                                <div className="relative z-10 flex flex-col items-center text-center">
-                                    <div className="flex flex-col items-center gap-3 mb-4">
-                                        <span className="text-5xl font-black text-muted/30 select-none leading-none">
-                                            {step.number}
-                                        </span>
-                                        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                                            <step.icon className="w-6 h-6 text-primary" />
+                        {stepsData.map((step: any, i: number) => {
+                            const Icon = stepIcons[i];
+                            return (
+                                <motion.div
+                                    key={step.number}
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={{ once: true }}
+                                    variants={fadeUp}
+                                    custom={i + 1}
+                                    className="relative"
+                                >
+                                    {/* connector line (hidden on last item) */}
+                                    {i < stepsData.length - 1 && (
+                                        <div className="hidden sm:block absolute top-7 left-full w-full h-px bg-gradient-to-r from-muted to-transparent -translate-x-1/2 z-0" />
+                                    )}
+                                    <div className="relative z-10 flex flex-col items-center text-center">
+                                        <div className="flex flex-col items-center gap-3 mb-4">
+                                            <span className="text-5xl font-black text-muted/30 select-none leading-none">
+                                                {step.number}
+                                            </span>
+                                            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                                                <Icon className="w-6 h-6 text-primary" />
+                                            </div>
                                         </div>
+                                        <h3 className="text-xl font-bold mb-2">{step.title}</h3>
+                                        <p className="text-muted-foreground text-sm max-w-[250px]">{step.description}</p>
                                     </div>
-                                    <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                                    <p className="text-muted-foreground text-sm max-w-[250px]">{step.description}</p>
-                                </div>
-                            </motion.div>
-                        ))}
+                                </motion.div>
+                            );
+                        })}
                     </div>
                 </div>
             </section>
@@ -311,20 +275,14 @@ export default function AIConsultancyClient() {
             {/* ── FAQs for AEO ────────────────────────────────────── */}
             <section className="bg-muted/50 py-12 md:py-16">
                 <div className="container px-4 md:px-6 max-w-3xl mx-auto">
-                    <h2 className="text-3xl font-bold mb-10 text-center">Frequently Asked Questions</h2>
+                    <h2 className="text-3xl font-bold mb-10 text-center">{t("faqs.title")}</h2>
                     <div className="space-y-6">
-                        <div className="bg-background rounded-xl p-6 shadow-sm border">
-                            <h3 className="text-xl font-bold mb-2">What does an AI consultant do?</h3>
-                            <p className="text-muted-foreground">An AI consultant evaluates your current business workflows, tech stack, and data architecture to build a strategic roadmap for AI integration. At Mirage Tech AI, we don't just advise; we actively build and deploy the automated systems we recommend.</p>
-                        </div>
-                        <div className="bg-background rounded-xl p-6 shadow-sm border">
-                            <h3 className="text-xl font-bold mb-2">How much does AI consultancy cost?</h3>
-                            <p className="text-muted-foreground">Investment varies based on the scope, logic complexiy, and automation depth. We focus on building clear ROI models so the automation pays for itself through saved labor and increased revenue. Book a discovery call for a custom quote.</p>
-                        </div>
-                        <div className="bg-background rounded-xl p-6 shadow-sm border">
-                            <h3 className="text-xl font-bold mb-2">Is generative AI safe for enterprise data?</h3>
-                            <p className="text-muted-foreground">Yes, when deployed correctly. Mirage Tech AI ensures your data is secure by utilizing private, enterprise-tier LLMs (like Azure OpenAI) or deploying self-hosted open-source models so your proprietary data never trains public AI platforms.</p>
-                        </div>
+                        {faqData.map((faq: any, i: number) => (
+                            <div key={i} className="bg-background rounded-xl p-6 shadow-sm border">
+                                <h3 className="text-xl font-bold mb-2">{faq.question}</h3>
+                                <p className="text-muted-foreground">{faq.answer}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -342,11 +300,10 @@ export default function AIConsultancyClient() {
                     >
                         <div>
                             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">
-                                Ready to transform your business?
+                                {t("ctaBanner.title")}
                             </h2>
                             <p className="text-slate-300 text-lg max-w-xl">
-                                Book a free 30‑minute strategy call and we&#39;ll show you exactly
-                                where AI can make the biggest difference for your company.
+                                {t("ctaBanner.description")}
                             </p>
                         </div>
                         <div className="flex flex-wrap gap-4 flex-shrink-0">
@@ -356,7 +313,7 @@ export default function AIConsultancyClient() {
                                 className="bg-gradient-to-r from-teal-500 to-violet-600 hover:from-teal-400 hover:to-violet-500 text-white border-0 text-base px-8"
                             >
                                 <Link href="/contact">
-                                    Schedule a Call
+                                    {t("hero.cta")}
                                     <ArrowRight className="w-5 h-5 ml-2" />
                                 </Link>
                             </Button>
@@ -368,7 +325,7 @@ export default function AIConsultancyClient() {
                             >
                                 <a href="/ai-consultancy-brochure.pdf" download>
                                     <FileText className="w-5 h-5 mr-2" />
-                                    Download Brochure
+                                    {t("hero.brochure")}
                                 </a>
                             </Button>
                         </div>

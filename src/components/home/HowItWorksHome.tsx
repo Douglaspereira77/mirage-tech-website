@@ -1,74 +1,59 @@
 "use client";
-
+import { useTranslations } from 'next-intl';
 import { motion } from "framer-motion";
 import { Phone, Wrench, Rocket } from "lucide-react";
 
-const steps = [
-    {
-        number: "01",
-        icon: Phone,
-        title: "Audit Your Gaps",
-        description:
-            "We identify exactly where you are losing leads and money in your current business process.",
-    },
-    {
-        number: "02",
-        icon: Wrench,
-        title: "Engineer Solutions",
-        description:
-            "We build and test your custom AI system to handle your WhatsApp, calls, and customer follow-ups.",
-    },
-    {
-        number: "03",
-        icon: Rocket,
-        title: "Scale Growth",
-        description:
-            "We launch your system and keep it optimized. You focus on your business while AI handles the growth.",
-    },
-];
+const stepIcons = [Phone, Wrench, Rocket];
+const stepKeys = ['audit', 'engineer', 'scale'] as const;
 
 export function HowItWorksHome() {
+    const t = useTranslations('HowItWorks');
+
     return (
         <section className="py-12 md:py-16 bg-muted/30">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">
-                        How It Works
+                        {t('title')}
                     </h2>
                     <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        A clear, three-step path from conversation to live AI solution.
+                        {t('subtitle')}
                     </p>
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
-                    {steps.map((step, i) => (
-                        <motion.div
-                            key={step.number}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: i * 0.15 }}
-                            className="relative flex flex-col items-center text-center"
-                        >
-                            {/* Connector line */}
-                            {i < steps.length - 1 && (
-                                <div className="hidden md:block absolute top-7 left-[60%] w-full h-px bg-gradient-to-r from-muted-foreground/20 to-transparent z-0" />
-                            )}
+                    {stepKeys.map((key, i) => {
+                        const Icon = stepIcons[i];
+                        const stepNumber = (i + 1).toString().padStart(2, '0');
+                        return (
+                            <motion.div
+                                key={key}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: i * 0.15 }}
+                                className="relative flex flex-col items-center text-center"
+                            >
+                                {/* Connector line */}
+                                {i < stepKeys.length - 1 && (
+                                    <div className="hidden md:block absolute top-7 left-[60%] rtl:right-[60%] rtl:left-auto w-full h-px bg-gradient-to-r from-muted-foreground/20 to-transparent z-0" />
+                                )}
 
-                            <div className="relative z-10 flex flex-col items-center">
-                                <div className="flex items-center gap-3 mb-6">
-                                    <span className="text-5xl font-black text-muted-foreground/15 select-none leading-none">
-                                        {step.number}
-                                    </span>
-                                    <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                                        <step.icon className="w-7 h-7 text-primary" />
+                                <div className="relative z-10 flex flex-col items-center">
+                                    <div className="flex items-center gap-3 mb-6">
+                                        <span className="text-5xl font-black text-muted-foreground/15 select-none leading-none">
+                                            {stepNumber}
+                                        </span>
+                                        <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                                            <Icon className="w-7 h-7 text-primary" />
+                                        </div>
                                     </div>
+                                    <h3 className="text-xl font-bold mb-3">{t(`steps.${key}.title`)}</h3>
+                                    <p className="text-muted-foreground text-sm leading-relaxed">{t(`steps.${key}.description`)}</p>
                                 </div>
-                                <h3 className="text-xl font-bold mb-3">{step.title}</h3>
-                                <p className="text-muted-foreground text-sm leading-relaxed">{step.description}</p>
-                            </div>
-                        </motion.div>
-                    ))}
+                            </motion.div>
+                        );
+                    })}
                 </div>
             </div>
         </section>

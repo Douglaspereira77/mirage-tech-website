@@ -1,0 +1,598 @@
+{
+  "Navbar": {
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "contact": "Contact",
+    "services": "Services",
+    "visibilityAudit": "AI Visibility Audit",
+    "aiSeo": "AI-SEO & AEO",
+    "aiAutomation": "AI Automation Systems",
+    "partnership": "BestOfKuwait Partnership",
+    "allServices": "All Services",
+    "freeAudit": "Free AI Audit",
+    "brandName": "Mirage Tech AI"
+  },
+  "Hero": {
+    "badge": "AI Automation Agency — Kuwait",
+    "title": "Scale Your Business with AI",
+    "subtitle": "Kuwait's leading AI SEO & AEO agency. We build high-performance AI systems that dominate local search, follow up with every lead, and book appointments for your business 24/7. Stop the leakage and start growing.",
+    "cta": "Claim My Free Audit",
+    "secondaryCta": "Explore Our Services",
+    "trustedBy": "Trusted by",
+    "poweredBy": "Infrastructure Powered by"
+  },
+  "Footer": {
+    "brandName": "Mirage Tech AI",
+    "description": "Premium AI Automation & Custom Business Tools based in Kuwait.",
+    "company": "Company",
+    "about": "About Us",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "services": "Services",
+    "aiAutomation": "AI Automation Systems",
+    "customTools": "Custom AI Business Tools",
+    "consultancy": "AI Consultancy",
+    "allServices": "All Services",
+    "address": "Kuwait City, Kuwait",
+    "whatsapp": "WhatsApp",
+    "callUs": "Call Us",
+    "rights": "All rights reserved."
+  },
+  "ServicesOverview": {
+    "title": "What We Build",
+    "subtitle": "Three core capabilities. One seamless AI partnership.",
+    "pillars": {
+      "reputation": {
+        "title": "AI Reputation & Local SEO",
+        "subtitle": "Google, Maps & AEO Dominance",
+        "description": "Automate review generation and dominate local Kuwait SEO. We ensure your business is the #1 answer for 'AI search' and map queries on autopilot."
+      },
+      "chat": {
+        "title": "AI Chat & Lead Capture",
+        "subtitle": "Omnichannel Engagement",
+        "description": "Don't lose another lead to slow replies. Our bilingual AI agents handle inquiries, qualify leads, and book appointments on WhatsApp and Web 24/7."
+      },
+      "voice": {
+        "title": "AI Voice & Reception",
+        "subtitle": "24/7 Voice Agents",
+        "description": "Replace your manual hold times with immediate AI responses. Our Voice Agents qualify callers and book appointments while you focus on the work."
+      }
+    },
+    "learnMore": "Learn More"
+  },
+  "ProblemSolution": {
+    "title": "Is Your Business Losing Money on Auto-Pilot?",
+    "subtitle": "In Kuwait, if you don't answer a lead in 5 minutes, they've already called your competitor.",
+    "oldWay": {
+      "title": "The Old Way",
+      "items": [
+        "Slow WhatsApp replies (dead leads)",
+        "Missing calls when you're busy",
+        "No follow-up on old customer lists",
+        "Hiring people for simple, repetitive tasks"
+      ]
+    },
+    "mirageWay": {
+      "title": "The Mirage Way",
+      "items": [
+        "AI that replies in seconds (24/7)",
+        "Automated missed-call text-backs",
+        "Re-engaging old leads on auto-pilot",
+        "Scaling without hiring more staff"
+      ]
+    }
+  },
+  "HowItWorks": {
+    "title": "How It Works",
+    "subtitle": "A clear, three-step path from conversation to live AI solution.",
+    "steps": {
+      "audit": {
+        "title": "Audit Your Gaps",
+        "description": "We identify exactly where you are losing leads and money in your current business process."
+      },
+      "engineer": {
+        "title": "Engineer Solutions",
+        "description": "We build and test your custom AI system to handle your WhatsApp, calls, and customer follow-ups."
+      },
+      "scale": {
+        "title": "Scale Growth",
+        "description": "We launch your system and keep it optimized. You focus on your business while AI handles the growth."
+      }
+    }
+  },
+  "WhyChooseUs": {
+    "title": "Why Choose Mirage Tech AI?",
+    "subtitle": "We don't just build chatbots; we build intelligent systems designed for businesses in Kuwait and the Middle East.",
+    "features": {
+      "local": {
+        "title": "Local Expertise",
+        "description": "We understand the Middle East market and business culture."
+      },
+      "bilingual": {
+        "title": "Arabic & English",
+        "description": "Fully bilingual bots that switch languages seamlessly."
+      },
+      "availability": {
+        "title": "24/7 Availability",
+        "description": "Never miss a customer message, even on weekends or holidays."
+      },
+      "fast": {
+        "title": "Fast Integration",
+        "description": "Get up and running with your existing systems in days, not months."
+      }
+    },
+    "trusted": "Trusted by Kuwaiti Businesses",
+    "trustedSub": "Join the growing list of businesses skipping the manual grind.",
+    "testimonials": [
+      "Mirage Tech understood our local needs perfectly. Their bilingual AI handled our WhatsApp inquiries instantly, even during peak Kuwaiti hours.",
+      "The automated review engine shifted our Google Maps ranking from page 3 to the top 5 in less than a month. Highly recommended."
+    ],
+    "helpUsGrow": "Help Us Grow",
+    "happyClient": "Are you a happy client? Leave us a review on Google to help other Kuwaiti businesses find us.",
+    "leaveReview": "Leave a Google Review"
+  },
+  "FAQ": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Common questions about our AI Automation and Custom Business Tools.",
+    "items": [
+      {
+        "question": "What is Mirage Tech AI?",
+        "answer": "Mirage Tech AI is a premier AI automation agency based in Kuwait. We specialize in rapidly deploying custom AI solutions like WhatsApp chatbots, Instagram DM automation, and custom web applications (AI Automation & Custom Business Tools) for businesses across the Middle East."
+      },
+      {
+        "question": "How long does it take to build an AI chatbot?",
+        "answer": "Standard WhatsApp or Instagram chatbots can be deployed in under 48 hours. For highly complex, custom-trained LLMs connected to your proprietary CRM, timelines are typically achieved within 7 days."
+      },
+      {
+        "question": "Do your AI solutions support Arabic?",
+        "answer": "Yes. All our AI deployments feature native bilingual support, understanding and generating fluid Arabic (including GCC dialects) and English with enterprise-grade accuracy."
+      }
+    ]
+  },
+  "CTA": {
+    "title": "Ready to Scale with AI?",
+    "subtitle": "Whether you need a chatbot, a custom app, or an enterprise AI strategy — book a free call and let's figure out the fastest path to results.",
+    "bookCall": "Book a Free Strategy Call"
+  },
+  "About": {
+    "title": "About Mirage Tech AI",
+    "subtitle": "Bridging the gap between Middle Eastern businesses and the future of communication.",
+    "story": {
+      "title": "Our Story",
+      "p1": "Founded in Kuwait, Mirage Tech AI was born from a simple observation: businesses in the Middle East strive to provide excellent hospitality, but often struggle to maintain that personal touch at scale in the digital age.",
+      "p2": "We saw an opportunity to use Artificial Intelligence not to replace human connection, but to enhance it. By automating routine inquiries, we free up business owners and staff to focus on what matters most—building relationships.",
+      "year": "2024",
+      "established": "Established"
+    },
+    "values": {
+      "title": "Our Core Values",
+      "local": { "title": "Local Expertise", "desc": "Deep understanding of the Gulf market." },
+      "customer": { "title": "Customer First", "desc": "Technology should serve people, not the other way around." },
+      "innovation": { "title": "Innovation", "desc": "Always exploring the latest in AI capabilities." },
+      "transparency": { "title": "Transparency", "desc": "Honest communication and clear results." }
+    },
+    "founder": {
+      "title": "Meet the Founder",
+      "name": "Douglas Pereira",
+      "role": "Founder",
+      "alt": "Douglas Pereira — Founder of Mirage Tech AI",
+      "bio1": "With 20+ years in IT management across hospitality, real estate, and education in Kuwait, Douglas has led end-to-end technology delivery for some of the region's most operationally demanding environments — from golf resorts and equestrian facilities to multi-campus international schools.",
+      "bio2": "Now he's channeling that experience into Mirage Tech AI, bringing enterprise-grade AI automation and rapid application development to businesses across the Middle East. A Google-certified Project Manager, builder of <link>BestofKuwait.com</link>, and hands-on developer who believes AI should work for real businesses — not just tech companies."
+    }
+  },
+  "AboutMetadata": {
+    "title": "About Mirage Tech AI | Leading AI Automation Agency in Kuwait",
+    "description": "Meet the experts behind Mirage Tech AI. We bridge the gap between businesses and AI in Kuwait and the Middle East through rapid software development (Custom Business Tools) and enterprise AI consultancy."
+  },
+  "ContactMetadata": {
+    "title": "Contact Mirage Tech AI | Start Your AI Transformation",
+    "description": "Consult with our AI experts in Kuwait today. Contact Mirage Tech AI for custom AI Growth Engines, business process automation, or enterprise AI strategy consulting."
+  },
+  "Contact": {
+    "title": "Let's Grow Your Business",
+    "subtitle": "Choose the fastest path to results.",
+    "tabs": {
+      "audit": "Free Audit",
+      "contact": "Direct Inquiry"
+    },
+    "auditSection": {
+      "badge": "Recommended for SMBs",
+      "title": "Claim Your Free Growth & Visibility Audit",
+      "description": "We'll analyze your business, find exactly where you are losing leads, and show you how to fix it with AI.",
+      "items": [
+        "Full GMB & SEO performance check",
+        "Lead response-time leakage report",
+        "3-step AI implementation roadmap"
+      ],
+      "cta": "Start My Free Audit",
+      "footer": "Takes 2 minutes. No credit card required."
+    },
+    "contactSection": {
+      "title": "Specific Inquiry?",
+      "description": "Have a specific project or question? Send us a message and we'll reply within 24 hours.",
+      "emailLabel": "Email",
+      "whatsappLabel": "WhatsApp"
+    },
+    "form": {
+      "labels": {
+        "name": "Full Name",
+        "email": "Email Address",
+        "phone": "Phone Number",
+        "company": "Company Name",
+        "interest": "What are you interested in?",
+        "message": "Message"
+      },
+      "placeholders": {
+        "name": "John Doe",
+        "email": "john@company.com",
+        "phone": "+965 ...",
+        "company": "Your Business",
+        "interest": "Select a service",
+        "message": "Tell us about your automation needs..."
+      },
+      "services": {
+        "automation": "AI Growth Engines & Automation",
+        "customApp": "Custom App Development & Business Tools",
+        "consultancy": "AI Consultancy & Strategy",
+        "voiceChat": "AI Voice & Chat Systems",
+        "general": "Not Sure / General Inquiry"
+      },
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "success": {
+        "title": "Message Sent!",
+        "message": "Thank you for reaching out. Our team will get back to you within 24 hours.",
+        "sendAnother": "Send Another Message"
+      },
+      "validation": {
+        "name": "Name is required",
+        "email": "Invalid email address",
+        "phone": "Valid phone number is required",
+        "company": "Company name is required",
+        "platform": "Please select a platform",
+        "message": "Please provide more details about your needs",
+        "generic": "Something went wrong. Please try again."
+      }
+    }
+  },
+  "ServicesMetadata": {
+    "title": "AI SEO, AEO & Growth Automation Systems | Mirage Tech AI",
+    "description": "Explore our Done-For-You AI SEO, AEO (Answer Engine Optimization), and Growth Engines in Kuwait. Dominate search and AI answers with Mirage Tech."
+  },
+  "Services": {
+    "header": {
+      "title": "AI SEO, AEO & Growth Engines for Kuwait Businesses",
+      "description": "Stop missing leads. Start dominating local search and AI-driven Answer Engines (AEO) with high-performance systems that ruthlessly increase your revenue."
+    },
+    "automationServices": {
+      "reviews-engine": {
+        "title": "AI Reputation & Local SEO Dominance",
+        "problem": "Are you losing local Kuwaiti leads to competitors with more stars? Every day you stay at 3.5 stars is another day your revenue leaks to others in Salmiya and Sharq.",
+        "solution": "A 100% automated system that generates 5-star reviews on autopilot and uses AEO (Answer Engine Optimization) to ensure your business is the #1 answer for AI search queries.",
+        "outcome": "Dominant AI SEO ranking in Kuwait City and absolute trust for your clinic, salon, or restaurant.",
+        "features": [
+          "AI-Driven Local SEO",
+          "AEO (Answer Engine Optimization)",
+          "Google Business Profile Sync"
+        ]
+      },
+      "growth-engine": {
+        "title": "AI Lead & Growth Engine",
+        "problem": "30% of your Kuwaiti WhatsApp leads are dying in your inbox due to slow human replies. If you don't answer in 5 minutes, that customer is gone forever.",
+        "solution": "Native bilingual AI Agents that live on your WhatsApp 24/7 to answer questions, qualify leads, and book appointments while you sleep.",
+        "outcome": "2x increase in booked appointments across Kuwait without hiring a single extra staff member.",
+        "features": [
+          "Bilingual WhatsApp Triage",
+          "Instant Web Lead Capture",
+          "24/7 AI Sales Qualification"
+        ]
+      },
+      "voice-agent": {
+        "title": "AI Voice & Call Handling",
+        "problem": "Missed calls are missed revenue. Your staff is too busy to answer every inquiry, leaving thousands of KWD on the table every month in missed bookings.",
+        "solution": "Intelligent AI Voice Agents that handle calls, manage inquiries, and send instant 'Missed Call Text-Back' on WhatsApp to keep the conversation alive.",
+        "outcome": "Zero missed opportunities and a 30%+ increase in staff productivity for local Kuwaiti teams.",
+        "features": [
+          "AI Voice Appointment Booking",
+          "Missed Call Text-Back (WhatsApp)",
+          "Automated Inquiry Routing"
+        ]
+      },
+      "revenue-recovery": {
+        "title": "AI Revenue Recovery Engine",
+        "problem": "You've already paid for your Kuwaiti leads—stop letting them rot. Old databases and 'no-shows' are dead capital sitting in your phone right now.",
+        "solution": "Automated AI Reactivation systems that reach out to your old leads and database to spark new interest and book fresh sales instantly.",
+        "outcome": "Recovered revenue from the Kuwaiti leads you've already spent your marketing budget on.",
+        "features": [
+          "No-Show Prevention Flows",
+          "Database Reactivation Campaigns",
+          "Smart Lead Nurturing"
+        ]
+      }
+    },
+    "labels": {
+      "problem": "The Problem",
+      "solution": "The AI Solution",
+      "outcome": "Business Outcome",
+      "cta": "Book an AI Audit"
+    },
+    "timeline": {
+      "title": "How it works in 7 days",
+      "subtitle": "Our rapid deployment roadmap to turn AI into a revenue driver for your business.",
+      "steps": [
+        {
+          "week": "Day 1",
+          "title": "Audit & Strategy",
+          "description": "We audit your current visibility and set up your core AI reputation engine."
+        },
+        {
+          "week": "Days 2-3",
+          "title": "Launch & Automate",
+          "description": "Deployment of AI Chat, WhatsApp triage, and automated follow-up systems."
+        },
+        {
+          "week": "Ongoing",
+          "title": "Optimize & Grow",
+          "description": "Weekly performance reporting and AI prompt tuning for maximum conversion."
+        }
+      ]
+    },
+    "industries": {
+      "title": "Designed for Kuwaiti Businesses",
+      "subtitle": "Specialized AI systems for local industries that demand excellence.",
+      "list": ["Medical Clinics", "Beauty Salons", "Restaurants", "Private Schools"]
+    },
+    "faqs": {
+      "title": "Frequently Asked Questions",
+      "list": [
+        {
+          "question": "How fast can we see results?",
+          "answer": "Most businesses see a spike in Google reviews and lead response speed within the first 48 hours of deployment."
+        },
+        {
+          "question": "Does the AI speak Kuwaiti Arabic?",
+          "answer": "Yes. Our models are specifically tuned for Gulf and Kuwaiti dialects to ensure your brand sounds natural and professional, not robotic."
+        },
+        {
+          "question": "What is AEO?",
+          "answer": "Answer Engine Optimization (AEO) is the next evolution of SEO. It ensures your business is the top result when customers ask AI tools like ChatGPT, Perplexity, or Gemini for local recommendations in Kuwait."
+        },
+        {
+          "question": "Is it compatible with my current WhatsApp?",
+          "answer": "Yes. We integrate with the official WhatsApp Business API so you keep your number while adding 24/7 intelligence."
+        }
+      ]
+    },
+    "bottomCTA": "Book your Free AI Visibility Audit"
+  },
+  "PortfolioMetadata": {
+    "title": "Portfolio | Mirage Tech AI",
+    "description": "Check out our portfolio including BestofKuwait.com and other upcoming directory platforms."
+  },
+  "Portfolio": {
+    "title": "Our Work",
+    "subtitle": "Simple AI systems that stop your business from losing leads and start generating more revenue.",
+    "caseStudy": {
+      "badge": "Case Study",
+      "status": "Live",
+      "category": "Custom Business Tools",
+      "title": "BestofKuwait.com",
+      "description": "We turned Kuwait's leading local directory into a customer-generating machine, recovering $40,000+ in annual lead value that was previously being missed.",
+      "results": [
+        "45% Increase in Booking Rate within 30 days",
+        "High-Intent Lead Routing & Conversion Engine",
+        "AEO-Ready Structured Data for AI Search Dominance",
+        "Automated Content Ingestion & AI Scoring Systems",
+        "Revenue-Focused Analytics & Performance Tracking"
+      ],
+      "cta": "Visit Website"
+    },
+    "capabilities": {
+      "title": "Other Capabilities",
+      "chatbot": {
+        "title": "AI Conversion Chatbots",
+        "description": "Developed bilingual AI sales agents that handle parent inquiries and book appointments 24/7 for large educational groups in Kuwait, recovering lost leads."
+      },
+      "roi": {
+        "title": "Operational ROI Engines",
+        "description": "Built custom AI-powered workflow automations that replace 20+ hours of manual labor weekly, allowing businesses to scale without increasing headcount."
+      }
+    },
+    "cta": {
+      "title": "Ready for Your Free Growth Audit?",
+      "description": "We'll show you exactly where you're losing leads and how to fix it.",
+      "button": "Claim My Free Audit"
+    }
+  },
+  "AIConsultancy": {
+    "metadata": {
+      "title": "Enterprise AI Consultancy in Kuwait | Mirage Tech AI",
+      "description": "Expert AI consultancy for businesses in Kuwait and the Middle East. We help you automate processes, craft AI‑driven product strategies, and deploy custom models tailored to your goals."
+    },
+    "hero": {
+      "tag": "AI Consultancy",
+      "title": "Transform Your Business <gradient>With Intelligent AI</gradient>",
+      "description": "We help companies in Kuwait and the Middle East harness the power of AI — from strategy and process automation to custom model deployment. Practical. Transparent. Results‑driven.",
+      "cta": "Schedule a Call",
+      "brochure": "Download Brochure"
+    },
+    "services": {
+      "title": "What We Do",
+      "subtitle": "Three core disciplines. One seamless AI partnership.",
+      "items": [
+        {
+          "title": "Business‑Process Automation",
+          "description": "We map your existing workflows, identify bottlenecks, and deploy AI agents that eliminate repetitive work — cutting costs and freeing your team for high‑value tasks."
+        },
+        {
+          "title": "AI‑Driven Product Strategy",
+          "description": "From ideation to roadmap, we help you evaluate which AI capabilities will move the needle for your product and customers — without the hype."
+        },
+        {
+          "title": "Custom Model Training & Deployment",
+          "description": "Need a model trained on your own data? We design, fine‑tune, and deploy custom LLMs, vision models, and classifiers — on‑prem or cloud."
+        }
+      ]
+    },
+    "whyUs": {
+      "title": "Why Choose Us",
+      "subtitle": "We don't sell buzzwords. We deliver measurable outcomes.",
+      "stats": [
+        {
+          "stat": "5+",
+          "label": "Years Track Record"
+        },
+        {
+          "stat": "100%",
+          "label": "Client Satisfaction"
+        },
+        {
+          "stat": "0 BS",
+          "label": "Transparent ROI"
+        }
+      ]
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "subtitle": "A clear, three‑step path from conversation to live AI solution.",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Identify",
+          "description": "We run a deep‑dive audit of your processes, data assets, and competitive landscape to surface the highest‑impact AI opportunities."
+        },
+        {
+          "number": "02",
+          "title": "Develop",
+          "description": "Our team architects a tailored AI roadmap — selecting the right models, integrations, and timelines for your business."
+        },
+        {
+          "number": "03",
+          "title": "Adopt",
+          "description": "We build, test, and launch your AI solution, then stay by your side for ongoing optimisation and support."
+        }
+      ]
+    },
+    "faqs": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "What does an AI consultant do?",
+          "answer": "An AI consultant evaluates your current business workflows, tech stack, and data architecture to build a strategic roadmap for AI integration. At Mirage Tech AI, we don't just advise; we actively build and deploy the automated systems we recommend."
+        },
+        {
+          "question": "How much does AI consultancy cost?",
+          "answer": "Investment varies based on the scope, logic complexiy, and automation depth. We focus on building clear ROI models so the automation pays for itself through saved labor and increased revenue. Book a discovery call for a custom quote."
+        },
+        {
+          "question": "Is generative AI safe for enterprise data?",
+          "answer": "Yes, when deployed correctly. Mirage Tech AI ensures your data is secure by utilizing private, enterprise-tier LLMs (like Azure OpenAI) or deploying self-hosted open-source models so your proprietary data never trains public AI platforms."
+        }
+      ]
+    },
+    "ctaBanner": {
+      "title": "Ready to transform your business?",
+      "description": "Book a free 30‑minute strategy call and we'll show you exactly where AI can make the biggest difference for your company."
+    }
+  },
+  "Audit": {
+    "metadata": {
+      "title": "Free AI Visibility & Reviews Audit | Kuwait SMBs",
+      "description": "Get a free, comprehensive analysis of your Google presence, review reputation, and website lead capture. See exactly where you are losing customers."
+    },
+    "hero": {
+      "tag": "Free for Kuwait SMBs",
+      "title": "AI Visibility & Reviews Audit",
+      "description": "Get a free, comprehensive analysis of your Google presence, review reputation, and website lead capture. See exactly where you are losing customers.",
+      "scrollHint": "SCROLL DOWN TO CLAIM YOUR AUDIT ↓"
+    },
+    "scorecard": {
+      "title": "Audit Scorecard",
+      "visibility": {
+        "title": "Visibility",
+        "subtitle": "Local Search Presence"
+      },
+      "reputation": {
+        "title": "Reputation",
+        "subtitle": "Review Velocity & Depth"
+      },
+      "followUp": {
+        "title": "Follow-Up",
+        "subtitle": "Lead Capture Speed"
+      },
+      "footer": "Comprehensive Report Generated Instantly"
+    },
+    "deliverables": {
+      "title": "What you get",
+      "subtitle": "No fluff. Just actionable insights for your business.",
+      "items": [
+        {
+          "title": "Visibility Audit",
+          "description": "How you appear on Google Maps vs your competitors."
+        },
+        {
+          "title": "Reputation Score",
+          "description": "Analysis of your reviews and where you're losing trust."
+        },
+        {
+          "title": "Lead Action Plan",
+          "description": "3 simple steps to fix your lead capture in 48 hours."
+        }
+      ]
+    },
+    "sample": {
+      "title": "Sample Report: Your Business at a Glance",
+      "description": "Every audit includes a detailed visual breakdown like the one below."
+    },
+    "form": {
+      "title": "Start Your Growth Audit",
+      "description": "Complete the 3-step application below. We only offer 5 free audits per week to ensure maximum quality for Kuwaiti businesses."
+    },
+    "support": {
+      "text": "Prefer a direct call? <link>Book a strategy session instead.</link>"
+    }
+  },
+  "Demo": {
+    "header": {
+      "contact": "Contact Us"
+    },
+    "video": {
+      "placeholder": "Generating your custom AI experience...",
+      "notFound": "Video not found locally"
+    },
+    "content": {
+      "tag": "Automated AI Voice",
+      "title": "Imagine an employee that <gradient>never sleeps</gradient>.",
+      "description": "We generated this demo specifically for <company>{companyName}</company> to show you how our AI voice agents sound and sell your services 24/7.",
+      "features": [
+        {
+          "title": "Inbound Lead Handling",
+          "description": "Answers FAQs instantly based on your website's knowledge base."
+        },
+        {
+          "title": "Automated Booking",
+          "description": "Books appointments and tables directly into your calendar software."
+        }
+      ],
+      "cta": "Book Strategy Call",
+      "learnMore": "Learn More"
+    }
+  },
+  "Reputation": {
+    "metadata": {
+      "title": "Review Mirage Tech AI on Google",
+      "description": "Help us grow by leaving a review on our Google Business Profile."
+    },
+    "title": "Your Feedback Matters",
+    "description": "At Mirage Tech, we are on a mission to automate 1,000 businesses in Kuwait. Your honest review helps other local business owners find the AI edge they need.",
+    "card": {
+      "step": "Step 1",
+      "title": "Rate us on Google Maps",
+      "subtitle": "It takes less than 30 seconds."
+    },
+    "referral": {
+      "text": "Already reviewed? <link>Message us for a direct referral reward</link>"
+    }
+  }
+}

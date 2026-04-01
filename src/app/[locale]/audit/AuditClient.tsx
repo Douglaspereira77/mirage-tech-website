@@ -1,15 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Search, Star, MessageSquare, CheckCircle2, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Search, Star, MessageSquare, CheckCircle2 } from "lucide-react";
+import { Link } from "@/i18n/navigation";
 import NextImage from "next/image";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { DiscoveryForm } from "@/components/forms/DiscoveryForm";
 import { LeadConnectorProspecting } from "@/components/forms/LeadConnectorProspecting";
+import { useTranslations } from "next-intl";
 
-export default function AuditPage() {
+export default function AuditClient() {
+    const t = useTranslations("Audit");
+
+    const deliverableItems = t.raw("deliverables.items");
+
     return (
         <div className="flex flex-col min-h-screen bg-background pt-20">
             {/* Hero Section */}
@@ -21,7 +23,7 @@ export default function AuditPage() {
                             animate={{ opacity: 1, x: 0 }}
                             className="inline-flex items-center rounded-full border px-4 py-1.5 text-sm font-semibold text-primary bg-primary/10"
                         >
-                            Free for Kuwait SMBs
+                            {t("hero.tag")}
                         </motion.div>
                         <motion.h1 
                             initial={{ opacity: 0, y: 20 }}
@@ -29,7 +31,7 @@ export default function AuditPage() {
                             transition={{ delay: 0.1 }}
                             className="text-4xl md:text-6xl font-bold tracking-tighter leading-tight"
                         >
-                            AI Visibility & Reviews Audit
+                            {t("hero.title")}
                         </motion.h1>
                         <motion.p 
                             initial={{ opacity: 0, y: 20 }}
@@ -37,7 +39,7 @@ export default function AuditPage() {
                             transition={{ delay: 0.2 }}
                             className="text-xl text-muted-foreground"
                         >
-                            Get a free, comprehensive analysis of your Google presence, review reputation, and website lead capture. See exactly where you are losing customers.
+                            {t("hero.description")}
                         </motion.p>
                         <motion.div 
                             initial={{ opacity: 0, y: 20 }}
@@ -45,7 +47,7 @@ export default function AuditPage() {
                             transition={{ delay: 0.3 }}
                             className="flex flex-col sm:flex-row gap-4 underline decoration-primary/30 underline-offset-8"
                         >
-                            <p className="text-sm font-bold uppercase tracking-widest text-primary">SCROLL DOWN TO CLAIM YOUR AUDIT ↓</p>
+                            <p className="text-sm font-bold uppercase tracking-widest text-primary">{t("hero.scrollHint")}</p>
                         </motion.div>
                     </div>
 
@@ -57,7 +59,7 @@ export default function AuditPage() {
                         className="relative p-1 bg-gradient-to-br from-primary/20 via-border to-primary/20 rounded-[2.5rem] shadow-2xl"
                     >
                         <div className="bg-background rounded-[2.25rem] p-8 space-y-8">
-                            <h3 className="text-2xl font-bold border-b pb-4">Audit Scorecard</h3>
+                            <h3 className="text-2xl font-bold border-b pb-4">{t("scorecard.title")}</h3>
                             
                             <div className="space-y-6">
                                 <div className="flex items-center justify-between">
@@ -66,8 +68,8 @@ export default function AuditPage() {
                                             <Search className="w-6 h-6 text-blue-500" />
                                         </div>
                                         <div>
-                                            <p className="font-bold">Visibility</p>
-                                            <p className="text-xs text-muted-foreground">Local Search Presence</p>
+                                            <p className="font-bold">{t("scorecard.visibility.title")}</p>
+                                            <p className="text-xs text-muted-foreground">{t("scorecard.visibility.subtitle")}</p>
                                         </div>
                                     </div>
                                     <span className="text-xl font-black text-amber-500">62/100</span>
@@ -79,8 +81,8 @@ export default function AuditPage() {
                                             <Star className="w-6 h-6 text-amber-500" />
                                         </div>
                                         <div>
-                                            <p className="font-bold">Reputation</p>
-                                            <p className="text-xs text-muted-foreground">Review Velocity & Depth</p>
+                                            <p className="font-bold">{t("scorecard.reputation.title")}</p>
+                                            <p className="text-xs text-muted-foreground">{t("scorecard.reputation.subtitle")}</p>
                                         </div>
                                     </div>
                                     <span className="text-xl font-black text-red-500">45/100</span>
@@ -92,8 +94,8 @@ export default function AuditPage() {
                                             <MessageSquare className="w-6 h-6 text-emerald-500" />
                                         </div>
                                         <div>
-                                            <p className="font-bold">Follow-Up</p>
-                                            <p className="text-xs text-muted-foreground">Lead Capture Speed</p>
+                                            <p className="font-bold">{t("scorecard.followUp.title")}</p>
+                                            <p className="text-xs text-muted-foreground">{t("scorecard.followUp.subtitle")}</p>
                                         </div>
                                     </div>
                                     <span className="text-xl font-black text-red-600">31/100</span>
@@ -101,7 +103,7 @@ export default function AuditPage() {
                             </div>
 
                             <div className="pt-6 border-t text-center">
-                                <p className="text-sm font-semibold text-primary">Comprehensive Report Generated Instantly</p>
+                                <p className="text-sm font-semibold text-primary">{t("scorecard.footer")}</p>
                             </div>
                         </div>
                     </motion.div>
@@ -111,21 +113,17 @@ export default function AuditPage() {
             {/* Deliverable Section */}
             <div className="container mx-auto px-4 md:px-6 py-16 md:py-24 border-t">
                 <div className="text-center max-w-2xl mx-auto mb-16">
-                    <h2 className="text-3xl font-bold mb-4">What you get</h2>
-                    <p className="text-muted-foreground italic">No fluff. Just actionable insights for your business.</p>
+                    <h2 className="text-3xl font-bold mb-4">{t("deliverables.title")}</h2>
+                    <p className="text-muted-foreground italic">{t("deliverables.subtitle")}</p>
                 </div>
                 <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-20">
-                    {[
-                        { title: "Visibility Audit", desc: "How you appear on Google Maps vs your competitors." },
-                        { title: "Reputation Score", desc: "Analysis of your reviews and where you're losing trust." },
-                        { title: "Lead Action Plan", desc: "3 simple steps to fix your lead capture in 48 hours." }
-                    ].map((item, i) => (
+                    {deliverableItems.map((item: any, i: number) => (
                         <div key={i} className="space-y-4 p-6 border rounded-2xl bg-muted/30">
                             <div className="w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold">
                                 {i + 1}
                             </div>
                             <h3 className="text-xl font-bold">{item.title}</h3>
-                            <p className="text-muted-foreground">{item.desc}</p>
+                            <p className="text-muted-foreground">{item.description}</p>
                         </div>
                     ))}
                 </div>
@@ -138,13 +136,13 @@ export default function AuditPage() {
                     className="max-w-4xl mx-auto space-y-8 text-center"
                 >
                     <div className="space-y-2">
-                        <h3 className="text-2xl font-bold italic text-primary">Sample Report: Your Business at a Glance</h3>
-                        <p className="text-muted-foreground">Every audit includes a detailed visual breakdown like the one below.</p>
+                        <h3 className="text-2xl font-bold italic text-primary">{t("sample.title")}</h3>
+                        <p className="text-muted-foreground">{t("sample.description")}</p>
                     </div>
                     <div className="relative rounded-3xl overflow-hidden border shadow-2xl bg-white p-2">
                         <NextImage 
                             src="/audit-sample.png" 
-                            alt="Sample AI Visibility & Reviews Audit Report" 
+                            alt={t("sample.title")} 
                             width={1200}
                             height={1600}
                             className="w-full h-auto rounded-2xl"
@@ -156,17 +154,20 @@ export default function AuditPage() {
             {/* Audit Form Section */}
             <div id="audit-form" className="container mx-auto px-4 md:px-6 py-24 scroll-mt-20">
                 <div className="text-center max-w-2xl mx-auto mb-16">
-                    <h2 className="text-4xl font-bold mb-4 italic">Start Your Growth Audit</h2>
-                    <p className="text-muted-foreground">Complete the 3-step application below. We only offer 5 free audits per week to ensure maximum quality for Kuwaiti businesses.</p>
+                    <h2 className="text-4xl font-bold mb-4 italic">{t("form.title")}</h2>
+                    <p className="text-muted-foreground">{t("form.description")}</p>
                 </div>
                 <LeadConnectorProspecting />
-                {/* <DiscoveryForm /> */}
             </div>
 
             {/* Bottom Support */}
             <div className="bg-muted/30 py-12 border-t">
                 <div className="container mx-auto px-4 md:px-6 text-center">
-                    <p className="text-sm text-muted-foreground">Prefer a direct call? <Link href="/contact" className="text-primary font-bold hover:underline">Book a strategy session instead.</Link></p>
+                    <p className="text-sm text-muted-foreground">
+                        {t.rich("support.text", {
+                            link: (chunks) => <Link href="/contact" className="text-primary font-bold hover:underline">{chunks}</Link>
+                        })}
+                    </p>
                 </div>
             </div>
         </div>
