@@ -1,10 +1,13 @@
-import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import HowItWorksClient from "./HowItWorksClient";
 
-export const metadata: Metadata = {
-    title: "How It Works | Mirage Tech AI",
-    description: "Our 4-step process to transform your business with AI automation: Consultation, Strategy, Implementation, and Launch.",
-};
+export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+    const t = await getTranslations({ locale, namespace: "HowItWorksPage.metadata" });
+    return {
+        title: t("title"),
+        description: t("description"),
+    };
+}
 
 export default function HowItWorksPage() {
     return <HowItWorksClient />;

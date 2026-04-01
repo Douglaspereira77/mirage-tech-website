@@ -1,10 +1,13 @@
-import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import BlogClient from "./BlogClient";
 
-export const metadata: Metadata = {
-    title: "Blog & Insights | Mirage Tech AI",
-    description: "Read the latest trends and insights in AI automation, customer service, and business growth.",
-};
+export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+    const t = await getTranslations({ locale, namespace: "Blog.metadata" });
+    return {
+        title: t("title"),
+        description: t("description"),
+    };
+}
 
 export default function BlogPage() {
     return <BlogClient />;

@@ -594,5 +594,98 @@
     "referral": {
       "text": "Already reviewed? <link>Message us for a direct referral reward</link>"
     }
+  },
+  "Blog": {
+    "metadata": {
+      "title": "Resources & Insights | Mirage Tech AI",
+      "description": "Latest trends in AI automation and business growth strategies."
+    },
+    "title": "Resources & Insights",
+    "description": "Latest trends in AI automation and business growth strategies.",
+    "readMore": "Read More →",
+    "posts": {
+      "future-of-customer-service": {
+        "title": "The Future of Customer Service involved Chatbots",
+        "excerpt": "Why 85% of customer interactions will be automated by 2025.",
+        "category": "Trends",
+        "date": "Dec 10, 2025"
+      },
+      "automate-whatsapp-business": {
+        "title": "How to Automate WhatsApp for Your Business",
+        "excerpt": "A step-by-step guide to setting up WhatsApp Business API.",
+        "category": "Guides",
+        "date": "Dec 05, 2025"
+      },
+      "case-study-retail-growth": {
+        "title": "Case Study: Kuwait Retailer Increases Sales by 40%",
+        "excerpt": "See how Al-Futtaim utilized Instagram automation to drive engagement.",
+        "category": "Case Studies",
+        "date": "Nov 28, 2025"
+      }
+    }
+  },
+  "HowItWorksPage": {
+    "metadata": {
+      "title": "How We Automate Your Business | Mirage Tech AI",
+      "description": "Our simple 4-step process to transform your business with AI."
+    },
+    "title": "How It Works",
+    "description": "A simple, transparent process to get your business automated.",
+    "steps": {
+      "step1": {
+        "number": "01",
+        "title": "Consultation",
+        "description": "We start with a free discovery call to understand your business goals, pain points, and existing workflows."
+      },
+      "step2": {
+        "number": "02",
+        "title": "Strategy",
+        "description": "We design a custom automation roadmap tailored to your specific needs, selecting the right platforms and features."
+      },
+      "step3": {
+        "number": "03",
+        "title": "Implementation",
+        "description": "Our team builds, tests, and integrates the chatbots with your systems (CRM, Calendar, etc.) ensuring a smooth setup."
+      },
+      "step4": {
+        "number": "04",
+        "title": "Launch & Optimize",
+        "description": "We go live! But we don't stop there. We monitor performance and continuously optimize for better results."
+      }
+    },
+    "cta": {
+      "title": "Ready to see it in action?",
+      "button": "Start Your Journey Today"
+    }
+  },
+  "Partnership": {
+    "metadata": {
+      "title": "BestOfKuwait x Mirage Tech AI Partnership",
+      "description": "Powering Kuwait's premium business listings with advanced lead capture."
+    },
+    "tag": "Strategic Partnership",
+    "title": "BestOfKuwait",
+    "separator": "x",
+    "titleSuffix": "Mirage Tech AI",
+    "description": "Powering Kuwait's premium business listings with the region's most advanced lead capture and visibility systems.",
+    "whyTitle": "Why we partnered",
+    "whyDescription": "High-quality listings deserve high-quality conversion. We select featured businesses on BestOfKuwait and upgrade them with AI systems that turn traffic into customers.",
+    "benefits": [
+      "Increased visibility on Google and AI search",
+      "Automated 24/7 bilingual lead capture",
+      "Verified review generation engine",
+      "Seamless WhatsApp appointment booking"
+    ],
+    "diagram": {
+      "google": "Google / AI Search",
+      "page": "BestOfKuwait Page",
+      "systems": "Mirage AI Systems",
+      "sub": "Engines • Voice • Automations"
+    },
+    "cta": {
+      "title": "Are you a BestOfKuwait listing?",
+      "description": "Check if your business qualifies for a Mirage Tech AI upgrade to double your conversion rate from your directory listing.",
+      "button": "Book a Synergy Audit"
+    }
   }
 }
