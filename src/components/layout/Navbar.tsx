@@ -49,11 +49,10 @@ export function Navbar() {
             <div className="container mx-auto flex h-16 items-center px-4 md:px-6 relative">
                 {/* Logo - Start */}
                 <div className="flex-1 flex justify-start items-center overflow-hidden">
-                    <Link href="/" className="flex items-center gap-2 font-bold text-lg sm:text-xl text-primary whitespace-nowrap shrink-0">
-                        <div className="relative h-7 w-7 sm:h-8 sm:w-8">
-                            <Image src="/logo.png" alt={`${t("brandName")} Logo`} fill className="object-contain" />
+                    <Link href="/" className="flex items-center shrink-0">
+                        <div className="relative h-14 w-[300px] sm:h-16 sm:w-[360px]">
+                            <Image src="/logo-text-horizontal.png" alt="Mirage Tech AI" fill className="object-contain" />
                         </div>
-                        <span> {t("brandName")}</span>
                     </Link>
                 </div>
 
@@ -116,11 +115,10 @@ export function Navbar() {
                             </SheetTrigger>
                             <SheetContent side="right">
                                 <SheetHeader>
-                                    <SheetTitle className="flex items-center justify-center gap-2">
-                                        <div className="relative h-6 w-6">
-                                            <Image src="/logo.png" alt={`${t("brandName")} Logo`} fill className="object-contain" />
+                                    <SheetTitle className="flex items-center justify-center">
+                                        <div className="relative h-12 w-[220px]">
+                                            <Image src="/logo-text-horizontal.png" alt="Mirage Tech AI" fill className="object-contain" />
                                         </div>
-                                        {t("brandName")}
                                     </SheetTitle>
                                 </SheetHeader>
                                 <div className="flex flex-col items-center gap-4 mt-8">

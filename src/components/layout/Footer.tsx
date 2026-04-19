@@ -12,11 +12,10 @@ export function Footer() {
                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
                     {/* Company Info */}
                     <div className="space-y-4">
-                        <Link href="/" className="flex items-center gap-2 font-bold text-xl text-primary">
-                            <div className="relative h-8 w-8">
-                                <Image src="/logo.png" alt={`${t("brandName")} Logo`} fill className="object-contain" />
+                        <Link href="/" className="flex items-center">
+                            <div className="relative h-20 w-[360px]">
+                                <Image src="/logo-text-horizontal.png" alt="Mirage Tech AI" fill className="object-contain" />
                             </div>
-                            <span>{t("brandName")}</span>
                         </Link>
                         <p className="text-sm text-muted-foreground">
                             {t("description")}
